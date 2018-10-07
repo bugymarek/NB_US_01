@@ -16,20 +16,13 @@ class Cadaster implements Comparable<Cadaster>{
     private String name;
     private SplayTree<Realty> realtiesSplayTree;
     private SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree;
-
-    public Cadaster(int id, String name, SplayTree<Realty> realtiesSplayTree, SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree) {
-        this.id = id;
-        this.name = name;
-        this.realtiesSplayTree = realtiesSplayTree;
-        this.letterOfOwnershipSplayTree = letterOfOwnershipSplayTree;
-    }
     
 
     public Cadaster(int id, String name) {
         this.id = id;
         this.name = name;
-        this.realtiesSplayTree = null;
-        this.letterOfOwnershipSplayTree = null;
+        this.realtiesSplayTree = new SplayTree<Realty>();
+        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnership>();
     }
 
     public int getId() {
@@ -74,6 +67,12 @@ class Cadaster implements Comparable<Cadaster>{
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Cadaster{" + "id=" + id + ", name=" + name + ", realtiesSplayTree=" + realtiesSplayTree + ", letterOfOwnershipSplayTree=" + letterOfOwnershipSplayTree + '}';
+    }
+    
     
     
 }

@@ -20,13 +20,13 @@ class LetterOfOwnership implements Comparable<LetterOfOwnership> {
     public LetterOfOwnership(int id) {
         this.id = id;
         this.cadaster = null;
-        this.realitiesSplayTree = null;
+        this.realitiesSplayTree = new SplayTree<Realty>();
     }
 
-    public LetterOfOwnership(int id, Cadaster cadaster, SplayTree<Realty> realitiesSplayTree) {
+    public LetterOfOwnership(int id, Cadaster cadaster) {
         this.id = id;
         this.cadaster = cadaster;
-        this.realitiesSplayTree = realitiesSplayTree;
+        this.realitiesSplayTree = new SplayTree<Realty>();
     }
 
     public int getId() {

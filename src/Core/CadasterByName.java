@@ -24,4 +24,12 @@ public class CadasterByName implements Comparable<CadasterByName>{
     public int compareTo(CadasterByName cadasterByName) {
         return cadasterByName.getCadaster().getName().compareTo(this.cadaster.getName());
     }
+    
+    @Override
+    public String toString() {
+        return "Cadaster{" + "id=" + cadaster.getId() + 
+                ", name=" + cadaster.getName() + 
+                ", realtiesSplayTree=" + cadaster.getRealtiesSplayTree() + 
+                ", letterOfOwnershipSplayTree=" + cadaster.getLetterOfOwnershipSplayTree() + '}';
+    }
 }
