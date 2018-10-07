@@ -44,7 +44,7 @@ public class SplayTree<T extends Comparable<T>> {
                 break;
             }
             // vkladany prvok je "mensi"
-            if (current.getData().compareTo(insertNode.getData()) == -1) {
+            if (current.getData().compareTo(insertNode.getData()) <= -1) {
                 // ak nema laveho syna tak mu ho nastav na vkladany prvok
                 if (current.getLeftSon() == null) {
                     current.setLeftSon(insertNode);
@@ -79,7 +79,7 @@ public class SplayTree<T extends Comparable<T>> {
         if (root == null) return null;
 
         while (current.getData().compareTo(data) != 0) {
-            if (current.getData().compareTo(data) == -1) {
+            if (current.getData().compareTo(data) <= -1) {
                 if (current.getLeftSon() != null) {
                     current = current.getLeftSon();
                 } else {

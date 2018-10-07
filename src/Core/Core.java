@@ -5,10 +5,33 @@
  */
 package Core;
 
+import Splay.SplayTree;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Bugy
  */
 public class Core {
-    // commit check
+    private SplayTree<Cadaster> cadasterSplayTree;
+    private SplayTree<Person> perSplayTree;
+    
+    
+    public static String formatDate(Date date) {
+        if (date != null) {
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SSS");
+            return df.format(date);
+        }
+        return "";
+    }
+
+    public String formatDateWithoutTime(Date date) {
+        if (date != null) {
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            return df.format(date);
+        }
+        return "";
+    }
 }

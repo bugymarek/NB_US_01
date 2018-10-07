@@ -9,7 +9,8 @@ public class Main {
 
         Test<Person> test = new Test<>(splayTree);
         //test.checkDelete();
-        test.checkInsert();
+        //test.checkInsert();
         //test.checkInsertbasic();
+        System.out.println("a".compareTo("c"));
     }
 }
