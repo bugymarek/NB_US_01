@@ -112,12 +112,26 @@ public class Core {
         Person person = new Person(RC, firstName, lastName, birthDate);
         if (!peronsSplayTree.insert(person)) {
             return false;
-        } 
-        ArrayList<Person> arrP = peronsSplayTree.inorder();
-        for (Person person1 : arrP) {
+        }
+
+        return true;
+    }
+
+    public boolean addLatterOfOwnership(int idCadaster, int idLetter) {
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
+        if (cadaster == null) {
+            return false;
+        }
+
+        LetterOfOwnership letterOfOwnership = new LetterOfOwnership(idLetter, cadaster);
+        if (!cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership)) {
+            return false;
+        }
+        ArrayList<LetterOfOwnership> arrP = cadaster.getLetterOfOwnershipSplayTree().inorder();
+        for (LetterOfOwnership person1 : arrP) {
             System.out.println(person1.toString());
         }
-        
+
         return true;
     }
 }

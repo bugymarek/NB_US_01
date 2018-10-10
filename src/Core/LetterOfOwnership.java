@@ -63,6 +63,11 @@ class LetterOfOwnership implements Comparable<LetterOfOwnership> {
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return "LetterOfOwnership{" + "id=" + id + ", cadaster=" + cadaster + ", realitiesSplayTree=" + realitiesSplayTree + '}';
+    }
     
     
     
