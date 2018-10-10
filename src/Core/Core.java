@@ -49,20 +49,42 @@ public class Core {
         return true;
     }
 
-    public String selectAllCadastersByName() {
-        String result = cadasterByNameSplayTree.inorder();
-        if (result == null || result.isEmpty()) {
+    public JsonArray selectAllCadastersByName() {
+        ArrayList<CadasterByName> arr = cadasterByNameSplayTree.inorder();
+        if (arr.isEmpty()) {
             return null;
         }
-        return result;
+
+        JsonArray jsonArray = new JsonArray();
+        for (CadasterByName cadasterByName : arr) {
+            JsonObject jobj = new JsonObject();
+            jobj.addProperty("id", cadasterByName.getCadaster().getId());
+            jobj.addProperty("name", cadasterByName.getCadaster().getName());
+            jobj.addProperty("realtiesCount", cadasterByName.getCadaster().getRealtiesSplayTree().getCount());
+            jobj.addProperty("letterOfOwnershipCount", cadasterByName.getCadaster().getLetterOfOwnershipSplayTree().getCount());
+            jsonArray.add(jobj);
+        }
+
+        return jsonArray;
     }
 
-    public String selectAllCadastersById() {
-        String result = cadasterSplayTree.inorder();
-        if (result == null || result.isEmpty()) {
+    public JsonArray selectAllCadastersById() {
+        ArrayList<Cadaster> arr = cadasterSplayTree.inorder();
+        if (arr.isEmpty()) {
             return null;
         }
-        return result;
+
+        JsonArray jsonArray = new JsonArray();
+        for (Cadaster cadaster : arr) {
+            JsonObject jobj = new JsonObject();
+            jobj.addProperty("id", cadaster.getId());
+            jobj.addProperty("name", cadaster.getName());
+            jobj.addProperty("realtiesCount", cadaster.getRealtiesSplayTree().getCount());
+            jobj.addProperty("letterOfOwnershipCount", cadaster.getLetterOfOwnershipSplayTree().getCount());
+            jsonArray.add(jobj);
+        }
+
+        return jsonArray;
     }
 
     public static String formatDate(Date date) {
@@ -82,24 +104,9 @@ public class Core {
     }
 
     private void generate() {
-        for (int i = 0; i < 30000; i++) {
+        for (int i = 0; i < 3000; i++) {
             addCadaster(i, "jano" + i);
         }
 
-    }
-
-    private String createHeader(String[] headerArr) {
-        String result = "<tr>";
-        for (String s : headerArr) {
-            result += "<th>";
-            result += s;
-            result += "</th>";
-        }
-        result += "</tr>";
-        return result;
-    }
-
-    private String createTableHtml(String headerHtml, String rowsHtml) {
-        return "<table style=\"width:100%\">" + headerHtml + rowsHtml + "</table>";
     }
 }

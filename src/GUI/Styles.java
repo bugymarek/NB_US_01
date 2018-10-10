@@ -21,7 +21,7 @@ public class Styles {
             + "\n"
             + "td, th {\n"
             + "    border: 1px solid #ddd;\n"
-            + "    padding: 8px;\n"
+            + "    padding: 5px;\n"
             + "}\n"
             + "\n"
             + " tr:nth-child(even){background-color: #f2f2f2;}\n"

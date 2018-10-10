@@ -77,6 +77,7 @@ public class Main extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPaneConsole = new javax.swing.JTextPane();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -157,7 +158,7 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(522, Short.MAX_VALUE))
+                .addContainerGap(532, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Pridať", jPanel3);
@@ -170,7 +171,7 @@ public class Main extends javax.swing.JDialog {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         jTabbedPane8.addTab("Odstrániť", jPanel4);
@@ -183,7 +184,7 @@ public class Main extends javax.swing.JDialog {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         jTabbedPane8.addTab("Zmeniť", jPanel5);
@@ -220,7 +221,7 @@ public class Main extends javax.swing.JDialog {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(590, Short.MAX_VALUE))
+                .addContainerGap(600, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zobraziť", jPanel6);
@@ -233,7 +234,7 @@ public class Main extends javax.swing.JDialog {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         jTabbedPane8.addTab("Import/Export", jPanel7);
@@ -246,7 +247,7 @@ public class Main extends javax.swing.JDialog {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         jTabbedPane8.addTab("Generátor", jPanel8);
@@ -269,18 +270,29 @@ public class Main extends javax.swing.JDialog {
 
         jScrollPane2.setViewportView(jTextPaneConsole);
 
+        jButton2.setText("Vyčisti konzolu");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
                 .addContainerGap())
         );
 
@@ -301,7 +313,9 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -345,24 +359,17 @@ public class Main extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String result = core.selectAllCadastersByName();
-        if (result == null) {
-            addToConsole("V systéme niesu žiadne katastre", State.NON);
-        } else {
-            addToConsole(result, State.NON);
-            //addHtmlComponent("<br>");
-        }
+       selectAllCadaster(core.selectAllCadastersByName());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         String result = core.selectAllCadastersById();
-        if (result == null) {
-            addToConsole("V systéme niesu žiadne katastre", State.NON);
-        } else {
-            addToConsole(result, State.NON);
-            //addHtmlComponent("<br>");
-        }
+        selectAllCadaster(core.selectAllCadastersById());
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTextPaneConsole.setText("");
+        configTextPane();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -455,6 +462,31 @@ public class Main extends javax.swing.JDialog {
 //        addHtmlComponent(rowHtml);
 
     }
+    
+    private void selectAllCadaster(JsonArray result){
+        if (result == null) {
+            addToConsole("V systéme niesu žiadne katastre", State.NON);
+        } else {
+            String rowsHtml = "";
+            for (JsonElement jsonElement : result) {
+                JsonObject cadaster = (JsonObject) jsonElement;
+                ArrayList<String> dataArr = new ArrayList<>();
+                dataArr.add(cadaster.get("id").getAsString());
+                dataArr.add(cadaster.get("name").getAsString());
+                dataArr.add(cadaster.get("realtiesCount").getAsString());
+                dataArr.add(cadaster.get("letterOfOwnershipCount").getAsString());
+
+                rowsHtml += "\n";
+                rowsHtml += managerHTML.createTableRow(dataArr);
+            }
+
+            String[] headerArr = {"Id", "Názov", "počet nehnuteľnosťí", "počet listov vlastníctva"};
+            String headerHtml = managerHTML.createTableHeader(headerArr);
+            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+            addHtmlComponent(tableHtml);
+            addHtmlComponent("<br>");
+        }
+    }
 
     private void addHtmlComponent(String component) {
         HTMLEditorKit kit = (HTMLEditorKit) jTextPaneConsole.getEditorKit();
@@ -481,6 +513,7 @@ public class Main extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
