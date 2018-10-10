@@ -18,6 +18,13 @@ public class Person implements Comparable<Person> {
         this.pernamentResidence = null;
     }
 
+    public Person(String RC, String firstName, String lastName, Date birthDate) {
+        this.RC = RC;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+    }
+    
     public Person(String RC, String firstName, String lastName, Date birthDate, Realty pernamentResidence) {
         this.RC = RC;
         this.firstName = firstName;

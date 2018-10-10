@@ -35,8 +35,6 @@ public class Core {
 
     public boolean addCadaster(int id, String name) {
         Cadaster cadaster = new Cadaster(id, name);
-        cadaster.getRealtiesSplayTree().insert(new Realty(1));
-        cadaster.getRealtiesSplayTree().insert(new Realty(2));
 
         if (!cadasterSplayTree.insert(cadaster)) {
             return false;
@@ -108,5 +106,18 @@ public class Core {
             addCadaster(i, "jano" + i);
         }
 
+    }
+
+    public boolean addPerson(String firstName, String lastName, String RC, Date birthDate) {
+        Person person = new Person(RC, firstName, lastName, birthDate);
+        if (!peronsSplayTree.insert(person)) {
+            return false;
+        } 
+        ArrayList<Person> arrP = peronsSplayTree.inorder();
+        for (Person person1 : arrP) {
+            System.out.println(person1.toString());
+        }
+        
+        return true;
     }
 }
