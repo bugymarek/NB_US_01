@@ -248,21 +248,22 @@ public class SplayTree<T extends Comparable<T>> {
         return count;
     }
 
-    public ArrayList<T> inorder(){
-        ArrayList<T> listArr = new ArrayList<>();
+    public String inorder(){
+        String result = "";
         Node<T> current = root;
         Stack<Node<T>> stack = new Stack<>();
 
         while (current != null || !stack.isEmpty()){
             if(current == null){
                 current = stack.pop();
-                listArr.add(current.getData());
+                result += "\n";
+                result += current.getData().toString();
                 current = current.getRightSon();
             }else {
                 stack.push(current);
                 current = current.getLeftSon();
             }
         }
-        return listArr;
+        return result;
     }
 }

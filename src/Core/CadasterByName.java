@@ -9,7 +9,8 @@ package Core;
  *
  * @author Bugy
  */
-public class CadasterByName implements Comparable<CadasterByName>{
+public class CadasterByName implements Comparable<CadasterByName> {
+
     private Cadaster cadaster;
 
     public CadasterByName(Cadaster cadaster) {
@@ -24,12 +25,16 @@ public class CadasterByName implements Comparable<CadasterByName>{
     public int compareTo(CadasterByName cadasterByName) {
         return cadasterByName.getCadaster().getName().compareTo(this.cadaster.getName());
     }
-    
+
     @Override
     public String toString() {
-        return "Cadaster{" + "id=" + cadaster.getId() + 
-                ", name=" + cadaster.getName() + 
-                ", realtiesSplayTree=" + cadaster.getRealtiesSplayTree() + 
-                ", letterOfOwnershipSplayTree=" + cadaster.getLetterOfOwnershipSplayTree() + '}';
+        return String.format("id: %s\n"
+                + "názov: %s\n"
+                + "počet nehnuteľnosťí: %s\n"
+                + "počet listov vlastníctva: %s\n",
+                cadaster.getId(),
+                cadaster.getName(),
+                cadaster.getRealtiesSplayTree().getCount(),
+                cadaster.getRealtiesSplayTree().getCount());
     }
 }

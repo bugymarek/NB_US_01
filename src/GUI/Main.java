@@ -5,13 +5,29 @@
  */
 package GUI;
 
+import Core.Cadaster;
 import Core.Core;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.awt.Color;
+import java.awt.Font;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 
 /**
  *
@@ -20,6 +36,7 @@ import javax.swing.text.StyledDocument;
 public class Main extends javax.swing.JDialog {
 
     private Core core;
+    private ManagerHTML managerHTML;
 
     /**
      * Creates new form Main
@@ -27,7 +44,9 @@ public class Main extends javax.swing.JDialog {
     public Main(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configTextPane();
         core = new Core();
+        managerHTML = new ManagerHTML();
     }
 
     /**
@@ -52,6 +71,7 @@ public class Main extends javax.swing.JDialog {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -175,6 +195,13 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
+        jButton4.setText("Zobraz katastre podľa  id");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -182,13 +209,17 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton3)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
                 .addContainerGap(590, Short.MAX_VALUE))
         );
 
@@ -307,9 +338,9 @@ public class Main extends javax.swing.JDialog {
         }
         boolean addedResult = core.addCadaster(getInt(id), name);
         if (addedResult) {
-            addToConsole("Úspešne vloženie katastra.                   ***** " + " Id: " + id + " názov: " + name + " *****", State.SUC);
+            addToConsole("Úspešne vloženie katastra.        ***** " + " Id: " + id + "; názov: " + name + " *****", State.SUC);
         } else {
-            addToConsole("Neúspešne vloženie katastra.              ***** " + " Id: " + id + " názov: " + name + " *****", State.ERR);
+            addToConsole("Neúspešne vloženie katastra.      ***** " + " Id: " + id + "; názov: " + name + " *****", State.ERR);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -319,8 +350,19 @@ public class Main extends javax.swing.JDialog {
             addToConsole("V systéme niesu žiadne katastre", State.NON);
         } else {
             addToConsole(result, State.NON);
+            //addHtmlComponent("<br>");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         String result = core.selectAllCadastersById();
+        if (result == null) {
+            addToConsole("V systéme niesu žiadne katastre", State.NON);
+        } else {
+            addToConsole(result, State.NON);
+            //addHtmlComponent("<br>");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,32 +429,60 @@ public class Main extends javax.swing.JDialog {
     private void addToConsole(String value, State state) {
         switch (state) {
             case ERR:
-                addColoredText(value, Color.RED);
+                addColoredTextRow(value, Color.RED);
                 break;
             case SUC:
-                addColoredText(value, Color.GREEN);
+                addColoredTextRow(value, Color.GREEN);
                 break;
             case NON:
-                addColoredText(value, Color.BLACK);
+                addColoredTextRow(value, Color.BLACK);
                 break;
         }
     }
 
-    private void addColoredText(String text, Color color) {
+    private void addColoredTextRow(String text, Color color) {
         StyledDocument doc = jTextPaneConsole.getStyledDocument();
 
         Style style = jTextPaneConsole.addStyle("Color Style", null);
         StyleConstants.setForeground(style, color);
+
         try {
-            doc.insertString(doc.getLength(), text + "\n", style);
+            doc.insertString(doc.getLength(),  text + "\n", style);
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+//        String rowHtml = "<pre style=\"color:" + color + "\">" + text + "</pre>";
+//        addHtmlComponent(rowHtml);
+
+    }
+
+    private void addHtmlComponent(String component) {
+        HTMLEditorKit kit = (HTMLEditorKit) jTextPaneConsole.getEditorKit();
+        HTMLDocument doc = (HTMLDocument) jTextPaneConsole.getDocument();
+        try {
+            kit.insertHTML(doc, doc.getLength(), component, 0, 0, null);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void configTextPane() {
+        jTextPaneConsole.setContentType("text/html");
+        Font f = new Font(Font.SANS_SERIF, 3, 13);
+        jTextPaneConsole.setFont(f);
+        HTMLEditorKit kit = new HTMLEditorKit();
+        HTMLDocument doc = new HTMLDocument();
+        jTextPaneConsole.setEditorKit(kit);
+        jTextPaneConsole.setDocument(doc);
+        jTextPaneConsole.setText("<html><head><style>" + Styles.CSS + "</style></head>");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

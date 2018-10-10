@@ -11,12 +11,12 @@ import Splay.SplayTree;
  *
  * @author Bugy
  */
-class Cadaster implements Comparable<Cadaster>{
+public class Cadaster implements Comparable<Cadaster> {
+
     private int id;
     private String name;
     private SplayTree<Realty> realtiesSplayTree;
     private SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree;
-    
 
     public Cadaster(int id, String name) {
         this.id = id;
@@ -56,6 +56,8 @@ class Cadaster implements Comparable<Cadaster>{
     public void setLetterOfOwnershipSplayTree(SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree) {
         this.letterOfOwnershipSplayTree = letterOfOwnershipSplayTree;
     }
+    
+    
 
     @Override
     public int compareTo(Cadaster cadaster) {
@@ -67,12 +69,16 @@ class Cadaster implements Comparable<Cadaster>{
             return 0;
         }
     }
+    
+    
 
     @Override
     public String toString() {
-        return "Cadaster{" + "id=" + id + ", name=" + name + ", realtiesSplayTree=" + realtiesSplayTree + ", letterOfOwnershipSplayTree=" + letterOfOwnershipSplayTree + '}';
+        return String.format("id= %30s, názov= %30s, počet nehnuteľnosťí= %30s, počet listov vlastníctva= %30s",
+                id,
+                name,
+                realtiesSplayTree.getCount(),
+                letterOfOwnershipSplayTree.getCount());
     }
-    
-    
-    
+
 }
