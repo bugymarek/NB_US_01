@@ -16,19 +16,19 @@ public class Cadaster implements Comparable<Cadaster> {
     private int id;
     private String name;
     private SplayTree<Realty> realtiesSplayTree;
-    private SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree;
+    private SplayTree<LetterOfOwnershipById> letterOfOwnershipSplayTree;
 
     public Cadaster(int id) {
         this.id = id;
         this.realtiesSplayTree = new SplayTree<Realty>();
-        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnership>();
+        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnershipById>();
     }
     
     public Cadaster(int id, String name) {
         this.id = id;
         this.name = name;
         this.realtiesSplayTree = new SplayTree<Realty>();
-        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnership>();
+        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnershipById>();
     }
 
     public int getId() {
@@ -43,7 +43,7 @@ public class Cadaster implements Comparable<Cadaster> {
         return realtiesSplayTree;
     }
 
-    public SplayTree<LetterOfOwnership> getLetterOfOwnershipSplayTree() {
+    public SplayTree<LetterOfOwnershipById> getLetterOfOwnershipSplayTree() {
         return letterOfOwnershipSplayTree;
     }
 
@@ -59,7 +59,7 @@ public class Cadaster implements Comparable<Cadaster> {
         this.realtiesSplayTree = realtiesSplayTree;
     }
 
-    public void setLetterOfOwnershipSplayTree(SplayTree<LetterOfOwnership> letterOfOwnershipSplayTree) {
+    public void setLetterOfOwnershipSplayTree(SplayTree<LetterOfOwnershipById> letterOfOwnershipSplayTree) {
         this.letterOfOwnershipSplayTree = letterOfOwnershipSplayTree;
     }
     

@@ -123,15 +123,34 @@ public class Core {
             return false;
         }
 
-        LetterOfOwnership letterOfOwnership = new LetterOfOwnership(idLetter, cadaster);
+        LetterOfOwnershipById letterOfOwnership = new LetterOfOwnershipById(idLetter, cadaster);
         if (!cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership)) {
             return false;
         }
-        ArrayList<LetterOfOwnership> arrP = cadaster.getLetterOfOwnershipSplayTree().inorder();
-        for (LetterOfOwnership person1 : arrP) {
-            System.out.println(person1.toString());
+        
+        return true;
+    }
+    
+    public int addRealty(int idCadaster, int idLetter, int idRealty, String address, String desc) {
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
+        if (cadaster == null) {
+            return -4;
+        }
+        
+        LetterOfOwnershipById  letterOfOwnershipById =  cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
+        if (letterOfOwnershipById == null) {
+            return -3;
         }
 
-        return true;
+        Realty realty = new Realty(idRealty, address, desc, letterOfOwnershipById);
+        if (!letterOfOwnershipById.getRealitiesSplayTree().insert(realty)) {
+            return -2;
+        }
+        
+        if (!cadaster.getRealtiesSplayTree().insert(realty)) {
+            return -1;
+        }
+        
+        return 0;
     }
 }

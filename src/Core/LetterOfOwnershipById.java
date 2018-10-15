@@ -11,22 +11,24 @@ import Splay.SplayTree;
  *
  * @author Bugy
  */
-class LetterOfOwnership implements Comparable<LetterOfOwnership> {
+class LetterOfOwnershipById implements Comparable<LetterOfOwnershipById> {
     private int id;
     private Cadaster cadaster;
     private SplayTree<Realty> realitiesSplayTree;
-    // majetkove podiely
+    private SplayTree<Ownership> ownershipSplayTree;
 
-    public LetterOfOwnership(int id) {
+    public LetterOfOwnershipById(int id) {
         this.id = id;
         this.cadaster = null;
         this.realitiesSplayTree = new SplayTree<Realty>();
+        this.ownershipSplayTree = new SplayTree<Ownership>();
     }
 
-    public LetterOfOwnership(int id, Cadaster cadaster) {
+    public LetterOfOwnershipById(int id, Cadaster cadaster) {
         this.id = id;
         this.cadaster = cadaster;
         this.realitiesSplayTree = new SplayTree<Realty>();
+        this.ownershipSplayTree = new SplayTree<Ownership>();
     }
 
     public int getId() {
@@ -53,8 +55,16 @@ class LetterOfOwnership implements Comparable<LetterOfOwnership> {
         this.realitiesSplayTree = realitiesSplayTree;
     }
 
+    public SplayTree<Ownership> getOwnershipSplayTree() {
+        return ownershipSplayTree;
+    }
+
+    public void setOwnershipSplayTree(SplayTree<Ownership> ownershipSplayTree) {
+        this.ownershipSplayTree = ownershipSplayTree;
+    }
+
     @Override
-    public int compareTo(LetterOfOwnership leafOfOwnership) {
+    public int compareTo(LetterOfOwnershipById leafOfOwnership) {
         if (this.id < leafOfOwnership.getId()) {
             return 1;
         } else if (this.id > leafOfOwnership.getId()) {
