@@ -127,17 +127,17 @@ public class Core {
         if (!cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership)) {
             return false;
         }
-        
+
         return true;
     }
-    
+
     public int addRealty(int idCadaster, int idLetter, int idRealty, String address, String desc) {
         Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
         if (cadaster == null) {
             return -4;
         }
-        
-        LetterOfOwnershipById  letterOfOwnershipById =  cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
+
+        LetterOfOwnershipById letterOfOwnershipById = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
         if (letterOfOwnershipById == null) {
             return -3;
         }
@@ -146,11 +146,33 @@ public class Core {
         if (!letterOfOwnershipById.getRealitiesSplayTree().insert(realty)) {
             return -2;
         }
-        
+
         if (!cadaster.getRealtiesSplayTree().insert(realty)) {
             return -1;
         }
-        
+
+        return 0;
+    }
+
+    public int addOrChangePernamentResidence(String cadasterName, String rc, int aInt) {
+        Person person = peronsSplayTree.find(new Person(rc));
+        if (person == null) {
+            return -3;
+        }
+        CadasterByName cadaster = cadasterByNameSplayTree.find(new CadasterByName(new Cadaster(cadasterName)));
+        if (cadaster == null) {
+            return -2;
+        }
+
+        Realty realty = cadaster.getCadaster().getRealtiesSplayTree().find(new Realty(aInt));
+        if (realty == null) {
+            return -1;
+        }
+        if (person.getPernamentResidence() != null) {
+            person.getPernamentResidence().getPermanentResidencePersonsSplayTree().delete(person);
+        }
+        person.setPernamentResidence(realty);
+        realty.getPermanentResidencePersonsSplayTree().insert(person);
         return 0;
     }
 }

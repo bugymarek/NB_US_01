@@ -15,14 +15,14 @@ class Realty implements Comparable<Realty>{
     private int id;
     private String address;
     private String description;
-    private LetterOfOwnershipById leafOfOwnership;
+    private LetterOfOwnershipById letterOfOwnership;
     private SplayTree<Person> permanentResidencePersonsSplayTree;
 
     public Realty(int id, String address, String description, LetterOfOwnershipById leafOfOwnership) {
         this.id = id;
         this.address = address;
         this.description = description;
-        this.leafOfOwnership = leafOfOwnership;
+        this.letterOfOwnership = leafOfOwnership;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
     }
 
@@ -30,7 +30,7 @@ class Realty implements Comparable<Realty>{
         this.id = id;
         this.address = null;
         this.description = null;
-        this.leafOfOwnership = null;
+        this.letterOfOwnership = null;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
     }
 
@@ -46,8 +46,8 @@ class Realty implements Comparable<Realty>{
         return description;
     }
 
-    public LetterOfOwnershipById getLeafOfOwnership() {
-        return leafOfOwnership;
+    public LetterOfOwnershipById getLetterOfOwnership() {
+        return letterOfOwnership;
     }
 
     public SplayTree<Person> getPermanentResidencePersonsSplayTree() {
@@ -66,8 +66,8 @@ class Realty implements Comparable<Realty>{
         this.description = description;
     }
 
-    public void setLeafOfOwnership(LetterOfOwnershipById leafOfOwnership) {
-        this.leafOfOwnership = leafOfOwnership;
+    public void setLetterOfOwnership(LetterOfOwnershipById leafOfOwnership) {
+        this.letterOfOwnership = leafOfOwnership;
     }
 
     public void setPermanentResidencePersonsSplayTree(SplayTree<Person> permanentResidencePersonsSplayTree) {

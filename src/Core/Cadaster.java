@@ -24,6 +24,12 @@ public class Cadaster implements Comparable<Cadaster> {
         this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnershipById>();
     }
     
+    public Cadaster(String name) {
+        this.name = name;
+        this.realtiesSplayTree = new SplayTree<Realty>();
+        this.letterOfOwnershipSplayTree = new SplayTree<LetterOfOwnershipById>();
+    }
+    
     public Cadaster(int id, String name) {
         this.id = id;
         this.name = name;
