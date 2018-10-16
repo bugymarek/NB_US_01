@@ -84,6 +84,31 @@ public class Core {
 
         return jsonArray;
     }
+    
+    public JsonObject selectAllRealitiesInCadaster(String cadasterName) {
+        JsonObject jobj = new JsonObject();
+        CadasterByName cadaster = cadasterByNameSplayTree.find(new CadasterByName(new Cadaster(cadasterName)));
+        if(cadaster == null){
+            jobj.addProperty("err", "Kataster sa nenašiel");
+            return jobj;
+        }
+        ArrayList<Realty> arr = cadaster.getCadaster().getRealtiesSplayTree().inorder();
+        if (arr.isEmpty()) {
+            jobj.addProperty("err", "V katastry sa nenachádzajú žiadne nehnuteľnosti");
+            return jobj;
+        }        
+        
+        JsonArray jsonArray = new JsonArray();
+        for (Realty realty : arr) {
+            JsonObject jo = new JsonObject();
+            jo.addProperty("id", realty.getId());
+            jo.addProperty("address", realty.getAddress());
+            jo.addProperty("desc", realty.getDescription());
+            jsonArray.add(jo);
+        }
+        jobj.add("realties", jsonArray);
+        return jobj;
+    }
 
     public static String formatDate(Date date) {
         if (date != null) {

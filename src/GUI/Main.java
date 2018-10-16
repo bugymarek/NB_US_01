@@ -109,6 +109,10 @@ public class Main extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldSelectRealtiesNameCadaster = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -592,15 +596,58 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností v zadanom katastrálnom území "));
+
+        jLabel17.setText("Názov katastra * ");
+
+        jTextFieldSelectRealtiesNameCadaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectRealtiesNameCadasterActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Vypíš");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -610,7 +657,9 @@ public class Main extends javax.swing.JDialog {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(587, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(526, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zobraziť", jPanel6);
@@ -1002,6 +1051,50 @@ public class Main extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jTextFieldSelectRealtiesNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String cadasterName = jTextFieldSelectRealtiesNameCadaster.getText();
+
+        if (isEmptyTextField(cadasterName)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject result = core.selectAllRealitiesInCadaster(cadasterName);
+        if (result.get("err") != null) {
+            String message = result.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+                    + " názov katastra: " + cadasterName + "\n"
+                    + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String rowsHtml = "";
+        for (JsonElement jsonElement : result.get("realties").getAsJsonArray()) {
+            JsonObject realty = (JsonObject) jsonElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(realty.get("id").getAsString());
+            dataArr.add(realty.get("address").getAsString());
+            dataArr.add(realty.get("desc").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1151,6 +1244,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1159,6 +1253,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1172,6 +1267,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1197,6 +1293,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRealtyDescription;
     private javax.swing.JTextField jTextFieldRealtyId;
     private javax.swing.JTextField jTextFieldRealtyLetterId;
+    private javax.swing.JTextField jTextFieldSelectRealtiesNameCadaster;
     private javax.swing.JTextPane jTextPaneConsole;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerBirthDate;
     // End of variables declaration//GEN-END:variables
