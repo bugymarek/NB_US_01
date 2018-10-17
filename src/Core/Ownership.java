@@ -11,9 +11,9 @@ package Core;
  */
 public class Ownership implements Comparable<Ownership>{
     private Person owner;
-    private int share;
+    private double share;
 
-    public Ownership(Person owner, int share) {
+    public Ownership(Person owner, double share) {
         this.owner = owner;
         this.share = share;
     }
@@ -22,7 +22,7 @@ public class Ownership implements Comparable<Ownership>{
         return owner;
     }
 
-    public int getShare() {
+    public double getShare() {
         return share;
     }
 
@@ -30,7 +30,7 @@ public class Ownership implements Comparable<Ownership>{
         this.owner = owner;
     }
 
-    public void setShare(int share) {
+    public void setShare(double share) {
         this.share = share;
     }
 

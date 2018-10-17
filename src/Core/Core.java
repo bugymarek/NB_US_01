@@ -84,11 +84,11 @@ public class Core {
 
         return jsonArray;
     }
-    
+
     public JsonObject selectAllRealitiesInCadaster(String cadasterName) {
         JsonObject jobj = new JsonObject();
         CadasterByName cadaster = cadasterByNameSplayTree.find(new CadasterByName(new Cadaster(cadasterName)));
-        if(cadaster == null){
+        if (cadaster == null) {
             jobj.addProperty("err", "Kataster sa nenašiel");
             return jobj;
         }
@@ -96,8 +96,8 @@ public class Core {
         if (arr.isEmpty()) {
             jobj.addProperty("err", "V katastry sa nenachádzajú žiadne nehnuteľnosti");
             return jobj;
-        }        
-        
+        }
+
         JsonArray jsonArray = new JsonArray();
         for (Realty realty : arr) {
             JsonObject jo = new JsonObject();
@@ -128,8 +128,13 @@ public class Core {
 
     private void generate() {
         for (int i = 0; i < 3000; i++) {
-            addCadaster(i, "jano" + i);
+            addCadaster(i, "kataster" + i);
+            addPerson("Marek" + i, "Bugaj" + i, "" + i, new Date());
         }
+        for (int i = 0; i < 3000; i++) {
+            addLatterOfOwnership(i, i);
+        }
+        addRealty(1, 1, 12, "Vesele", "nizny koniec");
 
     }
 
@@ -198,6 +203,66 @@ public class Core {
         }
         person.setPernamentResidence(realty);
         realty.getPermanentResidencePersonsSplayTree().insert(person);
+        return 0;
+    }
+
+    public int addOrChangeOwnershipShare(int idCadaster, int idLetter, String rc, double share) {
+        System.out.println("******************************");
+        Person person = peronsSplayTree.find(new Person(rc));
+        if (person == null) {
+            return -3;
+        }
+
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
+        if (cadaster == null) {
+            return -2;
+        }
+
+        LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
+        if (letter == null) {
+            return -1;
+        }
+
+        if (letter.getRealitiesSplayTree().isEmpty()) {
+            return -4;
+        }
+
+        if (letter.getOwnershipSplayTree().isEmpty()) {
+            letter.getOwnershipSplayTree().insert(new Ownership(person, 100)); // ak tam nik nieje potom musi mat podiel 100 %
+            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pidanie majetku
+            for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+                System.out.println(o.getShare());
+            }
+            return 0;
+        }
+
+        Ownership findedOwnership = letter.getOwnershipSplayTree().find(new Ownership(person, share));
+        if (findedOwnership != null) {
+            if (letter.getOwnershipSplayTree().getCount() > 1) {
+                double difference = share - findedOwnership.getShare();
+                if (difference != 0) {
+                    for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+                        if (!o.getOwner().getRC().equals(rc)) {
+                            o.setShare(o.getShare() - (difference / (letter.getOwnershipSplayTree().getCount() - 1)));
+                        }
+                    }
+                }
+                findedOwnership.setShare(share);
+            }
+        } else {
+            letter.getOwnershipSplayTree().insert(new Ownership(person, share));
+            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));// pidanie majetku
+            // kazdemu rovnako zmenim podiel rovnym dielom => vkladany podiel / (pocet vlastnikov - 1)
+            for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+                if (!o.getOwner().getRC().equals(rc)) {
+                    o.setShare(o.getShare() - (share / (letter.getOwnershipSplayTree().getCount() - 1)));
+                }
+            }
+        }
+        for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+            System.out.println(o.getShare());
+        }
+
         return 0;
     }
 }

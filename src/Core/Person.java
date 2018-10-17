@@ -1,5 +1,6 @@
 package Core;
 
+import Splay.SplayTree;
 import java.util.Date;
 
 public class Person implements Comparable<Person> {
@@ -8,6 +9,7 @@ public class Person implements Comparable<Person> {
     private String lastName;
     private Date birthDate;
     private Realty pernamentResidence;
+    private SplayTree<LetterOfOwnershipByIdAndCadaster> letterOfOwnershipByIdAndCadasterSplayTree;
     
 
     public Person(String RC) {
@@ -16,6 +18,7 @@ public class Person implements Comparable<Person> {
         this.lastName = null;
         this.birthDate = null;
         this.pernamentResidence = null;
+        this.letterOfOwnershipByIdAndCadasterSplayTree = new SplayTree<LetterOfOwnershipByIdAndCadaster>();
     }
 
     public Person(String RC, String firstName, String lastName, Date birthDate) {
@@ -23,6 +26,7 @@ public class Person implements Comparable<Person> {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
+        this.letterOfOwnershipByIdAndCadasterSplayTree = new SplayTree<LetterOfOwnershipByIdAndCadaster>();
     }
     
     public Person(String RC, String firstName, String lastName, Date birthDate, Realty pernamentResidence) {
@@ -31,6 +35,7 @@ public class Person implements Comparable<Person> {
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.pernamentResidence = pernamentResidence;
+        this.letterOfOwnershipByIdAndCadasterSplayTree = new SplayTree<LetterOfOwnershipByIdAndCadaster>();
     }
 
     public void setRC(String RC) {
@@ -84,6 +89,10 @@ public class Person implements Comparable<Person> {
 
     public void setPernamentResidence(Realty pernamentResidence) {
         this.pernamentResidence = pernamentResidence;
+    }
+
+    public SplayTree<LetterOfOwnershipByIdAndCadaster> getLetterOfOwnershipByIdAndCadasterSplayTree() {
+        return letterOfOwnershipByIdAndCadasterSplayTree;
     }
 
     @Override

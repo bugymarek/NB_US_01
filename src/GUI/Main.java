@@ -99,13 +99,23 @@ public class Main extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        jTextFieldPrimaryResidenceRC = new javax.swing.JTextField();
+        jTextFieldOwnershipRC = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextFieldPrimaryResidencCadasterName = new javax.swing.JTextField();
+        jTextFieldOwnershipCadasterID = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextFieldPrimaryResidenceRealtyID = new javax.swing.JTextField();
+        jTextFieldOwnershipLetterID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jTextFieldOwnershipPercents = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jTextFieldPrimaryResidenceRC = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextFieldPrimaryResidencCadasterName = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextFieldPrimaryResidenceRealtyID = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -488,31 +498,31 @@ public class Main extends javax.swing.JDialog {
 
         jTabbedPane8.addTab("Odstrániť", jPanel4);
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Zápis nového trvalého pobytu"));
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Zapísanie/Zmena majetkového podielu majiteľa"));
 
-        jTextFieldPrimaryResidenceRC.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldOwnershipRC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrimaryResidenceRCActionPerformed(evt);
+                jTextFieldOwnershipRCActionPerformed(evt);
             }
         });
 
         jLabel14.setText("Rodné číslo *");
 
-        jTextFieldPrimaryResidencCadasterName.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldOwnershipCadasterID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrimaryResidencCadasterNameActionPerformed(evt);
+                jTextFieldOwnershipCadasterIDActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Názov katastrálneho územia *");
+        jLabel15.setText("Číslo katastra *");
 
-        jTextFieldPrimaryResidenceRealtyID.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldOwnershipLetterID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrimaryResidenceRealtyIDActionPerformed(evt);
+                jTextFieldOwnershipLetterIDActionPerformed(evt);
             }
         });
 
-        jLabel16.setText("Súpisné číslo *");
+        jLabel16.setText("List vlastníctva*");
 
         jButton8.setText("Pridaj");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -521,6 +531,14 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
+        jTextFieldOwnershipPercents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldOwnershipPercentsActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("Počet percent podielu*");
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -528,20 +546,31 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                    .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrimaryResidenceRC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrimaryResidencCadasterName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldOwnershipRC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrimaryResidenceRealtyID, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jTextFieldOwnershipLetterID, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldOwnershipCadasterID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldOwnershipPercents, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,18 +578,95 @@ public class Main extends javax.swing.JDialog {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(jTextFieldPrimaryResidenceRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldOwnershipRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldOwnershipLetterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldOwnershipCadasterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldOwnershipPercents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8))
+        );
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Zápis nového trvalého pobytu"));
+
+        jTextFieldPrimaryResidenceRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrimaryResidenceRCActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Rodné číslo *");
+
+        jTextFieldPrimaryResidencCadasterName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrimaryResidencCadasterNameActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Názov katastrálneho územia *");
+
+        jTextFieldPrimaryResidenceRealtyID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrimaryResidenceRealtyIDActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Súpisné číslo *");
+
+        jButton10.setText("Pridaj");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrimaryResidenceRC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrimaryResidencCadasterName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrimaryResidenceRealtyID, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(jTextFieldPrimaryResidenceRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldPrimaryResidenceRealtyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
+                .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPrimaryResidencCadasterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8)))
+                    .addComponent(jButton10)))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -569,15 +675,19 @@ public class Main extends javax.swing.JDialog {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zmeniť", jPanel5);
@@ -988,22 +1098,22 @@ public class Main extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextFieldPrimaryResidenceRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRCActionPerformed
+    private void jTextFieldOwnershipRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipRCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidenceRCActionPerformed
+    }//GEN-LAST:event_jTextFieldOwnershipRCActionPerformed
 
-    private void jTextFieldPrimaryResidencCadasterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+    private void jTextFieldOwnershipCadasterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipCadasterIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+    }//GEN-LAST:event_jTextFieldOwnershipCadasterIDActionPerformed
 
-    private void jTextFieldPrimaryResidenceRealtyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+    private void jTextFieldOwnershipLetterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipLetterIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+    }//GEN-LAST:event_jTextFieldOwnershipLetterIDActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String cadasterName = jTextFieldPrimaryResidencCadasterName.getText();
-        String idRealty = jTextFieldPrimaryResidenceRealtyID.getText();
-        String rc = jTextFieldPrimaryResidenceRC.getText();
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        String cadasterName = jTextFieldOwnershipCadasterID.getText();
+        String idRealty = jTextFieldOwnershipLetterID.getText();
+        String rc = jTextFieldOwnershipRC.getText();
 
         if (isEmptyTextField(cadasterName)
                 || isEmptyTextField(idRealty)
@@ -1049,7 +1159,7 @@ public class Main extends javax.swing.JDialog {
         } else {
             addToConsole(message, State.ERR);
         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextFieldSelectRealtiesNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
         // TODO add your handling code here:
@@ -1094,6 +1204,89 @@ public class Main extends javax.swing.JDialog {
         addHtmlComponent(tableHtml);
         addHtmlComponent("<br>");
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextFieldPrimaryResidenceRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidenceRCActionPerformed
+
+    private void jTextFieldPrimaryResidencCadasterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+
+    private void jTextFieldPrimaryResidenceRealtyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String idCadaster = jTextFieldOwnershipCadasterID.getText();
+        String idLetter = jTextFieldOwnershipLetterID.getText();
+        String rc = jTextFieldOwnershipRC.getText();
+        String share = jTextFieldOwnershipPercents.getText();
+
+        if (isEmptyTextField(idCadaster)
+                || isEmptyTextField(idLetter)
+                || isEmptyTextField(rc)
+                || isEmptyTextField(share)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String result = tryParseToInteger(idCadaster);
+        String result2 = tryParseToInteger(idLetter);
+        String result3 = tryParseToInteger(share);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (getInt(share) <= 0) {
+            JOptionPane.showMessageDialog(this,
+                    "Zadajte kladnú hodnotu podielu",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
+        String message = new String();
+        switch (response) {
+            case 0:
+                message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
+                break;
+            case -1:
+                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List sa nenašiel.\n";
+                break;
+            case -2:
+                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Kataster sa nenašiel.\n";
+                break;
+            case -3:
+                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Osoba sa nenašla.\n";
+                break;
+            case -4:
+                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List vlastníctva neobsahuje nehnuteľnosti.\n";
+                break;
+        }
+        message += "******************************************************\n"
+                + " číslo katastra: " + idCadaster + "\n"
+                + " číslo listu vlastníctva: " + idLetter + "\n"
+                + " rodné číslo: " + rc + "\n"
+                + " podiel: " + share + " %\n"
+                + "******************************************************";
+        if (response == 0) {
+            addToConsole(message, State.SUC);
+        } else {
+            addToConsole(message, State.ERR);
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextFieldOwnershipPercentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipPercentsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOwnershipPercentsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1237,6 +1430,7 @@ public class Main extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1254,7 +1448,11 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1268,6 +1466,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1284,6 +1483,10 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldLetterOfOwnershipIdCadaster;
     private javax.swing.JTextField jTextFieldNameCadaster;
+    private javax.swing.JTextField jTextFieldOwnershipCadasterID;
+    private javax.swing.JTextField jTextFieldOwnershipLetterID;
+    private javax.swing.JTextField jTextFieldOwnershipPercents;
+    private javax.swing.JTextField jTextFieldOwnershipRC;
     private javax.swing.JTextField jTextFieldPrimaryResidencCadasterName;
     private javax.swing.JTextField jTextFieldPrimaryResidenceRC;
     private javax.swing.JTextField jTextFieldPrimaryResidenceRealtyID;
