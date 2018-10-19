@@ -5,15 +5,12 @@
 // */
 //package Generators;
 //
-//import Tree.TwoOrThreeTree;
+//import Core.Cadaster;
+//import Core.CadasterByName;
+//import Core.Person;
+//import Splay.SplayTree;
 //import java.util.Date;
 //import java.util.Random;
-//import Core.Hospital;
-//import Core.Hospitalization;
-//import Core.InsuranceCompany;
-//import Core.Patient;
-//import Core.PatientFullName;
-//import Core.PatientInsuranceCode;
 //import java.util.ArrayList;
 //import java.util.concurrent.ThreadLocalRandom;
 //
@@ -23,9 +20,9 @@
 // */
 //public class Generator {
 //
-//    private TwoOrThreeTree<Patient> patientsTree;
-//    private TwoOrThreeTree<Hospital> hospitalsTree;
-//    private TwoOrThreeTree<InsuranceCompany> insuranceCompaniesTree;
+//    private SplayTree<Cadaster> cadasterSplayTree;
+//    private SplayTree<CadasterByName> cadasterByNameSplayTree;
+//    private SplayTree<Person> peronsSplayTree;
 //    private Random randomGenerator;
 //    private String[] names;
 //    private String[] lastNames;

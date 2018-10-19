@@ -5,16 +5,16 @@
  */
 package Core;
 
+import Generators.RcGenerator;
 import Splay.SplayTree;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Random;
 
 /**
  *
@@ -30,7 +30,6 @@ public class Core {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
-        generate();
     }
 
     public boolean addCadaster(int id, String name) {
@@ -126,24 +125,13 @@ public class Core {
         return "";
     }
 
-    private void generate() {
-        for (int i = 0; i < 3000; i++) {
-            addCadaster(i, "kataster" + i);
-            addPerson("Marek" + i, "Bugaj" + i, "" + i, new Date());
-        }
-        for (int i = 0; i < 3000; i++) {
-            addLatterOfOwnership(i, i);
-        }
-        addRealty(1, 1, 12, "Vesele", "nizny koniec");
-
-    }
-
     public boolean addPerson(String firstName, String lastName, String RC, Date birthDate) {
         Person person = new Person(RC, firstName, lastName, birthDate);
         if (!peronsSplayTree.insert(person)) {
+            System.out.println(peronsSplayTree.getCount() + " false: " + person.toString());
             return false;
         }
-
+        System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
         return true;
     }
 
@@ -265,4 +253,95 @@ public class Core {
 
         return 0;
     }
+
+    public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCount, int personsCount) {
+        cadasterSplayTree = new SplayTree<Cadaster>();
+        cadasterByNameSplayTree = new SplayTree<CadasterByName>();
+        peronsSplayTree = new SplayTree<Person>();
+        Random randomGenerator = new Random();
+        final String[] firstNames = {"Kr", "Ca", "Ra", "Mrok", "Cru",
+            "Ray", "Bre", "Zed", "Drak", "Mor", "Jag", "Mer", "Jar", "Mjol",
+            "Zork", "Mad", "Cry", "Zur", "Creo", "Azak", "Azur", "Rei", "Cro",
+            "Mar", "Luk"};
+        final String[] lastNames = {"Bugaj", "Gofa", "Melek", "Jonas", "Artur",
+            "Demos", "Pralok", "Gabalova", "Mrtek", "Vonsak", "Egres", "Stankovianska", "Albinikova", "Anat",
+            "Chrobak", "Niekto", "Nikdova", "Lahka", "Velky", "Nizky", "Stary", "Mlady", "Velka",
+            "Mar", "Luk"};
+        final long year = (long) 365 * 1000 * 24 * 60 * 60;
+        final long day = (long) 1000 * 24 * 60 * 60;
+
+        for (int i = 0; i < cadastersCount; i++) {
+
+            addCadaster(getRandomId(7,9), getRandomString(randomGenerator.nextInt(10)+5, false));
+        }
+        System.out.println("pocet katastrov: " + cadasterSplayTree.getCount());
+
+        for (int i = 0; i < personsCount; i++) {
+            String RC = RcGenerator.generateRc();
+            addPerson(firstNames[randomGenerator.nextInt(firstNames.length)],
+                    lastNames[randomGenerator.nextInt(lastNames.length)],
+                    RC, getDateFromRange(1900, 2010));
+            
+        }
+        for (Cadaster cadaster : cadasterSplayTree.inorder()) {
+            for (int i = 0; i < letterOfOwnershipOnCadasterCount; i++) {
+                LetterOfOwnershipById letterOfOwnership = new LetterOfOwnershipById(getRandomId(3, 6), cadaster);
+                cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership);
+            }
+        }
+
+//        addRealty(
+//                1, 1, 12, "Vesele", "nizny koniec");
+    }
+
+    private String getRandomString(int length, boolean numbers) {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if(numbers){
+            SALTCHARS += "1234567890";
+        }      
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < length) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
+
+    private Date getRandomDate(int multiple) {
+        Random randomGenerator = new Random();
+        int offset = randomGenerator.nextInt(99999 * multiple);
+        return new Date(System.currentTimeMillis() - offset);
+    }
+
+    private int getRandomId(int fromNumeralCount, int toNumeralCount) {
+        Random randomGenerator = new Random();
+        int lenth = randomGenerator.nextInt(toNumeralCount-fromNumeralCount) + fromNumeralCount;
+        String strNumper = new String();
+        for (int j = 0; j < lenth; j++) {
+            if(j==0){
+                strNumper += randomGenerator.nextInt(8) +1;
+            }else {
+                strNumper += randomGenerator.nextInt(9);
+            }
+        }
+        return Integer.parseInt(strNumper);
+    }
+    
+    //zdroj https://stackoverflow.com/questions/3985392/generate-random-date-of-birth
+    private Date getDateFromRange(int start, int end){
+        GregorianCalendar gc = new GregorianCalendar();
+
+        int year = (start + (int)Math.round(Math.random() * (end - start)));
+
+        gc.set(gc.YEAR, year);
+
+        int dayOfYear =  (1 + (int)Math.round(Math.random() * (gc.getActualMaximum(gc.DAY_OF_YEAR) - 1)));
+
+        gc.set(gc.DAY_OF_YEAR, dayOfYear);
+
+        return gc.getTime();
+    }    
 }
