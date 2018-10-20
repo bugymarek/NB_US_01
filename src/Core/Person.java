@@ -64,7 +64,13 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person person) {
-        return person.getRC().compareTo(this.RC);
+        if (this.RC.compareTo(person.getRC()) < 0) {
+            return 1;
+        } else if (this.RC.compareTo(person.getRC()) > 0) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     public String getFirstName() {

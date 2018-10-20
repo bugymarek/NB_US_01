@@ -23,7 +23,13 @@ public class CadasterByName implements Comparable<CadasterByName> {
 
     @Override
     public int compareTo(CadasterByName cadasterByName) {
-        return cadasterByName.getCadaster().getName().compareTo(this.cadaster.getName());
+        if (this.cadaster.getName().compareTo(cadasterByName.getCadaster().getName()) < 0) {
+            return 1;
+        } else if (this.cadaster.getName().compareTo(cadasterByName.getCadaster().getName()) > 0) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     @Override

@@ -36,6 +36,12 @@ public class Ownership implements Comparable<Ownership>{
 
     @Override
     public int compareTo(Ownership ownership) {
-        return  ownership.getOwner().getRC().compareTo(this.owner.getRC());
+        if (this.owner.getRC().compareTo(ownership.getOwner().getRC()) < 0) {
+            return 1;
+        } else if (this.owner.getRC().compareTo(ownership.getOwner().getRC()) > 0) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

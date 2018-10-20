@@ -195,7 +195,6 @@ public class Core {
     }
 
     public int addOrChangeOwnershipShare(int idCadaster, int idLetter, String rc, double share) {
-        System.out.println("******************************");
         Person person = peronsSplayTree.find(new Person(rc));
         if (person == null) {
             return -3;
@@ -218,9 +217,6 @@ public class Core {
         if (letter.getOwnershipSplayTree().isEmpty()) {
             letter.getOwnershipSplayTree().insert(new Ownership(person, 100)); // ak tam nik nieje potom musi mat podiel 100 %
             person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pidanie majetku
-            for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
-                System.out.println(o.getShare());
-            }
             return 0;
         }
 
@@ -247,14 +243,11 @@ public class Core {
                 }
             }
         }
-        for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
-            System.out.println(o.getShare());
-        }
 
         return 0;
     }
 
-    public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCountFrom, int realtiesCountTo, int personsCount,int personsCountFrom, int personsCountTo ) {
+    public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCountFrom, int realtiesCountTo, int personsCount, int personsCountFrom, int personsCountTo, int ownershipCountFrom, int ownershipCountTo) {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
@@ -272,43 +265,68 @@ public class Core {
 
         for (int i = 0; i < cadastersCount; i++) {
 
-            addCadaster(getRandomId(7,9), getRandomString(randomGenerator.nextInt(10)+5, false));
+            addCadaster(getRandomId(7, 9), getRandomString(randomGenerator.nextInt(10) + 5, false));
         }
         System.out.println("pocet katastrov: " + cadasterSplayTree.getCount());
 
         for (int i = 0; i < personsCount; i++) {
             String RC = RcGenerator.generateRc();
-            addPerson(firstNames[randomGenerator.nextInt(firstNames.length)],
-                    lastNames[randomGenerator.nextInt(lastNames.length)],
-                    RC, getDateFromRange(1900, 2010));
-            
+            peronsSplayTree.insert(new Person(RC));
         }
+        System.out.println("pocet osob: " + peronsSplayTree.getCount());
+
         ArrayList<Person> arrPersons = peronsSplayTree.inorder();
-        for (Cadaster cadaster : cadasterSplayTree.inorder()) {
+        ArrayList<Person> arrOwners = new ArrayList<>(arrPersons);
+        ArrayList<Cadaster> arrCadasters = cadasterSplayTree.inorder();
+        LetterOfOwnershipById letterOfOwnership;
+        int countRealty;
+        int idRealty;
+        Realty realty;
+        int countResidens;
+        int countOwners;
+        int index;
+        for (int c = 0; c < arrCadasters.size(); c++) {
             for (int i = 0; i < letterOfOwnershipOnCadasterCount; i++) {
-                LetterOfOwnershipById letterOfOwnership = new LetterOfOwnershipById(getRandomId(3, 6), cadaster);
-                cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership);
-            
-                int countRealty = randomGenerator.nextInt(realtiesCountTo-realtiesCountFrom) + realtiesCountFrom;
-                for (int j = 0; j < countRealty; j++) {
-                    int idRealty = getRandomId(5, 9);
-                    Realty realty = new  Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
-                    //pridat na nehnutelnost obyvatelov
-                    int countResidens = randomGenerator.nextInt(personsCountTo-personsCountFrom) + personsCountFrom;
-                   
-                    for (int k = 0; k < countResidens; k++) {
-                        System.out.println(arrPersons.size()); 
-                        if(arrPersons.isEmpty()) break;
-                        int index = randomGenerator.nextInt(arrPersons.size());
-                        Person person = arrPersons.get(index);
-                        person.setPernamentResidence(realty);
-                        realty.getPermanentResidencePersonsSplayTree().insert(person);
-                        arrPersons.remove(index);
-                    }
-                    cadaster.getRealtiesSplayTree().insert(realty);
-                    letterOfOwnership.getRealitiesSplayTree().insert(realty);
-                }
+                letterOfOwnership = new LetterOfOwnershipById(getRandomId(4, 6), arrCadasters.get(c));
+                arrCadasters.get(c).getLetterOfOwnershipSplayTree().insert(letterOfOwnership);
+                countRealty = randomGenerator.nextInt(realtiesCountTo - realtiesCountFrom) + realtiesCountFrom;
+//                for (int j = 0; j < countRealty; j++) {
+//                    idRealty = getRandomId(5, 9);
+//                    realty = new Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
+//
+////                    //pridat na nehnutelnost obyvatelov
+////                    countResidens = randomGenerator.nextInt(personsCountTo - personsCountFrom) + personsCountFrom;
+////                    for (int k = 0; k < countResidens; k++) {
+////                        if (arrPersons.isEmpty()) {
+////                            break;
+////                        }
+////                        index = randomGenerator.nextInt(arrPersons.size());
+////                        Person person = arrPersons.get(index);
+////                        person.setPernamentResidence(realty);
+////                        realty.getPermanentResidencePersonsSplayTree().insert(person);
+////                        arrPersons.remove(index);
+////                    }
+//
+//                    arrCadasters.get(c).getRealtiesSplayTree().insert(realty);
+//                    letterOfOwnership.getRealitiesSplayTree().insert(realty);
+//                }
+
+                // pridanie majetkovych podielov
+                
+ //               countOwners = randomGenerator.nextInt(ownershipCountTo - ownershipCountFrom) + ownershipCountFrom;
+//                for (int o = 0; o < countOwners; o++) {
+ //                   index = randomGenerator.nextInt(arrOwners.size());
+//                    Ownership ownership = new Ownership(arrOwners.get(index), 100.0 / (double) countOwners);
+//                    letterOfOwnership.getOwnershipSplayTree().insert(ownership);
+//                    arrOwners.get(index).getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letterOfOwnership)); // pidanie majetku
+                    //addOrChangeOwnershipShare(arrCadasters.get(c).getId(), letterOfOwnership.getId(), arrOwners.get(index).getRC(), 100.0 / (double) countOwners);
+//                }
+//                System.out.println("*************  " + letterOfOwnership.getId() + " ***************");
+//                for (Ownership o : letterOfOwnership.getOwnershipSplayTree().inorder()) {
+//                    System.out.println(o.getShare());
+//                }
             }
+          System.out.println("Cadaster " + c);
         }
 
 //        addRealty(
@@ -317,13 +335,14 @@ public class Core {
 
     private String getRandomString(int length, boolean numbers) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        if(numbers){
+        if (numbers) {
             SALTCHARS += "1234567890";
-        }      
+        }
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
+        int index;
         while (salt.length() < length) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }
         String saltStr = salt.toString();
@@ -339,30 +358,30 @@ public class Core {
 
     private int getRandomId(int fromNumeralCount, int toNumeralCount) {
         Random randomGenerator = new Random();
-        int lenth = randomGenerator.nextInt(toNumeralCount-fromNumeralCount) + fromNumeralCount;
+        int lenth = randomGenerator.nextInt(toNumeralCount - fromNumeralCount) + fromNumeralCount;
         String strNumper = new String();
         for (int j = 0; j < lenth; j++) {
-            if(j==0){
-                strNumper += randomGenerator.nextInt(8) +1;
-            }else {
+            if (j == 0) {
+                strNumper += randomGenerator.nextInt(8) + 1;
+            } else {
                 strNumper += randomGenerator.nextInt(9);
             }
         }
         return Integer.parseInt(strNumper);
     }
-    
+
     //zdroj https://stackoverflow.com/questions/3985392/generate-random-date-of-birth
-    private Date getDateFromRange(int start, int end){
+    private Date getDateFromRange(int start, int end) {
         GregorianCalendar gc = new GregorianCalendar();
 
-        int year = (start + (int)Math.round(Math.random() * (end - start)));
+        int year = (start + (int) Math.round(Math.random() * (end - start)));
 
         gc.set(gc.YEAR, year);
 
-        int dayOfYear =  (1 + (int)Math.round(Math.random() * (gc.getActualMaximum(gc.DAY_OF_YEAR) - 1)));
+        int dayOfYear = (1 + (int) Math.round(Math.random() * (gc.getActualMaximum(gc.DAY_OF_YEAR) - 1)));
 
         gc.set(gc.DAY_OF_YEAR, dayOfYear);
 
         return gc.getTime();
-    }    
+    }
 }

@@ -142,6 +142,11 @@ public class Main extends javax.swing.JDialog {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jTextFieldGeneratorPersonsCountOnRealtyTo = new javax.swing.JTextField();
+        jPanel17 = new javax.swing.JPanel();
+        jTextFieldGeneratorOwnershipCountOnLetterFrom = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jTextFieldGeneratorOwnershipCountOnLetterTo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPaneConsole = new javax.swing.JTextPane();
@@ -806,9 +811,15 @@ public class Main extends javax.swing.JDialog {
 
         jLabel22.setText("Počet katastrov *");
 
+        jTextFieldGeneratorCadastersCount.setText("1500");
+
         jLabel23.setText("Počet listov vlastnictva v jednom katastri *");
 
+        jTextFieldGeneratorLettersCountOnCadaster.setText("100");
+
         jLabel24.setText("Počet obyvateľov*");
+
+        jTextFieldGeneratorPersonsCount.setText("30000");
 
         jButton11.setText("Generuj");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -819,9 +830,13 @@ public class Main extends javax.swing.JDialog {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Počet nehnuteľnosti na liste vlastnictva"));
 
+        jTextFieldGeneratorRealtiesCountOnLetterFrom.setText("1");
+
         jLabel26.setText("Od *");
 
         jLabel27.setText("Do *");
+
+        jTextFieldGeneratorRealtiesCountOnLetterTo.setText("5");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -851,9 +866,13 @@ public class Main extends javax.swing.JDialog {
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Počet obyvateľov v nehnuteľnosti"));
 
+        jTextFieldGeneratorPersonsCountOnRealtyFrom.setText("1");
+
         jLabel30.setText("Od *");
 
         jLabel31.setText("Do *");
+
+        jTextFieldGeneratorPersonsCountOnRealtyTo.setText("4");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -881,6 +900,47 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Počet majetkových podielov na liste vlastnictva"));
+
+        jTextFieldGeneratorOwnershipCountOnLetterFrom.setText("1");
+
+        jLabel28.setText("Od *");
+
+        jLabel29.setText("Do *");
+
+        jTextFieldGeneratorOwnershipCountOnLetterTo.setText("5");
+        jTextFieldGeneratorOwnershipCountOnLetterTo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldGeneratorOwnershipCountOnLetterFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldGeneratorOwnershipCountOnLetterTo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29)
+                    .addComponent(jTextFieldGeneratorOwnershipCountOnLetterFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldGeneratorOwnershipCountOnLetterTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -903,9 +963,10 @@ public class Main extends javax.swing.JDialog {
                         .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -928,7 +989,9 @@ public class Main extends javax.swing.JDialog {
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jButton11)
                 .addContainerGap())
         );
@@ -1429,6 +1492,8 @@ public class Main extends javax.swing.JDialog {
         String realtiesCountTo = jTextFieldGeneratorRealtiesCountOnLetterTo.getText();
         String personsCountFrom = jTextFieldGeneratorPersonsCountOnRealtyFrom.getText();
         String personsCountTo = jTextFieldGeneratorPersonsCountOnRealtyTo.getText();
+        String ownershipCountFrom = jTextFieldGeneratorOwnershipCountOnLetterFrom.getText();
+        String ownershipCountTo = jTextFieldGeneratorOwnershipCountOnLetterTo.getText();
 
         if (isEmptyTextField(personsCount)
                 || isEmptyTextField(cdastersCount)
@@ -1436,7 +1501,9 @@ public class Main extends javax.swing.JDialog {
                 || isEmptyTextField(realtiesCountFrom)
                 || isEmptyTextField(realtiesCountTo)
                 || isEmptyTextField(personsCountFrom)
-                || isEmptyTextField(personsCountTo)) {
+                || isEmptyTextField(personsCountTo)
+                || isEmptyTextField(ownershipCountFrom)
+                || isEmptyTextField(ownershipCountTo)) {
             JOptionPane.showMessageDialog(this,
                     "Vyplnte všetky polička označene hviezdičkou(*)",
                     "Pozor",
@@ -1451,7 +1518,9 @@ public class Main extends javax.swing.JDialog {
             tryParseToInteger(realtiesCountFrom),
             tryParseToInteger(realtiesCountTo),
             tryParseToInteger(personsCountFrom),
-            tryParseToInteger(personsCountTo)
+            tryParseToInteger(personsCountTo),
+            tryParseToInteger(ownershipCountFrom),
+            tryParseToInteger(ownershipCountTo)
         };
         for (String result : results) {
             if (result != null) {
@@ -1471,9 +1540,15 @@ public class Main extends javax.swing.JDialog {
                 getInt(realtiesCountTo),
                 getInt(personsCount),
                 getInt(personsCountFrom),
-                getInt(personsCountTo)
-                );
+                getInt(personsCountTo),
+                getInt(ownershipCountFrom),
+                getInt(ownershipCountTo)
+        );
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1692,13 +1767,13 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldGeneratorCadastersCount;
     private javax.swing.JTextField jTextFieldGeneratorLettersCountOnCadaster;
+    private javax.swing.JTextField jTextFieldGeneratorOwnershipCountOnLetterFrom;
+    private javax.swing.JTextField jTextFieldGeneratorOwnershipCountOnLetterTo;
     private javax.swing.JTextField jTextFieldGeneratorPersonsCount;
     private javax.swing.JTextField jTextFieldGeneratorPersonsCountOnRealtyFrom;
     private javax.swing.JTextField jTextFieldGeneratorPersonsCountOnRealtyTo;
     private javax.swing.JTextField jTextFieldGeneratorRealtiesCountOnLetterFrom;
-    private javax.swing.JTextField jTextFieldGeneratorRealtiesCountOnLetterFrom1;
     private javax.swing.JTextField jTextFieldGeneratorRealtiesCountOnLetterTo;
-    private javax.swing.JTextField jTextFieldGeneratorRealtiesCountOnLetterTo1;
     private javax.swing.JTextField jTextFieldIdCadaster;
     private javax.swing.JTextField jTextFieldIdLetterOfOwnership;
     private javax.swing.JTextField jTextFieldLastName;

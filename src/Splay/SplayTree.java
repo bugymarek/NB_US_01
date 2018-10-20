@@ -73,6 +73,31 @@ public class SplayTree<T extends Comparable<T>> {
         splay(current);
         return result;
     }
+    
+    public boolean insert2(T data) {
+        
+        if (isEmpty()) {
+            root = new Node(data);
+            count++;
+            return true;
+        }
+        if (root.getData().compareTo(data) == 0) {
+            return false;
+        } else {
+            Node<T> insertNode = new Node(data);
+            insertNode.setLeftSon(root);
+            root.setParent(insertNode);
+            insertNode.setRightSon(root.getRightSon());
+            root.setRightSon(null);
+            if(insertNode.getRightSon() != null){
+                insertNode.getRightSon().setParent(insertNode);
+            }
+            root = insertNode;
+            insertNode = null;
+        }
+        count++;
+        return true;
+    }
 
     public T find(T data) {
         Node<T> current = root;
