@@ -128,10 +128,10 @@ public class Core {
     public boolean addPerson(String firstName, String lastName, String RC, Date birthDate) {
         Person person = new Person(RC, firstName, lastName, birthDate);
         if (!peronsSplayTree.insert(person)) {
-            System.out.println(peronsSplayTree.getCount() + " false: " + person.toString());
+            //System.out.println(peronsSplayTree.getCount() + " false: " + person.toString());
             return false;
         }
-        System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
+        //System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
         return true;
     }
 
@@ -254,7 +254,7 @@ public class Core {
         return 0;
     }
 
-    public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCount, int personsCount) {
+    public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCountFrom, int realtiesCountTo, int personsCount,int personsCountFrom, int personsCountTo ) {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
@@ -283,10 +283,31 @@ public class Core {
                     RC, getDateFromRange(1900, 2010));
             
         }
+        ArrayList<Person> arrPersons = peronsSplayTree.inorder();
         for (Cadaster cadaster : cadasterSplayTree.inorder()) {
             for (int i = 0; i < letterOfOwnershipOnCadasterCount; i++) {
                 LetterOfOwnershipById letterOfOwnership = new LetterOfOwnershipById(getRandomId(3, 6), cadaster);
                 cadaster.getLetterOfOwnershipSplayTree().insert(letterOfOwnership);
+            
+                int countRealty = randomGenerator.nextInt(realtiesCountTo-realtiesCountFrom) + realtiesCountFrom;
+                for (int j = 0; j < countRealty; j++) {
+                    int idRealty = getRandomId(5, 9);
+                    Realty realty = new  Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
+                    //pridat na nehnutelnost obyvatelov
+                    int countResidens = randomGenerator.nextInt(personsCountTo-personsCountFrom) + personsCountFrom;
+                   
+                    for (int k = 0; k < countResidens; k++) {
+                        System.out.println(arrPersons.size()); 
+                        if(arrPersons.isEmpty()) break;
+                        int index = randomGenerator.nextInt(arrPersons.size());
+                        Person person = arrPersons.get(index);
+                        person.setPernamentResidence(realty);
+                        realty.getPermanentResidencePersonsSplayTree().insert(person);
+                        arrPersons.remove(index);
+                    }
+                    cadaster.getRealtiesSplayTree().insert(realty);
+                    letterOfOwnership.getRealitiesSplayTree().insert(realty);
+                }
             }
         }
 
