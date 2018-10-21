@@ -21,6 +21,9 @@ import java.util.Random;
 public class RcGenerator {
 	
 	private static Random random = new Random(System.currentTimeMillis());
+        public static void setRandomSeed (int seed){
+            random.setSeed(seed);
+        }
 
 	/**
 	 * Type of RC number to generate.

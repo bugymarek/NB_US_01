@@ -17,6 +17,10 @@ public class Ownership implements Comparable<Ownership>{
         this.owner = owner;
         this.share = share;
     }
+    
+    public Ownership(Person owner) {
+        this.owner = owner;
+    }
 
     public Person getOwner() {
         return owner;

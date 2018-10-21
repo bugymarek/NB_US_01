@@ -8,6 +8,7 @@ package Core;
 import Generators.RcGenerator;
 import Splay.SplayTree;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -25,11 +26,14 @@ public class Core {
     private SplayTree<Cadaster> cadasterSplayTree;
     private SplayTree<CadasterByName> cadasterByNameSplayTree;
     private SplayTree<Person> peronsSplayTree;
+    private Random generatorSeeds;
 
     public Core() {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
+        generatorSeeds = new Random(500);
+        RcGenerator.setRandomSeed(generatorSeeds.nextInt());
     }
 
     public boolean addCadaster(int id, String name) {
@@ -106,6 +110,80 @@ public class Core {
             jsonArray.add(jo);
         }
         jobj.add("realties", jsonArray);
+        return jobj;
+    }
+
+    public JsonObject selectAllRealitiesOfOwnerByCadaster(String Rc, int cadasterId) {
+        JsonObject jobj = new JsonObject();
+        Person person = peronsSplayTree.find(new Person(Rc));
+        if (person == null) {
+            jobj.addProperty("err", "Osoba sa nenašla");
+            return jobj;
+        }
+
+        ArrayList<LetterOfOwnershipByIdAndCadaster> arr = person.getLetterOfOwnershipByIdAndCadasterSplayTree().inorder();
+        if (arr.isEmpty()) {
+            jobj.addProperty("err", "Osoba nevlastní žiadný majetok");
+            return jobj;
+        }
+        JsonArray jsonArray = new JsonArray();
+        for (LetterOfOwnershipByIdAndCadaster letter : arr) {
+            if (letter.getLetterOfOwnershipById().getCadaster().getId() == cadasterId) {
+                JsonObject jo = new JsonObject();
+                jo.addProperty("idLetter", letter.getLetterOfOwnershipById().getId());
+                jo.addProperty("realtiesCount", letter.getLetterOfOwnershipById().getRealitiesSplayTree().getCount());
+                JsonArray jsonRealtiesArray = new JsonArray();
+                for (Realty r : letter.getLetterOfOwnershipById().getRealitiesSplayTree().inorder()) {
+                    JsonObject joRealty = new JsonObject();
+                    joRealty.addProperty("id", r.getId());
+                    joRealty.addProperty("address", r.getAddress());
+                    joRealty.addProperty("desc", r.getDescription());
+                    jsonRealtiesArray.add(joRealty);
+                }
+                jo.add("realties", jsonRealtiesArray);
+                Ownership ownership = letter.getLetterOfOwnershipById().getOwnershipSplayTree().find(new Ownership(new Person(Rc)));
+                jo.addProperty("share", ownership != null ? "" + ownership.getShare() : "");
+                jsonArray.add(jo);
+            }
+
+        }
+        jobj.add("realtiesOfOwner", jsonArray);
+        return jobj;
+    }
+    
+    public JsonObject selectAllRealitiesOfOwner(String Rc) {
+        JsonObject jobj = new JsonObject();
+        Person person = peronsSplayTree.find(new Person(Rc));
+        if (person == null) {
+            jobj.addProperty("err", "Osoba sa nenašla");
+            return jobj;
+        }
+
+        ArrayList<LetterOfOwnershipByIdAndCadaster> arr = person.getLetterOfOwnershipByIdAndCadasterSplayTree().inorder();
+        if (arr.isEmpty()) {
+            jobj.addProperty("err", "Osoba nevlastní žiadný majetok");
+            return jobj;
+        }
+        JsonArray jsonArray = new JsonArray();
+        for (LetterOfOwnershipByIdAndCadaster letter : arr) {
+                JsonObject jo = new JsonObject();
+                jo.addProperty("idCadaster", letter.getLetterOfOwnershipById().getCadaster().getId());
+                jo.addProperty("idLetter", letter.getLetterOfOwnershipById().getId());
+                jo.addProperty("realtiesCount", letter.getLetterOfOwnershipById().getRealitiesSplayTree().getCount());
+                JsonArray jsonRealtiesArray = new JsonArray();
+                for (Realty r : letter.getLetterOfOwnershipById().getRealitiesSplayTree().inorder()) {
+                    JsonObject joRealty = new JsonObject();
+                    joRealty.addProperty("id", r.getId());
+                    joRealty.addProperty("address", r.getAddress());
+                    joRealty.addProperty("desc", r.getDescription());
+                    jsonRealtiesArray.add(joRealty);
+                }
+                jo.add("realties", jsonRealtiesArray);
+                Ownership ownership = letter.getLetterOfOwnershipById().getOwnershipSplayTree().find(new Ownership(new Person(Rc)));
+                jo.addProperty("share", ownership != null ? "" + ownership.getShare() : "");
+                jsonArray.add(jo);
+        }
+        jobj.add("realtiesOfOwner", jsonArray);
         return jobj;
     }
 
@@ -251,7 +329,7 @@ public class Core {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
-        Random randomGenerator = new Random();
+        Random randomGenerator = new Random(generatorSeeds.nextInt());
         final String[] firstNames = {"Kr", "Ca", "Ra", "Mrok", "Cru",
             "Ray", "Bre", "Zed", "Drak", "Mor", "Jag", "Mer", "Jar", "Mjol",
             "Zork", "Mad", "Cry", "Zur", "Creo", "Azak", "Azur", "Rei", "Cro",
@@ -271,7 +349,12 @@ public class Core {
 
         for (int i = 0; i < personsCount; i++) {
             String RC = RcGenerator.generateRc();
-            peronsSplayTree.insert(new Person(RC));
+            addPerson(firstNames[randomGenerator.nextInt(firstNames.length)],
+                    lastNames[randomGenerator.nextInt(lastNames.length)],
+                    RC, getDateFromRange(1900, 2010));
+            if(i%1000 == 0 ){
+                System.out.println(RC);
+            }
         }
         System.out.println("pocet osob: " + peronsSplayTree.getCount());
 
@@ -290,43 +373,42 @@ public class Core {
                 letterOfOwnership = new LetterOfOwnershipById(getRandomId(4, 6), arrCadasters.get(c));
                 arrCadasters.get(c).getLetterOfOwnershipSplayTree().insert(letterOfOwnership);
                 countRealty = randomGenerator.nextInt(realtiesCountTo - realtiesCountFrom) + realtiesCountFrom;
-//                for (int j = 0; j < countRealty; j++) {
-//                    idRealty = getRandomId(5, 9);
-//                    realty = new Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
-//
-////                    //pridat na nehnutelnost obyvatelov
-////                    countResidens = randomGenerator.nextInt(personsCountTo - personsCountFrom) + personsCountFrom;
-////                    for (int k = 0; k < countResidens; k++) {
-////                        if (arrPersons.isEmpty()) {
-////                            break;
-////                        }
-////                        index = randomGenerator.nextInt(arrPersons.size());
-////                        Person person = arrPersons.get(index);
-////                        person.setPernamentResidence(realty);
-////                        realty.getPermanentResidencePersonsSplayTree().insert(person);
-////                        arrPersons.remove(index);
-////                    }
-//
-//                    arrCadasters.get(c).getRealtiesSplayTree().insert(realty);
-//                    letterOfOwnership.getRealitiesSplayTree().insert(realty);
-//                }
+                for (int j = 0; j < countRealty; j++) {
+                    idRealty = getRandomId(5, 9);
+                    realty = new Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
+
+                    //pridat na nehnutelnost obyvatelov
+                    countResidens = randomGenerator.nextInt(personsCountTo - personsCountFrom) + personsCountFrom;
+                    for (int k = 0; k < countResidens; k++) {
+                        if (arrPersons.isEmpty()) {
+                            break;
+                        }
+                        index = randomGenerator.nextInt(arrPersons.size());
+                        Person person = arrPersons.get(index);
+                        person.setPernamentResidence(realty);
+                        realty.getPermanentResidencePersonsSplayTree().insert(person);
+                        arrPersons.remove(index);
+                    }
+
+                    arrCadasters.get(c).getRealtiesSplayTree().insert(realty);
+                    letterOfOwnership.getRealitiesSplayTree().insert(realty);
+                }
 
                 // pridanie majetkovych podielov
-                
- //               countOwners = randomGenerator.nextInt(ownershipCountTo - ownershipCountFrom) + ownershipCountFrom;
-//                for (int o = 0; o < countOwners; o++) {
- //                   index = randomGenerator.nextInt(arrOwners.size());
-//                    Ownership ownership = new Ownership(arrOwners.get(index), 100.0 / (double) countOwners);
-//                    letterOfOwnership.getOwnershipSplayTree().insert(ownership);
-//                    arrOwners.get(index).getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letterOfOwnership)); // pidanie majetku
+                countOwners = randomGenerator.nextInt(ownershipCountTo - ownershipCountFrom) + ownershipCountFrom;
+                for (int o = 0; o < countOwners; o++) {
+                    index = randomGenerator.nextInt(arrOwners.size());
+                    Ownership ownership = new Ownership(arrOwners.get(index), 100.0 / (double) countOwners);
+                    letterOfOwnership.getOwnershipSplayTree().insert(ownership);
+                    arrOwners.get(index).getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letterOfOwnership)); // pidanie majetku
                     //addOrChangeOwnershipShare(arrCadasters.get(c).getId(), letterOfOwnership.getId(), arrOwners.get(index).getRC(), 100.0 / (double) countOwners);
-//                }
+                }
 //                System.out.println("*************  " + letterOfOwnership.getId() + " ***************");
 //                for (Ownership o : letterOfOwnership.getOwnershipSplayTree().inorder()) {
 //                    System.out.println(o.getShare());
 //                }
             }
-          System.out.println("Cadaster " + c);
+            //System.out.println("Cadaster " + c);
         }
 
 //        addRealty(
@@ -339,7 +421,7 @@ public class Core {
             SALTCHARS += "1234567890";
         }
         StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
+        Random rnd = new Random(generatorSeeds.nextInt());
         int index;
         while (salt.length() < length) { // length of the random string.
             index = (int) (rnd.nextFloat() * SALTCHARS.length());
@@ -351,13 +433,13 @@ public class Core {
     }
 
     private Date getRandomDate(int multiple) {
-        Random randomGenerator = new Random();
+        Random randomGenerator = new Random(generatorSeeds.nextInt());
         int offset = randomGenerator.nextInt(99999 * multiple);
         return new Date(System.currentTimeMillis() - offset);
     }
 
     private int getRandomId(int fromNumeralCount, int toNumeralCount) {
-        Random randomGenerator = new Random();
+        Random randomGenerator = new Random(generatorSeeds.nextInt());
         int lenth = randomGenerator.nextInt(toNumeralCount - fromNumeralCount) + fromNumeralCount;
         String strNumper = new String();
         for (int j = 0; j < lenth; j++) {
