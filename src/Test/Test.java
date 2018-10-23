@@ -9,7 +9,7 @@ public class Test<T extends Comparable<T>> {
 
     private SplayTree<T> splayTree;
     private final int RANGE_DELETE = 100000;
-    private final int RANGE_ISERT = 10000000;
+    private final int RANGE_ISERT = 9999999;
 
     Test(SplayTree<T> splayTree) {
         this.splayTree = splayTree;
@@ -38,7 +38,7 @@ public class Test<T extends Comparable<T>> {
     }
 
     public boolean checkInsert() {
-        Random randomGenerator = new Random();//seed: 63 - prvkov : 10  // seed: 1 - prvkov : 5
+        Random randomGenerator = new Random();
         ArrayList<Person> arr = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             randomGenerator.setSeed(i);
@@ -60,9 +60,10 @@ public class Test<T extends Comparable<T>> {
             }
 
             if ((arr.size() - duplicite) == splayTree.getCount()) {
-                System.out.println("Arr count: " + arr.size() + " - dublicites: " + duplicite + "; splay count: " + splayTree.getCount());
+                System.out.println("Arr count: " + arr.size() + " - dublicites: " + duplicite + " = " + (arr.size() - duplicite) + " ; splay count: " + splayTree.getCount());
             } else {
-                System.out.println("Arr count: " + arr.size() + "splay count: " + splayTree.getCount());
+                System.out.println("Failed.. Arr count: " + arr.size() + "splay count: " + splayTree.getCount());
+                return false;
             }
 
             //skus hladat par prvkov ktore sa v strome nenachadzaju
@@ -73,7 +74,6 @@ public class Test<T extends Comparable<T>> {
                     System.out.println("Nasiel sa prvok, ktory v strome nemal byt");
                     return false;
                 }
-
 
                 id = randomGenerator.nextInt(50000) + RANGE_ISERT;
                 if (splayTree.find((T) new Person(id, "", "")) != null) {
@@ -97,7 +97,6 @@ public class Test<T extends Comparable<T>> {
 //                System.out.println(n + ". " + ((Person) p).toString());
 //                n++;
 //            }
-
             for (int k = 0; k < arr.size(); k++) {
                 Person personArr = arr.get(k);
                 T personTree = splayTree.find((T) personArr);
@@ -114,7 +113,7 @@ public class Test<T extends Comparable<T>> {
     }
 
     public boolean checkDelete() {
-        Random randomGenerator = new Random(0);//seed: 173 - prvkov : 173
+        Random randomGenerator = new Random(0);
         ArrayList<Person> arr = new ArrayList<>();
         ArrayList<Integer> arrID = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -148,9 +147,12 @@ public class Test<T extends Comparable<T>> {
                 splayTree.delete((T) new Person(id, "", ""));
             }
 
-            for (int k = 0; k < arr.size(); k++) {
-                Person personArr = arr.get(k);
-                System.out.println("Deleting id: " + personArr.getRC());
+            // nahodne mazanie
+            int removeCount = 0;
+            while (!arr.isEmpty()) {
+                int index = randomGenerator.nextInt(arr.size());
+                Person personArr = arr.get(index);
+                //System.out.println("Deleting id: " + personArr.getRC());
                 boolean deleted = splayTree.delete((T) personArr);
                 if (deleted) {
                     System.out.println("Deleted: true ");
@@ -160,11 +162,94 @@ public class Test<T extends Comparable<T>> {
                 }
 
                 int sizeAfter = splayTree.getCount();
-                if (sizeBefore == sizeAfter + (k + 1)) {
+                if (sizeBefore == sizeAfter + (removeCount + 1)) {
                     System.out.println("true: SizeBefore: " + sizeBefore + "/ SizeAfeter: " + sizeAfter);
                     // System.out.println("Seed: " + i);
                 } else {
                     System.out.println("false: SizeBefore: " + sizeBefore + "/ SizeAfeter: " + sizeAfter);
+                    return false;
+                }
+                arr.remove(index);
+                removeCount++;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkInsertDelete50Percents() {
+        Random randomGenerator = new Random();
+        ArrayList<Person> arr = new ArrayList<>();
+        ArrayList<Integer> arrID = new ArrayList<>();
+        int elementsCount = 30000;
+        for (int i = 0; i < 10; i++) {
+            randomGenerator.setSeed(i);
+            System.out.println("Seed:******************************************************************************** " + i);
+            arr = new ArrayList<>();
+            arrID = new ArrayList<>();
+            splayTree = (SplayTree<T>) new SplayTree<Person>();
+            int duplicite = 0;
+            // naplnim struktúru
+            for (int j = 0; j < elementsCount; j++) {
+                int Id = randomGenerator.nextInt(RANGE_ISERT);
+                Person person = new Person(Id, "Marek", "Bugaj");
+                if (!arrID.contains(person.getRC())) {
+                    arrID.add(person.getRC());
+                    arr.add(person);
+                    boolean result = splayTree.insert((T) person);
+                    if (!result) {
+                        duplicite++;
+                        System.out.println("Prvok s rovnakym klucom sa uz v strome nachadza");
+                    }
+                }
+            }
+
+            if ((arr.size() - duplicite) == splayTree.getCount()) {
+                System.out.println("Arr count: " + arr.size() + " - dublicites: " + duplicite + " = " + (arr.size() - duplicite) + " ; splay count: " + splayTree.getCount());
+            } else {
+                System.out.println("False.. Arr count: " + arr.size() + "splay count: " + splayTree.getCount());
+                return false;
+            }
+
+            // mazanie 100 prvkov a pridanie 100 prvkov -- toto zopakuj 1000 krat
+            for (int j = 0; j < 1000; j++) {
+                for (int k = 0; k < 100; k++) {
+                    int index = randomGenerator.nextInt(arr.size());
+                    Person personArr = arr.get(index);
+                    boolean deleted = splayTree.delete((T) personArr);
+                    if (deleted) {
+                        arr.remove(index);
+                    } else {
+                        System.out.print("Deleted: false, prvok sa v strome nenachadza. Person id: " + personArr.getRC());
+                        return false;
+                    }
+                }
+                System.out.println("Deleted random 100 elements.");
+                if ((arr.size() - duplicite) == splayTree.getCount()) {
+                    System.out.println("Arr count: " + arr.size() + " - dublicites: " + duplicite + " = " + (arr.size() - duplicite) + " ; splay count: " + splayTree.getCount());
+                } else {
+                    System.out.println("False.. Arr count: " + arr.size() + "splay count: " + splayTree.getCount());
+                    return false;
+                }
+
+                for (int e = 0; e < 100; e++) {
+                    int Id = ((RANGE_ISERT + 1) + e + (100 * j));
+                    Person person = new Person(Id, "Marek", "Bugaj");
+                    arr.add(person);
+                    //System.out.println("Vkladam: " + person);
+                    if (splayTree.find((T) person) != null) {
+                        System.out.println("Finded person: " + person.getRC());
+                    }
+                    boolean result = splayTree.insert((T) person);
+                    if (!result) {
+                        System.out.println("Inserting failed person: " + person.getRC());
+                        return false;
+                    }
+                }
+                System.out.println("Inserted 100 elements.");
+                if ((arr.size() - duplicite) == splayTree.getCount()) {
+                    System.out.println("Arr count: " + arr.size() + " - dublicites: " + duplicite + " = " + (arr.size() - duplicite) + " ; splay count: " + splayTree.getCount());
+                } else {
+                    System.out.println("False.. Arr count: " + arr.size() + "splay count: " + splayTree.getCount());
                     return false;
                 }
             }
