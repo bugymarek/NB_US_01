@@ -177,7 +177,7 @@ public class Test<T extends Comparable<T>> {
     }
 
     public boolean checkInsertDelete50Percents() {
-        Random randomGenerator = new Random();
+        Random randomGenerator = new Random();//
         ArrayList<Person> arr = new ArrayList<>();
         ArrayList<Integer> arrID = new ArrayList<>();
         int elementsCount = 30000;
