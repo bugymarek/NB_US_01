@@ -118,6 +118,7 @@ public class Test<T extends Comparable<T>> {
         ArrayList<Integer> arrID = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             randomGenerator.setSeed(i);
+            //System.out.println("Seed:******************************************************************************** " + i);
             arr = new ArrayList<>();
             arrID = new ArrayList<>();
             splayTree = new SplayTree<>();

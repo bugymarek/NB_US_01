@@ -8,7 +8,6 @@ package Core;
 import Generators.RcGenerator;
 import Splay.SplayTree;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -250,7 +249,7 @@ public class Core {
         return 0;
     }
 
-    public int addOrChangePernamentResidence(String cadasterName, String rc, int aInt) {
+    public int addOrChangePernamentResidence(String cadasterName, String rc, int share) {
         Person person = peronsSplayTree.find(new Person(rc));
         if (person == null) {
             return -3;
@@ -260,7 +259,7 @@ public class Core {
             return -2;
         }
 
-        Realty realty = cadaster.getCadaster().getRealtiesSplayTree().find(new Realty(aInt));
+        Realty realty = cadaster.getCadaster().getRealtiesSplayTree().find(new Realty(share));
         if (realty == null) {
             return -1;
         }
@@ -272,57 +271,80 @@ public class Core {
         return 0;
     }
 
-    public int addOrChangeOwnershipShare(int idCadaster, int idLetter, String rc, double share) {
+    public JsonObject addOrChangeOwnershipShare(int idCadaster, int idLetter, String rc, double share) {
+        JsonObject jobj = new JsonObject();
         Person person = peronsSplayTree.find(new Person(rc));
         if (person == null) {
-            return -3;
+            jobj.addProperty("err", "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Osoba sa nenašla.");
+            return jobj;
         }
 
         Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
         if (cadaster == null) {
-            return -2;
+            jobj.addProperty("err", "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Kataster sa nenašiel.");
+            return jobj;
         }
 
         LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
         if (letter == null) {
-            return -1;
+            jobj.addProperty("err", "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List sa nenašiel.");
+            return jobj;
         }
 
         if (letter.getRealitiesSplayTree().isEmpty()) {
-            return -4;
+            jobj.addProperty("err", "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List vlastníctva neobsahuje nehnuteľnosti.");
+            return jobj;
         }
 
         if (letter.getOwnershipSplayTree().isEmpty()) {
             letter.getOwnershipSplayTree().insert(new Ownership(person, 100)); // ak tam nik nieje potom musi mat podiel 100 %
             person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pidanie majetku
-            return 0;
+            return jobj;
         }
-
+        
         Ownership findedOwnership = letter.getOwnershipSplayTree().find(new Ownership(person, share));
-        if (findedOwnership != null) {
-            if (letter.getOwnershipSplayTree().getCount() > 1) {
-                double difference = share - findedOwnership.getShare();
-                if (difference != 0) {
-                    for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
-                        if (!o.getOwner().getRC().equals(rc)) {
-                            o.setShare(o.getShare() - (difference / (letter.getOwnershipSplayTree().getCount() - 1)));
-                        }
-                    }
-                }
-                findedOwnership.setShare(share);
-            }
-        } else {
-            letter.getOwnershipSplayTree().insert(new Ownership(person, share));
-            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));// pidanie majetku
-            // kazdemu rovnako zmenim podiel rovnym dielom => vkladany podiel / (pocet vlastnikov - 1)
-            for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
-                if (!o.getOwner().getRC().equals(rc)) {
-                    o.setShare(o.getShare() - (share / (letter.getOwnershipSplayTree().getCount() - 1)));
-                }
-            }
+        if(findedOwnership != null && letter.getOwnershipSplayTree().getCount() == 1){
+            findedOwnership.setShare(share);
+            return jobj;
         }
-
-        return 0;
+        
+//        {
+//            letter.getOwnershipSplayTree().insert(new Ownership(person, share));
+//            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));// pidanie majetku
+//        }
+        JsonArray jsonArray = new JsonArray();
+        for (Ownership ownership : letter.getOwnershipSplayTree().inorder()) {
+            JsonObject jo = new JsonObject();
+            jo.addProperty("rc", ownership.getOwner().getRC());
+            jo.addProperty("share", ownership.getShare());
+            jsonArray.add(jo);
+        }
+        jobj.add("ownerships", jsonArray);
+        return jobj;
+        
+//        Ownership findedOwnership = letter.getOwnershipSplayTree().find(new Ownership(person, share));
+//        if (findedOwnership != null) {
+//            if (letter.getOwnershipSplayTree().getCount() > 1) {
+//                double difference = share - findedOwnership.getShare();
+//                if (difference != 0) {
+//                    for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+//                        if (!o.getOwner().getRC().equals(rc)) {
+//                            o.setShare(o.getShare() - (difference / (letter.getOwnershipSplayTree().getCount() - 1)));
+//                        }
+//                    }
+//                }
+//                findedOwnership.setShare(share);
+//            }
+//        } else {
+//            letter.getOwnershipSplayTree().insert(new Ownership(person, share));
+//            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));// pidanie majetku
+//            // kazdemu rovnako zmenim podiel rovnym dielom => vkladany podiel / (pocet vlastnikov - 1)
+//            for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+//                if (!o.getOwner().getRC().equals(rc)) {
+//                    o.setShare(o.getShare() - (share / (letter.getOwnershipSplayTree().getCount() - 1)));
+//                }
+//            }
+//        }
     }
 
     public void generateData(int cadastersCount, int letterOfOwnershipOnCadasterCount, int ownersCount, int realtiesCountFrom, int realtiesCountTo, int personsCount, int personsCountFrom, int personsCountTo, int ownershipCountFrom, int ownershipCountTo) {

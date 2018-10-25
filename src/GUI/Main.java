@@ -38,12 +38,14 @@ public class Main extends javax.swing.JDialog {
 
     private Core core;
     private ManagerHTML managerHTML;
+    private java.awt.Frame parent; 
 
     /**
      * Creates new form Main
      */
     public Main(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.parent = parent;
         initComponents();
         configTextPane();
         core = new Core();
@@ -776,7 +778,8 @@ public class Main extends javax.swing.JDialog {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa"));
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa v konkretnom katastri"));
+        jPanel19.setToolTipText("");
 
         jLabel25.setText("Rodné číslo * ");
 
@@ -1561,24 +1564,19 @@ public class Main extends javax.swing.JDialog {
             return;
         }
 
-        int response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
+        JsonObject response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
         String message = new String();
-        switch (response) {
-            case 0:
-                message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
-                break;
-            case -1:
-                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List sa nenašiel.\n";
-                break;
-            case -2:
-                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Kataster sa nenašiel.\n";
-                break;
-            case -3:
-                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. Osoba sa nenašla.\n";
-                break;
-            case -4:
-                message = "Neúspešne zapísanie/zmena majetkového podielu majiteľa. List vlastníctva neobsahuje nehnuteľnosti.\n";
-                break;
+        State state;
+        if (response.get("err") != null) {
+            message = response.get("err").getAsString() + "\n";
+            state = State.ERR;
+        } else {
+            if(response.get("ownerships") != null){
+                DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, response);
+                return;
+            }
+            message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
+            state = State.SUC;
         }
         message += "******************************************************\n"
                 + " číslo katastra: " + idCadaster + "\n"
@@ -1586,11 +1584,7 @@ public class Main extends javax.swing.JDialog {
                 + " rodné číslo: " + rc + "\n"
                 + " podiel: " + share + " %\n"
                 + "******************************************************";
-        if (response == 0) {
-            addToConsole(message, State.SUC);
-        } else {
-            addToConsole(message, State.ERR);
-        }
+        addToConsole(message, state);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextFieldOwnershipPercentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipPercentsActionPerformed

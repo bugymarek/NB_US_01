@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class SplayTree<T extends Comparable<T>> {
+
     private Node<T> root;
     private int count;
-
 
     /**
      * Create splay tree with root node
@@ -56,26 +56,24 @@ public class SplayTree<T extends Comparable<T>> {
                 } else {
                     current = current.getLeftSon();
                 }
+            } else // ak nema praveho syna tak mu ho nastav na vkladany prvok
+            if (current.getRightSon() == null) {
+                current.setRightSon(insertNode);
+                insertNode.setParent(current);
+                current = insertNode;
+                count++;
+                result = true;
+                break;
             } else {
-                // ak nema praveho syna tak mu ho nastav na vkladany prvok
-                if (current.getRightSon() == null) {
-                    current.setRightSon(insertNode);
-                    insertNode.setParent(current);
-                    current = insertNode;
-                    count++;
-                    result = true;
-                    break;
-                } else {
-                    current = current.getRightSon();
-                }
+                current = current.getRightSon();
             }
         }
         splay(current);
         return result;
     }
-    
+
     public boolean insert2(T data) {
-        
+
         if (isEmpty()) {
             root = new Node(data);
             count++;
@@ -89,7 +87,7 @@ public class SplayTree<T extends Comparable<T>> {
             root.setParent(insertNode);
             insertNode.setRightSon(root.getRightSon());
             root.setRightSon(null);
-            if(insertNode.getRightSon() != null){
+            if (insertNode.getRightSon() != null) {
                 insertNode.getRightSon().setParent(insertNode);
             }
             root = insertNode;
@@ -101,7 +99,9 @@ public class SplayTree<T extends Comparable<T>> {
 
     public T find(T data) {
         Node<T> current = root;
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
 
         while (current.getData().compareTo(data) != 0) {
             if (current.getData().compareTo(data) <= -1) {
@@ -110,12 +110,10 @@ public class SplayTree<T extends Comparable<T>> {
                 } else {
                     break;
                 }
+            } else if (current.getRightSon() != null) {
+                current = current.getRightSon();
             } else {
-                if (current.getRightSon() != null) {
-                    current = current.getRightSon();
-                } else {
-                    break;
-                }
+                break;
             }
         }
 
@@ -128,25 +126,28 @@ public class SplayTree<T extends Comparable<T>> {
     }
 
     public boolean delete(T data) {
+        
+        // if is not presents return false
         T result = find(data);
-        if(result == null){
+        if (result == null) {
             return false;
         }
+        //Split the tree into two trees Tree1 = root’s left subtree and Tree2 = root’s right subtree and delete the root node.
         Node<T> root1 = root.getLeftSon();
         Node<T> root2 = root.getRightSon();
         // hladany prvok je root
-        if(root1 == null && root2 == null){
+        if (root1 == null && root2 == null) {
             count--;
             root = null;
             return true;
         }
-        if(root1 == null){
+        if (root1 == null) {
             root = root2;
             root.setParent(null);
             count--;
             return true;
         }
-        if(root2 == null){
+        if (root2 == null) {
             root = root1;
             root.setParent(null);
             count--;
@@ -154,11 +155,12 @@ public class SplayTree<T extends Comparable<T>> {
         }
 
         //existuju dva stromy
-        Node<T> findedNode = findMaxNode(root1);
+        Node<T> findedNode = findMaxNode(root1); // Splay the maximum node (node having the maximum value) of Tree1.
         root = root1;
         count--;
         root.setParent(null);
         splay(findedNode);
+        // make Root2 as the right child of Root1 and return Root1.
         root.setRightSon(root2);
         root2.setParent(root);
         return true;
@@ -166,7 +168,7 @@ public class SplayTree<T extends Comparable<T>> {
 
     private Node<T> findMaxNode(Node<T> root) {
         Node<T> current = root;
-        while (current.getRightSon()!= null){
+        while (current.getRightSon() != null) {
             current = current.getRightSon();
         }
         return current;
@@ -180,16 +182,14 @@ public class SplayTree<T extends Comparable<T>> {
                 } else {
                     zag(node);
                 }
+            } else if (node.isLeftSon() && node.getParent().isLeftSon()) {
+                zigZig(node);
+            } else if (node.isRightSon() && node.getParent().isRightSon()) {
+                zagZag(node);
+            } else if (node.isLeftSon() && node.getParent().isRightSon()) {
+                zigZag(node);
             } else {
-                if (node.isLeftSon() && node.getParent().isLeftSon()) {// nasledujuci kod sa da spravit ajt ak, ze v metodach budem volat metodu splay
-                    zigZig(node);
-                } else if (node.isRightSon() && node.getParent().isRightSon()) {
-                    zagZag(node);
-                } else if (node.isLeftSon() && node.getParent().isRightSon()) {
-                    zigZag(node);
-                } else {
-                    zagZig(node);
-                }
+                zagZig(node);
             }
         }
     }
@@ -273,17 +273,17 @@ public class SplayTree<T extends Comparable<T>> {
         return count;
     }
 
-    public ArrayList<T> inorder(){
+    public ArrayList<T> inorder() {
         ArrayList<T> listArr = new ArrayList<>();
         Node<T> current = root;
         Stack<Node<T>> stack = new Stack<>();
 
-        while (current != null || !stack.isEmpty()){
-            if(current == null){
+        while (current != null || !stack.isEmpty()) {
+            if (current == null) {
                 current = stack.pop();
                 listArr.add(current.getData());
                 current = current.getRightSon();
-            }else {
+            } else {
                 stack.push(current);
                 current = current.getLeftSon();
             }
