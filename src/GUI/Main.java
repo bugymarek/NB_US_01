@@ -38,7 +38,7 @@ public class Main extends javax.swing.JDialog {
 
     private Core core;
     private ManagerHTML managerHTML;
-    private java.awt.Frame parent; 
+    private java.awt.Frame parent;
 
     /**
      * Creates new form Main
@@ -99,6 +99,7 @@ public class Main extends javax.swing.JDialog {
         jTextFieldRealtyDescription = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jTextFieldOwnershipRC = new javax.swing.JTextField();
@@ -517,21 +518,35 @@ public class Main extends javax.swing.JDialog {
 
         jTabbedPane8.addTab("Pridať", jPanel3);
 
+        jButton14.setText("jButton14");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton14)
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton14)
+                .addContainerGap(587, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Odstrániť", jPanel4);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Zapísanie/Zmena majetkového podielu majiteľa"));
 
+        jTextFieldOwnershipRC.setText("6707156126");
         jTextFieldOwnershipRC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldOwnershipRCActionPerformed(evt);
@@ -540,6 +555,7 @@ public class Main extends javax.swing.JDialog {
 
         jLabel14.setText("Rodné číslo *");
 
+        jTextFieldOwnershipCadasterID.setText("83878305");
         jTextFieldOwnershipCadasterID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldOwnershipCadasterIDActionPerformed(evt);
@@ -548,6 +564,7 @@ public class Main extends javax.swing.JDialog {
 
         jLabel15.setText("Číslo katastra *");
 
+        jTextFieldOwnershipLetterID.setText("18610");
         jTextFieldOwnershipLetterID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldOwnershipLetterIDActionPerformed(evt);
@@ -1571,12 +1588,20 @@ public class Main extends javax.swing.JDialog {
             message = response.get("err").getAsString() + "\n";
             state = State.ERR;
         } else {
-            if(response.get("ownerships") != null){
+            JsonObject responseFromSet = null;
+            if (response.get("ownerships") != null) {
                 DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, response);
-                return;
+                if (dialogOwners.isCancel()) {
+                    return;
+                }
+                responseFromSet = core.setOwnershipShares(getInt(idCadaster), getInt(idLetter), dialogOwners.getOwners());
             }
             message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
             state = State.SUC;
+            if (responseFromSet != null && response.get("err") != null) {
+                message = responseFromSet.get("err").getAsString() + "\n";
+                state = State.ERR;
+            }
         }
         message += "******************************************************\n"
                 + " číslo katastra: " + idCadaster + "\n"
@@ -1788,6 +1813,10 @@ public class Main extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, null);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1946,6 +1975,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
