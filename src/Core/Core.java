@@ -507,14 +507,44 @@ public class Core {
             person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));// pidanie majetku
         } else {
             findedOwnership.setShare(share);
-             for (JsonElement jsonElement : owners.get("ownerships").getAsJsonArray()) {
+            for (JsonElement jsonElement : owners.get("ownerships").getAsJsonArray()) {
                 JsonObject owner = (JsonObject) jsonElement;
                 Ownership finded = letter.getOwnershipSplayTree().find(new Ownership(new Person(owner.get("rc").getAsString())));
-                if(finded != null){
+                if (finded != null) {
                     finded.setShare(owner.get("share").getAsDouble());
                 }
             }
         }
+        return jobj;
+    }
+
+    public JsonObject selectPernamentResidenceByRC(String Rc) {
+        JsonObject jobj = new JsonObject();
+        Person person = peronsSplayTree.find(new Person(Rc));
+        if (person == null) {
+            jobj.addProperty("err", "Osoba sa nenašla.");
+            return jobj;
+        }
+        if (person.getPernamentResidence() == null) {
+            jobj.addProperty("err", "Osoba nemá trvalé bydlisko.");
+            return jobj;
+        }
+        Realty realty = person.getPernamentResidence();
+        jobj.addProperty("id", realty.getId());
+        jobj.addProperty("address", realty.getAddress());
+        jobj.addProperty("desc", realty.getDescription());
+        jobj.addProperty("idLetter", realty.getLetterOfOwnership() != null ? "" + realty.getLetterOfOwnership().getId() : "nezapisaná");
+        jobj.addProperty("idCadaster", (realty.getLetterOfOwnership() != null && realty.getLetterOfOwnership().getCadaster() != null) ? "" + realty.getLetterOfOwnership().getCadaster().getId() : "nezapisaná");
+        JsonArray jsonArray = new JsonArray();
+        for (Person p : realty.getPermanentResidencePersonsSplayTree().inorder()) {
+            JsonObject jo = new JsonObject();
+            jo.addProperty("rc", p.getRC());
+            jo.addProperty("firstName", p.getFirstName());
+            jo.addProperty("lastName", p.getLastName());
+            jo.addProperty("birthDate", formatDateWithoutTime(p.getBirthDate()));
+            jsonArray.add(jo);
+        }
+        jobj.add("permanentResidencePersons", jsonArray);
         return jobj;
     }
 }

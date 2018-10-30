@@ -136,6 +136,10 @@ public class Main extends javax.swing.JDialog {
         jLabel33 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
         jTextFieldSelectAllRealtiesOfOwnerRC = new javax.swing.JTextField();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jTextFieldSelect2RC = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -895,20 +899,61 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder("Vyhľadanie obyvateľa podľa rodného čísla a výpis jeho trvalého pobytu (2)"));
+
+        jLabel34.setText("Rodné číslo * ");
+
+        jTextFieldSelect2RC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect2RCActionPerformed(evt);
+            }
+        });
+
+        jButton15.setText("Vypíš");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldSelect2RC, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSelect2RC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -924,7 +969,9 @@ public class Main extends javax.swing.JDialog {
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGap(98, 98, 98)
+                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zobraziť", jPanel6);
@@ -1817,6 +1864,60 @@ public class Main extends javax.swing.JDialog {
         DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, null);
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jTextFieldSelect2RCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect2RCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect2RCActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        String Rc = jTextFieldSelect2RC.getText();
+        if (isEmptyTextField(Rc)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectPernamentResidenceByRC(Rc);
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+                    + " rodné číslo: " + Rc + "\n"
+                    + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String message = "******************************************************\n"
+                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+                + " adresa: " + resultObject.get("address").getAsString() + "\n"
+                + " popis: " + resultObject.get("desc").getAsString() + "\n"
+                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+                + " číslo katastra: " + resultObject.get("idCadaster").getAsString() + "\n"
+                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+                + "******************************************************";
+        addToConsole(message, State.SUC);
+
+        String rowsHtml = "";
+        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
+            JsonObject person = (JsonObject) personElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(person.get("rc").getAsString());
+            dataArr.add(person.get("firstName").getAsString());
+            dataArr.add(person.get("lastName").getAsString());
+            dataArr.add(person.get("birthDate").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1976,6 +2077,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2011,6 +2113,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2030,6 +2133,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2067,6 +2171,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRealtyDescription;
     private javax.swing.JTextField jTextFieldRealtyId;
     private javax.swing.JTextField jTextFieldRealtyLetterId;
+    private javax.swing.JTextField jTextFieldSelect2RC;
     private javax.swing.JTextField jTextFieldSelectAllRealtiesOfOwnerRC;
     private javax.swing.JTextField jTextFieldSelectRealtiesNameCadaster;
     private javax.swing.JTextField jTextFieldSelectRealtiesOfOwnerCadasterId;
