@@ -61,6 +61,9 @@ public class Main extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane8 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -148,6 +151,13 @@ public class Main extends javax.swing.JDialog {
         jLabel39 = new javax.swing.JLabel();
         jTextFieldSelect3RealtyId = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jTextFieldSelect1_5RealtyId = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jTextFieldSelect1_5CadasterID_Name = new javax.swing.JTextField();
+        jComboBoxSelect1_5CadasterID_Name = new javax.swing.JComboBox<>();
+        jButton16 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -1028,22 +1038,87 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Vyhľadanie nehnuteľnosti podľa súp. čísla a čísla / názvu kat. územia.  (1,5)"));
+        jPanel22.setToolTipText("");
+
+        jLabel35.setText("Súpisné číslo * ");
+
+        jTextFieldSelect1_5RealtyId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect1_5RealtyIdActionPerformed(evt);
+            }
+        });
+
+        jLabel36.setText("Číslo / názov katastra * ");
+
+        jTextFieldSelect1_5CadasterID_Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect1_5CadasterID_NameActionPerformed(evt);
+            }
+        });
+
+        jComboBoxSelect1_5CadasterID_Name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Podľa názvu katastra", "Podľa čísla katastra" }));
+
+        jButton16.setText("Vypíš");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect1_5RealtyId)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect1_5CadasterID_Name)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxSelect1_5CadasterID_Name, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36)
+                    .addComponent(jComboBoxSelect1_5CadasterID_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect1_5RealtyId)
+                    .addComponent(jTextFieldSelect1_5CadasterID_Name)
+                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -1059,11 +1134,13 @@ public class Main extends javax.swing.JDialog {
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zobraziť", jPanel6);
@@ -2078,6 +2155,133 @@ public class Main extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSelect3RealtyIdActionPerformed
 
+    private void jTextFieldSelect1_5RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect1_5RealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect1_5RealtyIdActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        String realtyId = jTextFieldSelect1_5RealtyId.getText();
+        String cadasterIdOrName = jTextFieldSelect1_5CadasterID_Name.getText();
+        boolean isById = jComboBoxSelect1_5CadasterID_Name.getSelectedIndex() == 1;
+        if (isEmptyTextField(realtyId)
+                || isEmptyTextField(cadasterIdOrName)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(realtyId);
+        if (result != null) {
+            JOptionPane.showMessageDialog(this,
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (isById) {
+            result = tryParseToInteger(cadasterIdOrName);
+            if (result != null) {
+                JOptionPane.showMessageDialog(this,
+                        result,
+                        "Pozor",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+        JsonObject resultObject = core.selectRealtiesByRealtyId_CadasterIdOrName(getInt(realtyId), cadasterIdOrName, isById);
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+                    + " súpisné číslo: " + realtyId + "\n"
+                    + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
+                    + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String message = "******************************************************\n"
+                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+                + " adresa: " + resultObject.get("address").getAsString() + "\n"
+                + " popis: " + resultObject.get("desc").getAsString() + "\n"
+                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+                + "******************************************************";
+        addToConsole(message, State.SUC);
+
+        String rowsHtml = "";
+        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
+            JsonObject person = (JsonObject) personElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(person.get("rc").getAsString());
+            dataArr.add(person.get("firstName").getAsString());
+            dataArr.add(person.get("lastName").getAsString());
+            dataArr.add(person.get("birthDate").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+
+        if (resultObject.get("letter") != null) {
+            message = "****************************************************** Informácie o liste vlastníctva ***************************************************************\n"
+                    + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
+                    + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
+                    + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
+                    + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
+                    + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
+                    + "*********************************************************************************************************************************************************";
+            addToConsole(message, State.SUC);
+
+            if (resultObject.get("letter").getAsJsonObject().get("realties") != null) {
+                rowsHtml = "";
+                for (JsonElement realtyElement : resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray()) {
+                    JsonObject realty = (JsonObject) realtyElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(realty.get("id").getAsString());
+                    dataArr.add(realty.get("address").getAsString());
+                    dataArr.add(realty.get("desc").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                headerArr = new String[]{"Súpisné číslo", "Adresa", "popis",};
+                headerHtml = managerHTML.createTableHeader(headerArr);
+                tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+            if (resultObject.get("letter").getAsJsonObject().get("ownerships") != null) {
+                rowsHtml = "";
+                for (JsonElement ownerElement : resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray()) {
+                    JsonObject owner = (JsonObject) ownerElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(owner.get("rc").getAsString());
+                    dataArr.add(owner.get("share").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                headerArr = new String[]{"Rodné číslo", "podiel"};
+                headerHtml = managerHTML.createTableHeader(headerArr);
+                tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jTextFieldSelect1_5CadasterID_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect1_5CadasterID_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect1_5CadasterID_NameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2231,6 +2435,9 @@ public class Main extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2238,6 +2445,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2247,6 +2455,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBoxSelect1_5CadasterID_Name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2275,6 +2484,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -2298,6 +2509,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2336,6 +2548,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRealtyDescription;
     private javax.swing.JTextField jTextFieldRealtyId;
     private javax.swing.JTextField jTextFieldRealtyLetterId;
+    private javax.swing.JTextField jTextFieldSelect1_5CadasterID_Name;
+    private javax.swing.JTextField jTextFieldSelect1_5RealtyId;
     private javax.swing.JTextField jTextFieldSelect2RC;
     private javax.swing.JTextField jTextFieldSelect3CadasterId;
     private javax.swing.JTextField jTextFieldSelect3LetterId;
