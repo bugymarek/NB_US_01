@@ -547,4 +547,42 @@ public class Core {
         jobj.add("permanentResidencePersons", jsonArray);
         return jobj;
     }
+
+    public JsonObject selectPermanentResidencePersons(int cadasterId, int letterId, int realtyId) {
+        JsonObject jobj = new JsonObject();
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(cadasterId));
+        if (cadaster == null) {
+            jobj.addProperty("err", "Kataster sa nenašiel.");
+            return jobj;
+        }
+
+        LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(letterId));
+        if (letter == null) {
+            jobj.addProperty("err", "List sa v katastri nenašiel.");
+            return jobj;
+        }
+
+        if (letter.getRealitiesSplayTree().isEmpty()) {
+            jobj.addProperty("err", "List vlastníctva neobsahuje nehnuteľnosti.");
+            return jobj;
+        }
+        
+        Realty realty = letter.getRealitiesSplayTree().find(new Realty(realtyId));
+        if (realty == null) {
+            jobj.addProperty("err", "V zadanom katastri na liste vlastníctva sa nehnuteľnosť nenašla.");
+            return jobj;
+        }
+        JsonArray jsonArray = new JsonArray();
+        for (Person p : realty.getPermanentResidencePersonsSplayTree().inorder()) {
+            JsonObject jo = new JsonObject();
+            jo.addProperty("rc", p.getRC());
+            jo.addProperty("firstName", p.getFirstName());
+            jo.addProperty("lastName", p.getLastName());
+            jo.addProperty("birthDate", formatDateWithoutTime(p.getBirthDate()));
+            jsonArray.add(jo);
+        }
+        jobj.add("permanentResidencePersons", jsonArray);
+        return jobj;
+        
+    }
 }

@@ -140,6 +140,14 @@ public class Main extends javax.swing.JDialog {
         jLabel34 = new javax.swing.JLabel();
         jTextFieldSelect2RC = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jTextFieldSelect3CadasterId = new javax.swing.JTextField();
+        jButton17 = new javax.swing.JButton();
+        jTextFieldSelect3LetterId = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        jTextFieldSelect3RealtyId = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -759,7 +767,7 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností v zadanom katastrálnom území "));
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností v zadanom katastrálnom území (7)"));
 
         jLabel17.setText("Názov katastra * ");
 
@@ -799,7 +807,7 @@ public class Main extends javax.swing.JDialog {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa v konkretnom katastri"));
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa v konkretnom katastri aj s podielmi (8)"));
         jPanel19.setToolTipText("");
 
         jLabel25.setText("Rodné číslo * ");
@@ -833,16 +841,17 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -853,12 +862,12 @@ public class Main extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých nehnuteľností majiteľa"));
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých nehnuteľností majiteľa aj s podielmi (9)"));
 
         jLabel33.setText("Rodné číslo * ");
 
@@ -939,21 +948,102 @@ public class Main extends javax.swing.JDialog {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
+        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (3)"));
+        jPanel23.setToolTipText("");
+
+        jLabel37.setText("Číslo katastra * ");
+
+        jTextFieldSelect3CadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3CadasterIdActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("Vypíš");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldSelect3LetterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3LetterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel39.setText("Číslo listu* ");
+
+        jTextFieldSelect3RealtyId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3RealtyIdActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Súpisné číslo* ");
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect3CadasterId)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)))
+                .addGap(16, 16, 16)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel37)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel39)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel40)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -969,9 +1059,11 @@ public class Main extends javax.swing.JDialog {
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(122, 122, 122)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Zobraziť", jPanel6);
@@ -1801,10 +1893,6 @@ public class Main extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         String Rc = jTextFieldSelectAllRealtiesOfOwnerRC.getText();
         if (isEmptyTextField(Rc)) {
@@ -1917,6 +2005,78 @@ public class Main extends javax.swing.JDialog {
         addHtmlComponent(tableHtml);
         addHtmlComponent("<br>");
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
+
+    private void jTextFieldSelect3CadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3CadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3CadasterIdActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        String cadasterId = jTextFieldSelect3CadasterId.getText();
+        String letterId = jTextFieldSelect3LetterId.getText();
+        String realtyId = jTextFieldSelect3RealtyId.getText();
+        if (isEmptyTextField(cadasterId)
+                || isEmptyTextField(letterId)
+                || isEmptyTextField(realtyId)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(cadasterId);
+        String result2 = tryParseToInteger(letterId);
+        String result3 = tryParseToInteger(realtyId);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectPermanentResidencePersons(getInt(cadasterId), getInt(letterId), getInt(realtyId));
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+                    + " číslo katastra: " + cadasterId + "\n"
+                    + " číslo listu vlastníctva: " + letterId + "\n"
+                    + " súpisné číslo: " + realtyId + "\n"
+                    + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String rowsHtml = "";
+        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
+            JsonObject person = (JsonObject) personElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(person.get("rc").getAsString());
+            dataArr.add(person.get("firstName").getAsString());
+            dataArr.add(person.get("lastName").getAsString());
+            dataArr.add(person.get("birthDate").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jTextFieldSelect3LetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3LetterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3LetterIdActionPerformed
+
+    private void jTextFieldSelect3RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3RealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3RealtyIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2078,6 +2238,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2114,7 +2275,10 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2134,6 +2298,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2172,6 +2337,9 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRealtyId;
     private javax.swing.JTextField jTextFieldRealtyLetterId;
     private javax.swing.JTextField jTextFieldSelect2RC;
+    private javax.swing.JTextField jTextFieldSelect3CadasterId;
+    private javax.swing.JTextField jTextFieldSelect3LetterId;
+    private javax.swing.JTextField jTextFieldSelect3RealtyId;
     private javax.swing.JTextField jTextFieldSelectAllRealtiesOfOwnerRC;
     private javax.swing.JTextField jTextFieldSelectRealtiesNameCadaster;
     private javax.swing.JTextField jTextFieldSelectRealtiesOfOwnerCadasterId;
