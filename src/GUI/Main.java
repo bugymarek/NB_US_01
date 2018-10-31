@@ -123,26 +123,41 @@ public class Main extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jTextFieldSelect2RC = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jTextFieldSelect1_5RealtyId = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jTextFieldSelect1_5CadasterID_Name = new javax.swing.JTextField();
+        jComboBoxSelect1_5CadasterID_Name = new javax.swing.JComboBox<>();
+        jButton16 = new javax.swing.JButton();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        jTextFieldSelect4_6LetterId1 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jTextFieldSelect4_6CadasterID_Name = new javax.swing.JTextField();
+        jComboBoxSelect4_6CadasterID_Name = new javax.swing.JComboBox<>();
+        jButton18 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jTextFieldSelectRealtiesNameCadaster = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jTextFieldSelectAllRealtiesOfOwnerRC = new javax.swing.JTextField();
         jPanel19 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jTextFieldSelectRealtiesOfOwnerRC = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jTextFieldSelectRealtiesOfOwnerCadasterId = new javax.swing.JTextField();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jTextFieldSelectAllRealtiesOfOwnerRC = new javax.swing.JTextField();
-        jPanel21 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jTextFieldSelect2RC = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jTextFieldSelect3CadasterId = new javax.swing.JTextField();
@@ -151,14 +166,7 @@ public class Main extends javax.swing.JDialog {
         jLabel39 = new javax.swing.JLabel();
         jTextFieldSelect3RealtyId = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        jPanel22 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jTextFieldSelect1_5RealtyId = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jTextFieldSelect1_5CadasterID_Name = new javax.swing.JTextField();
-        jComboBoxSelect1_5CadasterID_Name = new javax.swing.JComboBox<>();
-        jButton16 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jTextFieldGeneratorCadastersCount = new javax.swing.JTextField();
@@ -296,7 +304,7 @@ public class Main extends javax.swing.JDialog {
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -309,10 +317,10 @@ public class Main extends javax.swing.JDialog {
                             .addComponent(jXDatePickerBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(194, 194, 194))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +383,7 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +470,7 @@ public class Main extends javax.swing.JDialog {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldRealtyCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldRealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -478,7 +486,7 @@ public class Main extends javax.swing.JDialog {
                             .addComponent(jTextFieldRealtyDescription)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 83, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel12Layout.setVerticalGroup(
@@ -554,7 +562,7 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton14)
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addContainerGap(388, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,7 +629,7 @@ public class Main extends javax.swing.JDialog {
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldOwnershipRC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldOwnershipLetterID, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -713,7 +721,7 @@ public class Main extends javax.swing.JDialog {
                     .addComponent(jTextFieldPrimaryResidenceRC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPrimaryResidencCadasterName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPrimaryResidenceRealtyID, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
@@ -763,161 +771,6 @@ public class Main extends javax.swing.JDialog {
 
         jTabbedPane8.addTab("Zmeniť", jPanel5);
 
-        jButton3.setText("Zobraz katastre podľa mena");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Zobraz katastre podľa  id");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností v zadanom katastrálnom území (7)"));
-
-        jLabel17.setText("Názov katastra * ");
-
-        jTextFieldSelectRealtiesNameCadaster.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelectRealtiesNameCadasterActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Vypíš");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa v konkretnom katastri aj s podielmi (8)"));
-        jPanel19.setToolTipText("");
-
-        jLabel25.setText("Rodné číslo * ");
-
-        jTextFieldSelectRealtiesOfOwnerRC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelectRealtiesOfOwnerRCActionPerformed(evt);
-            }
-        });
-
-        jButton12.setText("Vypíš");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setText("Číslo katastra * ");
-
-        jTextFieldSelectRealtiesOfOwnerCadasterId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých nehnuteľností majiteľa aj s podielmi (9)"));
-
-        jLabel33.setText("Rodné číslo * ");
-
-        jButton13.setText("Vypíš");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        jTextFieldSelectAllRealtiesOfOwnerRC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextFieldSelectAllRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectAllRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder("Vyhľadanie obyvateľa podľa rodného čísla a výpis jeho trvalého pobytu (2)"));
 
         jLabel34.setText("Rodné číslo * ");
@@ -941,7 +794,7 @@ public class Main extends javax.swing.JDialog {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextFieldSelect2RC, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -956,86 +809,6 @@ public class Main extends javax.swing.JDialog {
                     .addComponent(jLabel34)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (3)"));
-        jPanel23.setToolTipText("");
-
-        jLabel37.setText("Číslo katastra * ");
-
-        jTextFieldSelect3CadasterId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelect3CadasterIdActionPerformed(evt);
-            }
-        });
-
-        jButton17.setText("Vypíš");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
-
-        jTextFieldSelect3LetterId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelect3LetterIdActionPerformed(evt);
-            }
-        });
-
-        jLabel39.setText("Číslo listu* ");
-
-        jTextFieldSelect3RealtyId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelect3RealtyIdActionPerformed(evt);
-            }
-        });
-
-        jLabel40.setText("Súpisné číslo* ");
-
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldSelect3CadasterId)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
-                .addGap(16, 16, 16)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel23Layout.createSequentialGroup()
-                            .addComponent(jLabel37)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldSelect3CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel23Layout.createSequentialGroup()
-                            .addComponent(jLabel39)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel23Layout.createSequentialGroup()
-                            .addComponent(jLabel40)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Vyhľadanie nehnuteľnosti podľa súp. čísla a čísla / názvu kat. územia.  (1,5)"));
@@ -1102,6 +875,70 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Vyhľadanie nehnuteľnosti podľa súp. čísla a čísla / názvu kat. územia.  (1,5)"));
+        jPanel24.setToolTipText("");
+
+        jLabel38.setText("Číslo listu* ");
+
+        jTextFieldSelect4_6LetterId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect4_6LetterId1ActionPerformed(evt);
+            }
+        });
+
+        jLabel41.setText("Číslo / názov katastra * ");
+
+        jTextFieldSelect4_6CadasterID_Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect4_6CadasterID_NameActionPerformed(evt);
+            }
+        });
+
+        jComboBoxSelect4_6CadasterID_Name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Podľa názvu katastra", "Podľa čísla katastra" }));
+
+        jButton18.setText("Vypíš");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect4_6LetterId1)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect4_6CadasterID_Name)
+                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxSelect4_6CadasterID_Name, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel41)
+                    .addComponent(jComboBoxSelect4_6CadasterID_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect4_6LetterId1)
+                    .addComponent(jTextFieldSelect4_6CadasterID_Name)
+                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1109,54 +946,307 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
-        jTabbedPane8.addTab("Zobraziť", jPanel6);
+        jTabbedPane8.addTab("Vyhľadanie", jPanel6);
+
+        jButton3.setText("Zobraz katastre podľa mena");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Zobraz katastre podľa  id");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností v zadanom katastrálnom území (7)"));
+
+        jLabel17.setText("Názov katastra * ");
+
+        jTextFieldSelectRealtiesNameCadaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectRealtiesNameCadasterActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Vypíš");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSelectRealtiesNameCadaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých nehnuteľností majiteľa aj s podielmi (9)"));
+
+        jLabel33.setText("Rodné číslo * ");
+
+        jButton13.setText("Vypíš");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldSelectAllRealtiesOfOwnerRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextFieldSelectAllRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSelectAllRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis nehnuteľností majiteľa v konkretnom katastri aj s podielmi (8)"));
+        jPanel19.setToolTipText("");
+
+        jLabel25.setText("Rodné číslo * ");
+
+        jTextFieldSelectRealtiesOfOwnerRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectRealtiesOfOwnerRCActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Vypíš");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Číslo katastra * ");
+
+        jTextFieldSelectRealtiesOfOwnerCadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSelectRealtiesOfOwnerRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSelectRealtiesOfOwnerCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder("Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (3)"));
+        jPanel23.setToolTipText("");
+
+        jLabel37.setText("Číslo katastra * ");
+
+        jTextFieldSelect3CadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3CadasterIdActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("Vypíš");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldSelect3LetterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3LetterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel39.setText("Číslo listu* ");
+
+        jTextFieldSelect3RealtyId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelect3RealtyIdActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Súpisné číslo* ");
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect3CadasterId)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel37)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel39)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3LetterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel23Layout.createSequentialGroup()
+                            .addComponent(jLabel40)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldSelect3RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(236, Short.MAX_VALUE))
+        );
+
+        jTabbedPane8.addTab("Výpis", jPanel7);
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 625, Short.MAX_VALUE)
         );
 
-        jTabbedPane8.addTab("Import/Export", jPanel7);
+        jTabbedPane8.addTab("Import/Export", jPanel25);
 
         jLabel22.setText("Počet katastrov *");
 
@@ -1303,7 +1393,7 @@ public class Main extends javax.swing.JDialog {
                             .addComponent(jLabel22)
                             .addComponent(jLabel23)
                             .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jTextFieldGeneratorLettersCountOnCadaster, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
@@ -1316,7 +1406,7 @@ public class Main extends javax.swing.JDialog {
                             .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 173, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -1340,7 +1430,7 @@ public class Main extends javax.swing.JDialog {
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addComponent(jButton11)
                 .addContainerGap())
         );
@@ -1355,10 +1445,9 @@ public class Main extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jTabbedPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jTextPaneConsole);
@@ -1374,11 +1463,12 @@ public class Main extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1413,424 +1503,14 @@ public class Main extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldIdCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdCadasterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdCadasterActionPerformed
-
-    private void jTextFieldNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameCadasterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNameCadasterActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String id = jTextFieldIdCadaster.getText();
-        String name = jTextFieldNameCadaster.getText();
-
-        if (isEmptyTextField(id)
-                || isEmptyTextField(name)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        String result = tryParseToInteger(id);
-        if (result != null) {
-            JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        boolean addedResult = core.addCadaster(getInt(id), name);
-        if (addedResult) {
-            addToConsole("Úspešne vloženie katastra.                          \n"
-                    + "******************************************************\n"
-                    + " id: " + id + "\n"
-                    + " názov: " + name + "\n"
-                    + "******************************************************", State.SUC);
-        } else {
-            addToConsole("Neúspešne vloženie katastra.                          \n"
-                    + "******************************************************\n"
-                    + " id: " + id + "\n"
-                    + " názov: " + name + "\n"
-                    + "******************************************************", State.ERR);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        selectAllCadaster(core.selectAllCadastersByName());
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        selectAllCadaster(core.selectAllCadastersById());
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jTextPaneConsole.setText("");
         configTextPane();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameActionPerformed
+    private void jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String firstName = jTextFieldFirstName.getText();
-        String lastName = jTextFieldLastName.getText();
-        String RC = jTextFieldRC.getText();
-        Date birthDate = jXDatePickerBirthDate.getDate();
-
-        if (isEmptyTextField(firstName)
-                || isEmptyTextField(lastName)
-                || isEmptyTextField(RC)
-                || birthDate == null) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        boolean addedResult = core.addPerson(firstName, lastName, RC, birthDate);
-        if (addedResult) {
-            addToConsole("Úspešne vloženie obyvateľa.                          \n"
-                    + "******************************************************\n"
-                    + " meno: " + firstName + "\n"
-                    + " priezvisko: " + lastName + "\n"
-                    + " RČ: " + RC + "\n"
-                    + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
-                    + "******************************************************", State.SUC);
-        } else {
-            addToConsole("Neúspešne vloženie obyvateľa.                          \n"
-                    + "******************************************************\n"
-                    + " meno: " + firstName + "\n"
-                    + " priezvisko: " + lastName + "\n"
-                    + " RČ: " + RC + "\n"
-                    + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
-                    + "******************************************************", State.ERR);
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextFieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldLastNameActionPerformed
-
-    private void jTextFieldRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRCActionPerformed
-
-    private void jTextFieldIdLetterOfOwnershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdLetterOfOwnershipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdLetterOfOwnershipActionPerformed
-
-    private void jTextFieldLetterOfOwnershipIdCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLetterOfOwnershipIdCadasterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldLetterOfOwnershipIdCadasterActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String idLetter = jTextFieldIdLetterOfOwnership.getText();
-        String idCadaster = jTextFieldLetterOfOwnershipIdCadaster.getText();
-
-        if (isEmptyTextField(idLetter)
-                || isEmptyTextField(idCadaster)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        String result = tryParseToInteger(idLetter);
-        String result2 = tryParseToInteger(idCadaster);
-        if (result != null || result2 != null) {
-            JOptionPane.showMessageDialog(this,
-                    "Zadali ste text do poľa určeného pre číslo.",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        boolean addedResult = core.addLatterOfOwnership(getInt(idCadaster), getInt(idLetter));
-        if (addedResult) {
-            addToConsole("Úspešne vloženie listu vlastníctva.                          \n"
-                    + "******************************************************\n"
-                    + " id: " + idCadaster + "\n"
-                    + " názov: " + idLetter + "\n"
-                    + "******************************************************", State.SUC);
-        } else {
-            addToConsole("Neúspešne vloženie listu vlastníctva.                          \n"
-                    + "******************************************************\n"
-                    + " id: " + idCadaster + "\n"
-                    + " názov: " + idLetter + "\n"
-                    + "******************************************************", State.ERR);
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jTextFieldRealtyLetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyLetterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRealtyLetterIdActionPerformed
-
-    private void jTextFieldRealtyCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyCadasterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRealtyCadasterIdActionPerformed
-
-    private void jTextFieldRealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRealtyIdActionPerformed
-
-    private void jTextFieldRealtyAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyAddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRealtyAddressActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String idLetter = jTextFieldRealtyLetterId.getText();
-        String idCadaster = jTextFieldRealtyCadasterId.getText();
-        String idRealty = jTextFieldRealtyId.getText();
-        String address = jTextFieldRealtyAddress.getText();
-        String desc = jTextFieldRealtyDescription.getText();
-
-        if (isEmptyTextField(idLetter)
-                || isEmptyTextField(idCadaster)
-                || isEmptyTextField(idRealty)
-                || isEmptyTextField(address)
-                || isEmptyTextField(desc)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        String result = tryParseToInteger(idLetter);
-        String result2 = tryParseToInteger(idCadaster);
-        String result3 = tryParseToInteger(idRealty);
-        if (result != null || result2 != null || result3 != null) {
-            JOptionPane.showMessageDialog(this,
-                    "Zadali ste text do poľa určeného pre číslo.",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        int addedResult = core.addRealty(getInt(idCadaster), getInt(idLetter), getInt(idRealty), address, desc);
-        String message = new String();
-        switch (addedResult) {
-            case 0:
-                message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
-                break;
-            case -1:
-                message = "Úspešne vloženie nehnuteľnosti na list vlastníctva. Ale neúspešne vloženie nehnuteľnosti do katastra\n";
-                break;
-            case -2:
-                message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva.\n";
-                break;
-            case -3:
-                message = "List vlastníctva sa nenašiel.\n";
-                break;
-            case -4:
-                message = "Kataster sa nenašiel\n";
-                break;
-        }
-        message += "******************************************************\n"
-                + " súpisné číslo: " + idRealty + "\n"
-                + " číslo lisu vlastníctva: " + idLetter + "\n"
-                + " číslo katastru: " + idCadaster + "\n"
-                + " adresa: " + address + "\n"
-                + " popis: " + desc + "\n"
-                + "******************************************************";
-        if (addedResult == 0) {
-            addToConsole(message, State.SUC);
-        } else {
-            addToConsole(message, State.ERR);
-        }
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jTextFieldOwnershipRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldOwnershipRCActionPerformed
-
-    private void jTextFieldOwnershipCadasterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipCadasterIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldOwnershipCadasterIDActionPerformed
-
-    private void jTextFieldOwnershipLetterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipLetterIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldOwnershipLetterIDActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        String cadasterName = jTextFieldPrimaryResidencCadasterName.getText();
-        String idRealty = jTextFieldPrimaryResidenceRealtyID.getText();
-        String rc = jTextFieldPrimaryResidenceRC.getText();
-
-        if (isEmptyTextField(cadasterName)
-                || isEmptyTextField(idRealty)
-                || isEmptyTextField(rc)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        String result = tryParseToInteger(idRealty);
-        if (result != null) {
-            JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        int addedResult = core.addOrChangePernamentResidence(cadasterName, rc, getInt(idRealty));
-        String message = new String();
-        switch (addedResult) {
-            case 0:
-                message = "Úspešne zapísanie nového trvalého pobytu obyvateľa .\n";
-                break;
-            case -1:
-                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Nehnúteľnosť sa nenašla.\n";
-                break;
-            case -2:
-                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Kataster sa nenašiel.\n";
-                break;
-            case -3:
-                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Osoba sa nenašla.\n";
-                break;
-        }
-        message += "******************************************************\n"
-                + " názov katastra: " + cadasterName + "\n"
-                + " súpisné číslo: " + idRealty + "\n"
-                + " rodné číslo: " + rc + "\n"
-                + "******************************************************";
-        if (addedResult == 0) {
-            addToConsole(message, State.SUC);
-        } else {
-            addToConsole(message, State.ERR);
-        }
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jTextFieldSelectRealtiesNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        String cadasterName = jTextFieldSelectRealtiesNameCadaster.getText();
-
-        if (isEmptyTextField(cadasterName)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject result = core.selectAllRealitiesInCadaster(cadasterName);
-        if (result.get("err") != null) {
-            String message = result.get("err").getAsString() + "\n";
-            message += "******************************************************\n"
-                    + " názov katastra: " + cadasterName + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.ERR);
-            return;
-        }
-
-        String rowsHtml = "";
-        for (JsonElement jsonElement : result.get("realties").getAsJsonArray()) {
-            JsonObject realty = (JsonObject) jsonElement;
-            ArrayList<String> dataArr = new ArrayList<>();
-            dataArr.add(realty.get("id").getAsString());
-            dataArr.add(realty.get("address").getAsString());
-            dataArr.add(realty.get("desc").getAsString());
-
-            rowsHtml += "\n";
-            rowsHtml += managerHTML.createTableRow(dataArr);
-        }
-
-        String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
-        String headerHtml = managerHTML.createTableHeader(headerArr);
-        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-        addHtmlComponent(tableHtml);
-        addHtmlComponent("<br>");
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jTextFieldPrimaryResidenceRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidenceRCActionPerformed
-
-    private void jTextFieldPrimaryResidencCadasterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
-
-    private void jTextFieldPrimaryResidenceRealtyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String idCadaster = jTextFieldOwnershipCadasterID.getText();
-        String idLetter = jTextFieldOwnershipLetterID.getText();
-        String rc = jTextFieldOwnershipRC.getText();
-        String share = jTextFieldOwnershipPercents.getText();
-
-        if (isEmptyTextField(idCadaster)
-                || isEmptyTextField(idLetter)
-                || isEmptyTextField(rc)
-                || isEmptyTextField(share)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        String result = tryParseToInteger(idCadaster);
-        String result2 = tryParseToInteger(idLetter);
-        String result3 = tryParseToInteger(share);
-        if (result != null || result2 != null || result3 != null) {
-            JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if (getInt(share) <= 0) {
-            JOptionPane.showMessageDialog(this,
-                    "Zadajte kladnú hodnotu podielu",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
-        String message = new String();
-        State state;
-        if (response.get("err") != null) {
-            message = response.get("err").getAsString() + "\n";
-            state = State.ERR;
-        } else {
-            JsonObject responseFromSet = null;
-            if (response.get("ownerships") != null) {
-                DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, response);
-                if (dialogOwners.isCancel()) {
-                    return;
-                }
-                responseFromSet = core.setOwnershipShares(getInt(idCadaster), getInt(idLetter), dialogOwners.getOwners());
-            }
-            message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
-            state = State.SUC;
-            if (responseFromSet != null && response.get("err") != null) {
-                message = responseFromSet.get("err").getAsString() + "\n";
-                state = State.ERR;
-            }
-        }
-        message += "******************************************************\n"
-                + " číslo katastra: " + idCadaster + "\n"
-                + " číslo listu vlastníctva: " + idLetter + "\n"
-                + " rodné číslo: " + rc + "\n"
-                + " podiel: " + share + " %\n"
-                + "******************************************************";
-        addToConsole(message, state);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jTextFieldOwnershipPercentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipPercentsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldOwnershipPercentsActionPerformed
+    }//GEN-LAST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         String personsCount = jTextFieldGeneratorPersonsCount.getText();
@@ -1844,18 +1524,18 @@ public class Main extends javax.swing.JDialog {
         String ownershipCountTo = jTextFieldGeneratorOwnershipCountOnLetterTo.getText();
 
         if (isEmptyTextField(personsCount)
-                || isEmptyTextField(cdastersCount)
-                || isEmptyTextField(letterOnCadasterCount)
-                || isEmptyTextField(realtiesCountFrom)
-                || isEmptyTextField(realtiesCountTo)
-                || isEmptyTextField(personsCountFrom)
-                || isEmptyTextField(personsCountTo)
-                || isEmptyTextField(ownershipCountFrom)
-                || isEmptyTextField(ownershipCountTo)) {
+            || isEmptyTextField(cdastersCount)
+            || isEmptyTextField(letterOnCadasterCount)
+            || isEmptyTextField(realtiesCountFrom)
+            || isEmptyTextField(realtiesCountTo)
+            || isEmptyTextField(personsCountFrom)
+            || isEmptyTextField(personsCountTo)
+            || isEmptyTextField(ownershipCountFrom)
+            || isEmptyTextField(ownershipCountTo)) {
             JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -1873,319 +1553,157 @@ public class Main extends javax.swing.JDialog {
         for (String result : results) {
             if (result != null) {
                 JOptionPane.showMessageDialog(this,
-                        result,
-                        "Pozor",
-                        JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
 
         core.generateData(
-                getInt(cdastersCount),
-                getInt(letterOnCadasterCount),
-                0,
-                getInt(realtiesCountFrom),
-                getInt(realtiesCountTo),
-                getInt(personsCount),
-                getInt(personsCountFrom),
-                getInt(personsCountTo),
-                getInt(ownershipCountFrom),
-                getInt(ownershipCountTo)
+            getInt(cdastersCount),
+            getInt(letterOnCadasterCount),
+            0,
+            getInt(realtiesCountFrom),
+            getInt(realtiesCountTo),
+            getInt(personsCount),
+            getInt(personsCountFrom),
+            getInt(personsCountTo),
+            getInt(ownershipCountFrom),
+            getInt(ownershipCountTo)
         );
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldGeneratorOwnershipCountOnLetterToActionPerformed
-
-    private void jTextFieldSelectRealtiesOfOwnerRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerRCActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        String cadasterId = jTextFieldSelectRealtiesOfOwnerCadasterId.getText();
-        String Rc = jTextFieldSelectRealtiesOfOwnerRC.getText();
-        if (isEmptyTextField(cadasterId)
-                || isEmptyTextField(Rc)) {
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String letterId = jTextFieldSelect4_6LetterId1.getText();
+        String cadasterIdOrName = jTextFieldSelect4_6CadasterID_Name.getText();
+        boolean isById = jComboBoxSelect4_6CadasterID_Name.getSelectedIndex() == 1;
+        if (isEmptyTextField(letterId)
+            || isEmptyTextField(cadasterIdOrName)) {
             JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String result = tryParseToInteger(cadasterId);
+        String result = tryParseToInteger(letterId);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject resultObject = core.selectAllRealitiesOfOwnerByCadaster(Rc, getInt(cadasterId));
-        if (resultObject.get("err") != null) {
-            String message = resultObject.get("err").getAsString() + "\n";
-            message += "******************************************************\n"
-                    + " číslo katastra: " + cadasterId + "\n"
-                    + " rodné číslo: " + Rc + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.ERR);
-            return;
-        }
-
-        for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
-            JsonObject owner = (JsonObject) jsonElement;
-            String message = "******************************************************\n"
-                    + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
-                    + " podliel: " + owner.get("share").getAsString() + "\n"
-                    + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.SUC);
-
-            String rowsHtml = "";
-            for (JsonElement realtyElement : owner.get("realties").getAsJsonArray()) {
-                JsonObject realty = (JsonObject) realtyElement;
-                ArrayList<String> dataArr = new ArrayList<>();
-                dataArr.add(realty.get("id").getAsString());
-                dataArr.add(realty.get("address").getAsString());
-                dataArr.add(realty.get("desc").getAsString());
-
-                rowsHtml += "\n";
-                rowsHtml += managerHTML.createTableRow(dataArr);
-
-            }
-            String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
-            String headerHtml = managerHTML.createTableHeader(headerArr);
-            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-            addHtmlComponent(tableHtml);
-            addHtmlComponent("<br>");
-        }
-        if (resultObject.get("realtiesOfOwner").getAsJsonArray().size() == 0) {
-            String message = "Majiteľ nevlastní žiadný majetok v zadanom katastri\n"
-                    + "******************************************************\n"
-                    + " číslo katastra: " + cadasterId + "\n"
-                    + " rodné číslo: " + Rc + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.NON);
-        }
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        String Rc = jTextFieldSelectAllRealtiesOfOwnerRC.getText();
-        if (isEmptyTextField(Rc)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject resultObject = core.selectAllRealitiesOfOwner(Rc);
-        if (resultObject.get("err") != null) {
-            String message = resultObject.get("err").getAsString() + "\n";
-            message += "******************************************************\n"
-                    + " rodné číslo: " + Rc + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.ERR);
-            return;
-        }
-
-        for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
-            JsonObject owner = (JsonObject) jsonElement;
-            String message = "******************************************************\n"
-                    + " číslo katastru: " + owner.get("idCadaster").getAsString() + "\n"
-                    + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
-                    + " podliel: " + owner.get("share").getAsString() + "\n"
-                    + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.SUC);
-
-            String rowsHtml = "";
-            for (JsonElement realtyElement : owner.get("realties").getAsJsonArray()) {
-                JsonObject realty = (JsonObject) realtyElement;
-                ArrayList<String> dataArr = new ArrayList<>();
-                dataArr.add(realty.get("id").getAsString());
-                dataArr.add(realty.get("address").getAsString());
-                dataArr.add(realty.get("desc").getAsString());
-
-                rowsHtml += "\n";
-                rowsHtml += managerHTML.createTableRow(dataArr);
-            }
-
-            String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
-            String headerHtml = managerHTML.createTableHeader(headerArr);
-            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-            addHtmlComponent(tableHtml);
-            addHtmlComponent("<br>");
-            addHtmlComponent("<br>");
-        }
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, null);
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jTextFieldSelect2RCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect2RCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelect2RCActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        String Rc = jTextFieldSelect2RC.getText();
-        if (isEmptyTextField(Rc)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject resultObject = core.selectPernamentResidenceByRC(Rc);
-        if (resultObject.get("err") != null) {
-            String message = resultObject.get("err").getAsString() + "\n";
-            message += "******************************************************\n"
-                    + " rodné číslo: " + Rc + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.ERR);
-            return;
-        }
-
-        String message = "******************************************************\n"
-                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
-                + " adresa: " + resultObject.get("address").getAsString() + "\n"
-                + " popis: " + resultObject.get("desc").getAsString() + "\n"
-                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
-                + " číslo katastra: " + resultObject.get("idCadaster").getAsString() + "\n"
-                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
-                + "******************************************************";
-        addToConsole(message, State.SUC);
-
-        String rowsHtml = "";
-        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
-            JsonObject person = (JsonObject) personElement;
-            ArrayList<String> dataArr = new ArrayList<>();
-            dataArr.add(person.get("rc").getAsString());
-            dataArr.add(person.get("firstName").getAsString());
-            dataArr.add(person.get("lastName").getAsString());
-            dataArr.add(person.get("birthDate").getAsString());
-
-            rowsHtml += "\n";
-            rowsHtml += managerHTML.createTableRow(dataArr);
-        }
-
-        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
-        String headerHtml = managerHTML.createTableHeader(headerArr);
-        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-        addHtmlComponent(tableHtml);
-        addHtmlComponent("<br>");
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
-
-    private void jTextFieldSelect3CadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3CadasterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelect3CadasterIdActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        String cadasterId = jTextFieldSelect3CadasterId.getText();
-        String letterId = jTextFieldSelect3LetterId.getText();
-        String realtyId = jTextFieldSelect3RealtyId.getText();
-        if (isEmptyTextField(cadasterId)
-                || isEmptyTextField(letterId)
-                || isEmptyTextField(realtyId)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        String result = tryParseToInteger(cadasterId);
-        String result2 = tryParseToInteger(letterId);
-        String result3 = tryParseToInteger(realtyId);
-        if (result != null || result2 != null || result3 != null) {
-            JOptionPane.showMessageDialog(this,
-                    "Zadali ste text do poľa určeného pre číslo.",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        JsonObject resultObject = core.selectPermanentResidencePersons(getInt(cadasterId), getInt(letterId), getInt(realtyId));
-        if (resultObject.get("err") != null) {
-            String message = resultObject.get("err").getAsString() + "\n";
-            message += "******************************************************\n"
-                    + " číslo katastra: " + cadasterId + "\n"
-                    + " číslo listu vlastníctva: " + letterId + "\n"
-                    + " súpisné číslo: " + realtyId + "\n"
-                    + "******************************************************";
-            addToConsole(message, State.ERR);
-            return;
-        }
-
-        String rowsHtml = "";
-        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
-            JsonObject person = (JsonObject) personElement;
-            ArrayList<String> dataArr = new ArrayList<>();
-            dataArr.add(person.get("rc").getAsString());
-            dataArr.add(person.get("firstName").getAsString());
-            dataArr.add(person.get("lastName").getAsString());
-            dataArr.add(person.get("birthDate").getAsString());
-
-            rowsHtml += "\n";
-            rowsHtml += managerHTML.createTableRow(dataArr);
-        }
-
-        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
-        String headerHtml = managerHTML.createTableHeader(headerArr);
-        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-        addHtmlComponent(tableHtml);
-        addHtmlComponent("<br>");
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jTextFieldSelect3LetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3LetterIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelect3LetterIdActionPerformed
-
-    private void jTextFieldSelect3RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3RealtyIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelect3RealtyIdActionPerformed
-
-    private void jTextFieldSelect1_5RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect1_5RealtyIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelect1_5RealtyIdActionPerformed
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        String realtyId = jTextFieldSelect1_5RealtyId.getText();
-        String cadasterIdOrName = jTextFieldSelect1_5CadasterID_Name.getText();
-        boolean isById = jComboBoxSelect1_5CadasterID_Name.getSelectedIndex() == 1;
-        if (isEmptyTextField(realtyId)
-                || isEmptyTextField(cadasterIdOrName)) {
-            JOptionPane.showMessageDialog(this,
-                    "Vyplnte všetky polička označene hviezdičkou(*)",
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        String result = tryParseToInteger(realtyId);
-        if (result != null) {
-            JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (isById) {
             result = tryParseToInteger(cadasterIdOrName);
             if (result != null) {
                 JOptionPane.showMessageDialog(this,
-                        result,
-                        "Pozor",
-                        JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+        
+        JsonObject resultObject = core.selectLetterOfOwnershipByLetterId_CadasterIdOrName(getInt(letterId), cadasterIdOrName, isById);
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " súpisné číslo: " + letterId + "\n"
+            + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+        
+        if (resultObject.get("letter") != null) {
+            String message = "****************************************************** Informácie o liste vlastníctva ***************************************************************\n"
+                    + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
+                    + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
+                    + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
+                    + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
+                    + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
+                    + "*********************************************************************************************************************************************************";
+            addToConsole(message, State.SUC);
+
+            if (resultObject.get("letter").getAsJsonObject().get("realties") != null) {
+                String rowsHtml = "";
+                for (JsonElement realtyElement : resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray()) {
+                    JsonObject realty = (JsonObject) realtyElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(realty.get("id").getAsString());
+                    dataArr.add(realty.get("address").getAsString());
+                    dataArr.add(realty.get("desc").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                String[] headerArr = new String[]{"Súpisné číslo", "Adresa", "popis",};
+                String headerHtml = managerHTML.createTableHeader(headerArr);
+                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+            if (resultObject.get("letter").getAsJsonObject().get("ownerships") != null) {
+                String rowsHtml = "";
+                for (JsonElement ownerElement : resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray()) {
+                    JsonObject owner = (JsonObject) ownerElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(owner.get("rc").getAsString());
+                    dataArr.add(owner.get("firstName").getAsString());
+                    dataArr.add(owner.get("lastName").getAsString());
+                    dataArr.add(owner.get("birthDate").getAsString());
+                    dataArr.add(owner.get("share").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                String[] headerArr = new String[]{"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia", "podiel"};
+                String headerHtml = managerHTML.createTableHeader(headerArr);
+                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTextFieldSelect4_6CadasterID_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect4_6CadasterID_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect4_6CadasterID_NameActionPerformed
+
+    private void jTextFieldSelect4_6LetterId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect4_6LetterId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect4_6LetterId1ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        String realtyId = jTextFieldSelect1_5RealtyId.getText();
+        String cadasterIdOrName = jTextFieldSelect1_5CadasterID_Name.getText();
+        boolean isById = jComboBoxSelect1_5CadasterID_Name.getSelectedIndex() == 1;
+        if (isEmptyTextField(realtyId)
+            || isEmptyTextField(cadasterIdOrName)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(realtyId);
+        if (result != null) {
+            JOptionPane.showMessageDialog(this,
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (isById) {
+            result = tryParseToInteger(cadasterIdOrName);
+            if (result != null) {
+                JOptionPane.showMessageDialog(this,
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
@@ -2193,20 +1711,20 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-                    + " súpisné číslo: " + realtyId + "\n"
-                    + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
-                    + "******************************************************";
+            + " súpisné číslo: " + realtyId + "\n"
+            + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
+            + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
 
         String message = "******************************************************\n"
-                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
-                + " adresa: " + resultObject.get("address").getAsString() + "\n"
-                + " popis: " + resultObject.get("desc").getAsString() + "\n"
-                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
-                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
-                + "******************************************************";
+        + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+        + " adresa: " + resultObject.get("address").getAsString() + "\n"
+        + " popis: " + resultObject.get("desc").getAsString() + "\n"
+        + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+        + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+        + "******************************************************";
         addToConsole(message, State.SUC);
 
         String rowsHtml = "";
@@ -2230,12 +1748,12 @@ public class Main extends javax.swing.JDialog {
 
         if (resultObject.get("letter") != null) {
             message = "****************************************************** Informácie o liste vlastníctva ***************************************************************\n"
-                    + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
-                    + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
-                    + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
-                    + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
-                    + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
-                    + "*********************************************************************************************************************************************************";
+            + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
+            + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
+            + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
+            + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
+            + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
+            + "*********************************************************************************************************************************************************";
             addToConsole(message, State.SUC);
 
             if (resultObject.get("letter").getAsJsonObject().get("realties") != null) {
@@ -2281,6 +1799,681 @@ public class Main extends javax.swing.JDialog {
     private void jTextFieldSelect1_5CadasterID_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect1_5CadasterID_NameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSelect1_5CadasterID_NameActionPerformed
+
+    private void jTextFieldSelect1_5RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect1_5RealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect1_5RealtyIdActionPerformed
+
+    private void jTextFieldSelect3RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3RealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3RealtyIdActionPerformed
+
+    private void jTextFieldSelect3LetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3LetterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3LetterIdActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        String cadasterId = jTextFieldSelect3CadasterId.getText();
+        String letterId = jTextFieldSelect3LetterId.getText();
+        String realtyId = jTextFieldSelect3RealtyId.getText();
+        if (isEmptyTextField(cadasterId)
+            || isEmptyTextField(letterId)
+            || isEmptyTextField(realtyId)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(cadasterId);
+        String result2 = tryParseToInteger(letterId);
+        String result3 = tryParseToInteger(realtyId);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                "Zadali ste text do poľa určeného pre číslo.",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectPermanentResidencePersons(getInt(cadasterId), getInt(letterId), getInt(realtyId));
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " číslo katastra: " + cadasterId + "\n"
+            + " číslo listu vlastníctva: " + letterId + "\n"
+            + " súpisné číslo: " + realtyId + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String rowsHtml = "";
+        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
+            JsonObject person = (JsonObject) personElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(person.get("rc").getAsString());
+            dataArr.add(person.get("firstName").getAsString());
+            dataArr.add(person.get("lastName").getAsString());
+            dataArr.add(person.get("birthDate").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jTextFieldSelect3CadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect3CadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect3CadasterIdActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        String Rc = jTextFieldSelect2RC.getText();
+        if (isEmptyTextField(Rc)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectPernamentResidenceByRC(Rc);
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " rodné číslo: " + Rc + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String message = "******************************************************\n"
+        + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+        + " adresa: " + resultObject.get("address").getAsString() + "\n"
+        + " popis: " + resultObject.get("desc").getAsString() + "\n"
+        + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+        + " číslo katastra: " + resultObject.get("idCadaster").getAsString() + "\n"
+        + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+        + "******************************************************";
+        addToConsole(message, State.SUC);
+
+        String rowsHtml = "";
+        for (JsonElement personElement : resultObject.get("permanentResidencePersons").getAsJsonArray()) {
+            JsonObject person = (JsonObject) personElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(person.get("rc").getAsString());
+            dataArr.add(person.get("firstName").getAsString());
+            dataArr.add(person.get("lastName").getAsString());
+            dataArr.add(person.get("birthDate").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Rodné číslo", "Meno", "Priezvisko", "Dátum narodenia"};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jTextFieldSelect2RCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelect2RCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelect2RCActionPerformed
+
+    private void jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectAllRealtiesOfOwnerRCActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        String Rc = jTextFieldSelectAllRealtiesOfOwnerRC.getText();
+        if (isEmptyTextField(Rc)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectAllRealitiesOfOwner(Rc);
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " rodné číslo: " + Rc + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
+            JsonObject owner = (JsonObject) jsonElement;
+            String message = "******************************************************\n"
+            + " číslo katastru: " + owner.get("idCadaster").getAsString() + "\n"
+            + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
+            + " podliel: " + owner.get("share").getAsString() + "\n"
+            + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
+            + "******************************************************";
+            addToConsole(message, State.SUC);
+
+            String rowsHtml = "";
+            for (JsonElement realtyElement : owner.get("realties").getAsJsonArray()) {
+                JsonObject realty = (JsonObject) realtyElement;
+                ArrayList<String> dataArr = new ArrayList<>();
+                dataArr.add(realty.get("id").getAsString());
+                dataArr.add(realty.get("address").getAsString());
+                dataArr.add(realty.get("desc").getAsString());
+
+                rowsHtml += "\n";
+                rowsHtml += managerHTML.createTableRow(dataArr);
+            }
+
+            String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
+            String headerHtml = managerHTML.createTableHeader(headerArr);
+            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+            addHtmlComponent(tableHtml);
+            addHtmlComponent("<br>");
+            addHtmlComponent("<br>");
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerCadasterIdActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        String cadasterId = jTextFieldSelectRealtiesOfOwnerCadasterId.getText();
+        String Rc = jTextFieldSelectRealtiesOfOwnerRC.getText();
+        if (isEmptyTextField(cadasterId)
+            || isEmptyTextField(Rc)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(cadasterId);
+        if (result != null) {
+            JOptionPane.showMessageDialog(this,
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject resultObject = core.selectAllRealitiesOfOwnerByCadaster(Rc, getInt(cadasterId));
+        if (resultObject.get("err") != null) {
+            String message = resultObject.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " číslo katastra: " + cadasterId + "\n"
+            + " rodné číslo: " + Rc + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
+            JsonObject owner = (JsonObject) jsonElement;
+            String message = "******************************************************\n"
+            + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
+            + " podliel: " + owner.get("share").getAsString() + "\n"
+            + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
+            + "******************************************************";
+            addToConsole(message, State.SUC);
+
+            String rowsHtml = "";
+            for (JsonElement realtyElement : owner.get("realties").getAsJsonArray()) {
+                JsonObject realty = (JsonObject) realtyElement;
+                ArrayList<String> dataArr = new ArrayList<>();
+                dataArr.add(realty.get("id").getAsString());
+                dataArr.add(realty.get("address").getAsString());
+                dataArr.add(realty.get("desc").getAsString());
+
+                rowsHtml += "\n";
+                rowsHtml += managerHTML.createTableRow(dataArr);
+
+            }
+            String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
+            String headerHtml = managerHTML.createTableHeader(headerArr);
+            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+            addHtmlComponent(tableHtml);
+            addHtmlComponent("<br>");
+        }
+        if (resultObject.get("realtiesOfOwner").getAsJsonArray().size() == 0) {
+            String message = "Majiteľ nevlastní žiadný majetok v zadanom katastri\n"
+            + "******************************************************\n"
+            + " číslo katastra: " + cadasterId + "\n"
+            + " rodné číslo: " + Rc + "\n"
+            + "******************************************************";
+            addToConsole(message, State.NON);
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jTextFieldSelectRealtiesOfOwnerRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesOfOwnerRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectRealtiesOfOwnerRCActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String cadasterName = jTextFieldSelectRealtiesNameCadaster.getText();
+
+        if (isEmptyTextField(cadasterName)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject result = core.selectAllRealitiesInCadaster(cadasterName);
+        if (result.get("err") != null) {
+            String message = result.get("err").getAsString() + "\n";
+            message += "******************************************************\n"
+            + " názov katastra: " + cadasterName + "\n"
+            + "******************************************************";
+            addToConsole(message, State.ERR);
+            return;
+        }
+
+        String rowsHtml = "";
+        for (JsonElement jsonElement : result.get("realties").getAsJsonArray()) {
+            JsonObject realty = (JsonObject) jsonElement;
+            ArrayList<String> dataArr = new ArrayList<>();
+            dataArr.add(realty.get("id").getAsString());
+            dataArr.add(realty.get("address").getAsString());
+            dataArr.add(realty.get("desc").getAsString());
+
+            rowsHtml += "\n";
+            rowsHtml += managerHTML.createTableRow(dataArr);
+        }
+
+        String[] headerArr = {"Súpisné číslo", "Adresa", "popis",};
+        String headerHtml = managerHTML.createTableHeader(headerArr);
+        String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+        addHtmlComponent(tableHtml);
+        addHtmlComponent("<br>");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextFieldSelectRealtiesNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectRealtiesNameCadasterActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        selectAllCadaster(core.selectAllCadastersById());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        String cadasterName = jTextFieldPrimaryResidencCadasterName.getText();
+        String idRealty = jTextFieldPrimaryResidenceRealtyID.getText();
+        String rc = jTextFieldPrimaryResidenceRC.getText();
+
+        if (isEmptyTextField(cadasterName)
+            || isEmptyTextField(idRealty)
+            || isEmptyTextField(rc)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String result = tryParseToInteger(idRealty);
+        if (result != null) {
+            JOptionPane.showMessageDialog(this,
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int addedResult = core.addOrChangePernamentResidence(cadasterName, rc, getInt(idRealty));
+        String message = new String();
+        switch (addedResult) {
+            case 0:
+            message = "Úspešne zapísanie nového trvalého pobytu obyvateľa .\n";
+            break;
+            case -1:
+            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Nehnúteľnosť sa nenašla.\n";
+            break;
+            case -2:
+            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Kataster sa nenašiel.\n";
+            break;
+            case -3:
+            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Osoba sa nenašla.\n";
+            break;
+        }
+        message += "******************************************************\n"
+        + " názov katastra: " + cadasterName + "\n"
+        + " súpisné číslo: " + idRealty + "\n"
+        + " rodné číslo: " + rc + "\n"
+        + "******************************************************";
+        if (addedResult == 0) {
+            addToConsole(message, State.SUC);
+        } else {
+            addToConsole(message, State.ERR);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextFieldPrimaryResidenceRealtyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidenceRealtyIDActionPerformed
+
+    private void jTextFieldPrimaryResidencCadasterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidencCadasterNameActionPerformed
+
+    private void jTextFieldPrimaryResidenceRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrimaryResidenceRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrimaryResidenceRCActionPerformed
+
+    private void jTextFieldOwnershipPercentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipPercentsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOwnershipPercentsActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String idCadaster = jTextFieldOwnershipCadasterID.getText();
+        String idLetter = jTextFieldOwnershipLetterID.getText();
+        String rc = jTextFieldOwnershipRC.getText();
+        String share = jTextFieldOwnershipPercents.getText();
+
+        if (isEmptyTextField(idCadaster)
+            || isEmptyTextField(idLetter)
+            || isEmptyTextField(rc)
+            || isEmptyTextField(share)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String result = tryParseToInteger(idCadaster);
+        String result2 = tryParseToInteger(idLetter);
+        String result3 = tryParseToInteger(share);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (getInt(share) <= 0) {
+            JOptionPane.showMessageDialog(this,
+                "Zadajte kladnú hodnotu podielu",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
+        String message = new String();
+        State state;
+        if (response.get("err") != null) {
+            message = response.get("err").getAsString() + "\n";
+            state = State.ERR;
+        } else {
+            JsonObject responseFromSet = null;
+            if (response.get("ownerships") != null) {
+                DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, response);
+                if (dialogOwners.isCancel()) {
+                    return;
+                }
+                responseFromSet = core.setOwnershipShares(getInt(idCadaster), getInt(idLetter), dialogOwners.getOwners());
+            }
+            message = "Úspešne zapísanie/zmena majetkového podielu majiteľa.\n";
+            state = State.SUC;
+            if (responseFromSet != null && response.get("err") != null) {
+                message = responseFromSet.get("err").getAsString() + "\n";
+                state = State.ERR;
+            }
+        }
+        message += "******************************************************\n"
+        + " číslo katastra: " + idCadaster + "\n"
+        + " číslo listu vlastníctva: " + idLetter + "\n"
+        + " rodné číslo: " + rc + "\n"
+        + " podiel: " + share + " %\n"
+        + "******************************************************";
+        addToConsole(message, state);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextFieldOwnershipLetterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipLetterIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOwnershipLetterIDActionPerformed
+
+    private void jTextFieldOwnershipCadasterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipCadasterIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOwnershipCadasterIDActionPerformed
+
+    private void jTextFieldOwnershipRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOwnershipRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOwnershipRCActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        DialogOwners dialogOwners = new DialogOwners(parent, rootPaneCheckingEnabled, null);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String idLetter = jTextFieldRealtyLetterId.getText();
+        String idCadaster = jTextFieldRealtyCadasterId.getText();
+        String idRealty = jTextFieldRealtyId.getText();
+        String address = jTextFieldRealtyAddress.getText();
+        String desc = jTextFieldRealtyDescription.getText();
+
+        if (isEmptyTextField(idLetter)
+            || isEmptyTextField(idCadaster)
+            || isEmptyTextField(idRealty)
+            || isEmptyTextField(address)
+            || isEmptyTextField(desc)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String result = tryParseToInteger(idLetter);
+        String result2 = tryParseToInteger(idCadaster);
+        String result3 = tryParseToInteger(idRealty);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                "Zadali ste text do poľa určeného pre číslo.",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int addedResult = core.addRealty(getInt(idCadaster), getInt(idLetter), getInt(idRealty), address, desc);
+        String message = new String();
+        switch (addedResult) {
+            case 0:
+            message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+            break;
+            case -1:
+            message = "Úspešne vloženie nehnuteľnosti na list vlastníctva. Ale neúspešne vloženie nehnuteľnosti do katastra\n";
+            break;
+            case -2:
+            message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+            break;
+            case -3:
+            message = "List vlastníctva sa nenašiel.\n";
+            break;
+            case -4:
+            message = "Kataster sa nenašiel\n";
+            break;
+        }
+        message += "******************************************************\n"
+        + " súpisné číslo: " + idRealty + "\n"
+        + " číslo lisu vlastníctva: " + idLetter + "\n"
+        + " číslo katastru: " + idCadaster + "\n"
+        + " adresa: " + address + "\n"
+        + " popis: " + desc + "\n"
+        + "******************************************************";
+        if (addedResult == 0) {
+            addToConsole(message, State.SUC);
+        } else {
+            addToConsole(message, State.ERR);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextFieldRealtyAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRealtyAddressActionPerformed
+
+    private void jTextFieldRealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRealtyIdActionPerformed
+
+    private void jTextFieldRealtyCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyCadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRealtyCadasterIdActionPerformed
+
+    private void jTextFieldRealtyLetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRealtyLetterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRealtyLetterIdActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String idLetter = jTextFieldIdLetterOfOwnership.getText();
+        String idCadaster = jTextFieldLetterOfOwnershipIdCadaster.getText();
+
+        if (isEmptyTextField(idLetter)
+            || isEmptyTextField(idCadaster)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String result = tryParseToInteger(idLetter);
+        String result2 = tryParseToInteger(idCadaster);
+        if (result != null || result2 != null) {
+            JOptionPane.showMessageDialog(this,
+                "Zadali ste text do poľa určeného pre číslo.",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        boolean addedResult = core.addLatterOfOwnership(getInt(idCadaster), getInt(idLetter));
+        if (addedResult) {
+            addToConsole("Úspešne vloženie listu vlastníctva.                          \n"
+                + "******************************************************\n"
+                + " id: " + idCadaster + "\n"
+                + " názov: " + idLetter + "\n"
+                + "******************************************************", State.SUC);
+        } else {
+            addToConsole("Neúspešne vloženie listu vlastníctva.                          \n"
+                + "******************************************************\n"
+                + " id: " + idCadaster + "\n"
+                + " názov: " + idLetter + "\n"
+                + "******************************************************", State.ERR);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTextFieldLetterOfOwnershipIdCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLetterOfOwnershipIdCadasterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLetterOfOwnershipIdCadasterActionPerformed
+
+    private void jTextFieldIdLetterOfOwnershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdLetterOfOwnershipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdLetterOfOwnershipActionPerformed
+
+    private void jTextFieldRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRCActionPerformed
+
+    private void jTextFieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLastNameActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String firstName = jTextFieldFirstName.getText();
+        String lastName = jTextFieldLastName.getText();
+        String RC = jTextFieldRC.getText();
+        Date birthDate = jXDatePickerBirthDate.getDate();
+
+        if (isEmptyTextField(firstName)
+            || isEmptyTextField(lastName)
+            || isEmptyTextField(RC)
+            || birthDate == null) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        boolean addedResult = core.addPerson(firstName, lastName, RC, birthDate);
+        if (addedResult) {
+            addToConsole("Úspešne vloženie obyvateľa.                          \n"
+                + "******************************************************\n"
+                + " meno: " + firstName + "\n"
+                + " priezvisko: " + lastName + "\n"
+                + " RČ: " + RC + "\n"
+                + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                + "******************************************************", State.SUC);
+        } else {
+            addToConsole("Neúspešne vloženie obyvateľa.                          \n"
+                + "******************************************************\n"
+                + " meno: " + firstName + "\n"
+                + " priezvisko: " + lastName + "\n"
+                + " RČ: " + RC + "\n"
+                + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                + "******************************************************", State.ERR);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String id = jTextFieldIdCadaster.getText();
+        String name = jTextFieldNameCadaster.getText();
+
+        if (isEmptyTextField(id)
+            || isEmptyTextField(name)) {
+            JOptionPane.showMessageDialog(this,
+                "Vyplnte všetky polička označene hviezdičkou(*)",
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(id);
+        if (result != null) {
+            JOptionPane.showMessageDialog(this,
+                result,
+                "Pozor",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        boolean addedResult = core.addCadaster(getInt(id), name);
+        if (addedResult) {
+            addToConsole("Úspešne vloženie katastra.                          \n"
+                + "******************************************************\n"
+                + " id: " + id + "\n"
+                + " názov: " + name + "\n"
+                + "******************************************************", State.SUC);
+        } else {
+            addToConsole("Neúspešne vloženie katastra.                          \n"
+                + "******************************************************\n"
+                + " id: " + id + "\n"
+                + " názov: " + name + "\n"
+                + "******************************************************", State.ERR);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldNameCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameCadasterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameCadasterActionPerformed
+
+    private void jTextFieldIdCadasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdCadasterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdCadasterActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        selectAllCadaster(core.selectAllCadastersByName());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2447,6 +2640,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2456,6 +2650,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBoxSelect1_5CadasterID_Name;
+    private javax.swing.JComboBox<String> jComboBoxSelect4_6CadasterID_Name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2487,9 +2682,11 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2511,6 +2708,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2554,6 +2753,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldSelect3CadasterId;
     private javax.swing.JTextField jTextFieldSelect3LetterId;
     private javax.swing.JTextField jTextFieldSelect3RealtyId;
+    private javax.swing.JTextField jTextFieldSelect4_6CadasterID_Name;
+    private javax.swing.JTextField jTextFieldSelect4_6LetterId1;
     private javax.swing.JTextField jTextFieldSelectAllRealtiesOfOwnerRC;
     private javax.swing.JTextField jTextFieldSelectRealtiesNameCadaster;
     private javax.swing.JTextField jTextFieldSelectRealtiesOfOwnerCadasterId;

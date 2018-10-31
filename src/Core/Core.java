@@ -631,7 +631,7 @@ public class Core {
             jsonArrayPersons.add(jo);
         }
         jobj.add("permanentResidencePersons", jsonArrayPersons);
-        
+
         if (realty.getLetterOfOwnership() != null) {
             JsonObject jsonObjectLetter = new JsonObject();
             jsonObjectLetter.addProperty("idLetter", realty.getLetterOfOwnership().getId());
@@ -651,10 +651,10 @@ public class Core {
             if (!realty.getLetterOfOwnership().getOwnershipSplayTree().isEmpty()) {
                 JsonArray jsonArrayOwnerships = new JsonArray();
                 for (Ownership ownership : realty.getLetterOfOwnership().getOwnershipSplayTree().inorder()) {
-                        JsonObject jo = new JsonObject();
-                        jo.addProperty("rc", ownership.getOwner().getRC());
-                        jo.addProperty("share", String.format("%.2f", ownership.getShare()));
-                        jsonArrayOwnerships.add(jo);
+                    JsonObject jo = new JsonObject();
+                    jo.addProperty("rc", ownership.getOwner().getRC());
+                    jo.addProperty("share", String.format("%.2f", ownership.getShare()));
+                    jsonArrayOwnerships.add(jo);
                 }
                 jsonObjectLetter.add("ownerships", jsonArrayOwnerships);
             }
@@ -662,6 +662,68 @@ public class Core {
             jobj.add("letter", jsonObjectLetter);
         }
 
+        return jobj;
+    }
+
+    public JsonObject selectLetterOfOwnershipByLetterId_CadasterIdOrName(int letterId, String cadasterIdOrName, boolean byId) {
+        JsonObject jobj = new JsonObject();
+        Cadaster cadaster = null;
+        if (byId) {
+            cadaster = cadasterSplayTree.find(new Cadaster(Integer.parseInt(cadasterIdOrName)));
+            if (cadaster == null) {
+                jobj.addProperty("err", "Kataster sa nenašiel.");
+                return jobj;
+            }
+        } else {
+            CadasterByName cadasterByName = cadasterByNameSplayTree.find(new CadasterByName(new Cadaster(cadasterIdOrName)));
+            if (cadasterByName == null) {
+                jobj.addProperty("err", "Kataster sa nenašiel.");
+                return jobj;
+            }
+            cadaster = cadasterByName.getCadaster();
+        }
+
+        if (cadaster.getLetterOfOwnershipSplayTree().isEmpty()) {
+            jobj.addProperty("err", "V katastri sa nenachádzajú žíadne listy vltastnítva.");
+            return jobj;
+        }
+
+        LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(letterId));
+        if (letter == null) {
+            jobj.addProperty("err", "Zadaný list vlastníctva sa v katastri nenachádza.");
+            return jobj;
+        }
+
+        JsonObject jsonObjectLetter = new JsonObject();
+        jsonObjectLetter.addProperty("idLetter", letter.getId());
+        jsonObjectLetter.addProperty("idCadaster", (letter.getCadaster() != null) ? "" + letter.getCadaster().getId() : "nezapisaná");
+        jsonObjectLetter.addProperty("nameCadaster", (letter.getCadaster() != null) ? "" + letter.getCadaster().getName() : "nezapisaná");
+        if (!letter.getRealitiesSplayTree().isEmpty()) {
+            JsonArray jsonArrayRealties = new JsonArray();
+            for (Realty r : letter.getRealitiesSplayTree().inorder()) {
+                JsonObject joRealty = new JsonObject();
+                joRealty.addProperty("id", r.getId());
+                joRealty.addProperty("address", r.getAddress());
+                joRealty.addProperty("desc", r.getDescription());
+                jsonArrayRealties.add(joRealty);
+            }
+            jsonObjectLetter.add("realties", jsonArrayRealties);
+        }
+        if (!letter.getOwnershipSplayTree().isEmpty()) {
+            JsonArray jsonArrayOwnerships = new JsonArray();
+            for (Ownership ownership : letter.getOwnershipSplayTree().inorder()) {
+                JsonObject jo = new JsonObject();
+                jo.addProperty("rc", ownership.getOwner().getRC());
+                jo.addProperty("firstName", ownership.getOwner().getFirstName());
+                jo.addProperty("lastName", ownership.getOwner().getLastName());
+                jo.addProperty("birthDate", formatDateWithoutTime(ownership.getOwner().getBirthDate()));
+                jo.addProperty("share", String.format("%.2f", ownership.getShare()));
+                jsonArrayOwnerships.add(jo);
+            }
+            jsonObjectLetter.add("ownerships", jsonArrayOwnerships);
+        }
+
+        jobj.add("letter", jsonObjectLetter);
         return jobj;
     }
 }
