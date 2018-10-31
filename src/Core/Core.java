@@ -734,7 +734,7 @@ public class Core {
             jobj.addProperty("err", "Majiteľ sa nenašiel.");
             return jobj;
         }
-        
+
         Person newOwner = peronsSplayTree.find(new Person(rcNewOwner));
         if (newOwner == null) {
             jobj.addProperty("err", "Nový majiteľ sa nenašiel.");
@@ -752,27 +752,27 @@ public class Core {
             jobj.addProperty("err", "Nehnuteľnosť sa nenachádza v zadanom katastri.");
             return jobj;
         }
-        
+
         LetterOfOwnershipById letter = realty.getLetterOfOwnership();
         if (letter == null) {
             jobj.addProperty("err", "Nehnuteľnosť nieje zapísaná na liste vlastníctva.");
             return jobj;
         }
-        
+
         Ownership ownership = letter.getOwnershipSplayTree().find(new Ownership(owner));
         if (ownership == null) {
             jobj.addProperty("err", "Majiteť nevlastní / nemá podiel na danej nehnuteľnosti.");
             return jobj;
         }
-        
+
         letter.getOwnershipSplayTree().delete(ownership);// odstranim majitela z podielov
         ownership.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(letter)); // odsratnim list vlastnictva z jeho majetku
-        
+
         Ownership newOwnership = letter.getOwnershipSplayTree().find(new Ownership(newOwner));
-        if(newOwnership != null){ // ak sa tam uz nachadza tak mu pripocitaj podiel
+        if (newOwnership != null) { // ak sa tam uz nachadza tak mu pripocitaj podiel
             newOwnership.setShare(newOwnership.getShare() + ownership.getShare());
             jobj.addProperty("suc", "Úspešná zmena majiteľa. Novému majiteľovi sa pripočítal podiel starého majiteľa.");
-        }else {
+        } else {
             letter.getOwnershipSplayTree().insert(new Ownership(newOwner, ownership.getShare()));
             newOwner.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pridam list do jeho majetku
             jobj.addProperty("suc", "Úspešná zmena majiteľa.");
@@ -793,34 +793,83 @@ public class Core {
         if (cadaster == null) {
             jobj.addProperty("err", "Kataster sa nenašiel.");
             return jobj;
-        }    
-      
+        }
+
         if (cadaster.getLetterOfOwnershipSplayTree().isEmpty()) {
             jobj.addProperty("err", "Kataster neobsahuje žiadne listy vlastnáctva.");
             return jobj;
-        }    
+        }
+
+        LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(letterId));
+        if (letter == null) {
+            jobj.addProperty("err", "V katastri sa nenachádza list vlastníctva.");
+            return jobj;
+        }
+
+        Ownership ownership = letter.getOwnershipSplayTree().find(new Ownership(person));
+        if (ownership == null) {
+            jobj.addProperty("err", "Osoba nevlastní žiadny podiel.");
+            return jobj;
+        }
+
+        letter.getOwnershipSplayTree().delete(ownership);
+
+        // rozdel jeho podiel, zvysnym majitelom rovnym dielom
+        for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
+            o.setShare(o.getShare() + (ownership.getShare() / (double) letter.getOwnershipSplayTree().getCount()));
+        }
+        // odstran list z jeho majetku
+        person.getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(letter));
+        jobj.addProperty("suc", "Úspešné odstránenié majetkového podielu");
+        return jobj;
+    }
+
+    public JsonObject deleteLetter(int cadasterId, int letterId, int newLetterId) {
+        JsonObject jobj = new JsonObject();
         
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(cadasterId));
+        if (cadaster == null) {
+            jobj.addProperty("err", "Kataster sa nenašiel.");
+            return jobj;
+        }
+
+        if (cadaster.getLetterOfOwnershipSplayTree().isEmpty()) {
+            jobj.addProperty("err", "Kataster neobsahuje žiadne listy vlastnáctva.");
+            return jobj;
+        }
+
         LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(letterId));
         if (letter == null) {
             jobj.addProperty("err", "V katastri sa nenachádza list vlastníctva.");
             return jobj;
         }
         
-        Ownership ownership = letter.getOwnershipSplayTree().find(new Ownership(person));
-        if (ownership == null) {
-            jobj.addProperty("err", "Osoba nevlastní žiadny podiel.");
+        LetterOfOwnershipById newLetter = new LetterOfOwnershipById(newLetterId);
+        LetterOfOwnershipById findedNewLetter = cadaster.getLetterOfOwnershipSplayTree().find(newLetter);
+        if (findedNewLetter != null) {
+            jobj.addProperty("err", "V katastri sa už nachádza číslo nového listu vlastníctva.");
             return jobj;
         }
+
+        newLetter.setCadaster(cadaster);
+        newLetter.setOwnershipSplayTree(letter.getOwnershipSplayTree());
+        newLetter.setRealitiesSplayTree(letter.getRealitiesSplayTree());
         
-        letter.getOwnershipSplayTree().delete(ownership);
-        
-        // rozdel jeho podiel, zvysnym majitelom rovnym dielom
-        for (Ownership o : letter.getOwnershipSplayTree().inorder()) {
-            o.setShare(o.getShare() + (ownership.getShare()/(double)letter.getOwnershipSplayTree().getCount()));
+        // nastav vsetky smerniky nehnutelnosti na novy list
+        for (Realty realty : letter.getRealitiesSplayTree().inorder()) {
+            realty.setLetterOfOwnership(newLetter);
         }
-        // odstran list z jeho majetku
-        person.getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(letter));
-        jobj.addProperty("suc", "Úspešné odstránenié majetkového podielu");
+        
+        // nastav majetok každeho podielnika ukazuje na novy list
+        for (Ownership ownership : letter.getOwnershipSplayTree().inorder()) {
+            ownership.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(letter));
+            ownership.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(newLetter));
+        }
+        
+        cadaster.getLetterOfOwnershipSplayTree().delete(letter);
+        cadaster.getLetterOfOwnershipSplayTree().insert(newLetter);
+        
+        jobj.addProperty("suc", "Úspešné odstránenié listu vlastníctva");
         return jobj;
     }
 }
