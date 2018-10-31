@@ -534,7 +534,7 @@ public class Core {
         jobj.addProperty("address", realty.getAddress());
         jobj.addProperty("desc", realty.getDescription());
         jobj.addProperty("idLetter", realty.getLetterOfOwnership() != null ? "" + realty.getLetterOfOwnership().getId() : "nezapisaná");
-        jobj.addProperty("idCadaster", (realty.getLetterOfOwnership() != null && realty.getLetterOfOwnership().getCadaster() != null) ? "" + realty.getLetterOfOwnership().getCadaster().getId() : "nezapisaná");
+        jobj.addProperty("idCadaster", (realty.getLetterOfOwnership() != null && realty.getLetterOfOwnership().getCadaster() != null) ? "" + realty.getLetterOfOwnership().getCadaster().getId() : "nepoznám");
         JsonArray jsonArray = new JsonArray();
         for (Person p : realty.getPermanentResidencePersonsSplayTree().inorder()) {
             JsonObject jo = new JsonObject();
