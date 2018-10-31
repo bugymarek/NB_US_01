@@ -3,6 +3,8 @@ package Splay;
 import Test.Person;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class SplayTree<T extends Comparable<T>> {
@@ -57,16 +59,16 @@ public class SplayTree<T extends Comparable<T>> {
                     current = current.getLeftSon();
                 }
             } else // ak nema praveho syna tak mu ho nastav na vkladany prvok
-            if (current.getRightSon() == null) {
-                current.setRightSon(insertNode);
-                insertNode.setParent(current);
-                current = insertNode;
-                count++;
-                result = true;
-                break;
-            } else {
-                current = current.getRightSon();
-            }
+             if (current.getRightSon() == null) {
+                    current.setRightSon(insertNode);
+                    insertNode.setParent(current);
+                    current = insertNode;
+                    count++;
+                    result = true;
+                    break;
+                } else {
+                    current = current.getRightSon();
+                }
         }
         splay(current);
         return result;
@@ -126,7 +128,7 @@ public class SplayTree<T extends Comparable<T>> {
     }
 
     public boolean delete(T data) {
-        
+
         // if is not presents return false
         T result = find(data);
         if (result == null) {
@@ -286,6 +288,31 @@ public class SplayTree<T extends Comparable<T>> {
             } else {
                 stack.push(current);
                 current = current.getLeftSon();
+            }
+        }
+        return listArr;
+    }
+
+    public ArrayList<T> levelOrder() {
+        ArrayList<T> listArr = new ArrayList<>();
+        Queue<Node> level = new LinkedList<Node>();
+        level.add(root);
+
+        while (!level.isEmpty()) {
+            int nodeCountInCurrentLevel = level.size(); //počet prvkov na danej urovni
+
+            while (nodeCountInCurrentLevel > 0) {  // vloženie prvkov do pola z aktualnej urovne, pridanie prvkov do fornty z nasledujúceho levelu
+                Node node = level.poll();
+                if (node != null) {
+                    listArr.add((T) node.getData());
+                    if (node.getLeftSon() != null) {
+                        level.add(node.getLeftSon());
+                    }
+                    if (node.getRightSon() != null) {
+                        level.add(node.getRightSon());
+                    }
+                    nodeCountInCurrentLevel--;
+                }
             }
         }
         return listArr;
