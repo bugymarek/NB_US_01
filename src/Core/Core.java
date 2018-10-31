@@ -826,7 +826,7 @@ public class Core {
 
     public JsonObject deleteLetter(int cadasterId, int letterId, int newLetterId) {
         JsonObject jobj = new JsonObject();
-        
+
         Cadaster cadaster = cadasterSplayTree.find(new Cadaster(cadasterId));
         if (cadaster == null) {
             jobj.addProperty("err", "Kataster sa nenašiel.");
@@ -843,7 +843,7 @@ public class Core {
             jobj.addProperty("err", "V katastri sa nenachádza list vlastníctva.");
             return jobj;
         }
-        
+
         LetterOfOwnershipById newLetter = new LetterOfOwnershipById(newLetterId);
         LetterOfOwnershipById findedNewLetter = cadaster.getLetterOfOwnershipSplayTree().find(newLetter);
         if (findedNewLetter != null) {
@@ -854,22 +854,56 @@ public class Core {
         newLetter.setCadaster(cadaster);
         newLetter.setOwnershipSplayTree(letter.getOwnershipSplayTree());
         newLetter.setRealitiesSplayTree(letter.getRealitiesSplayTree());
-        
+
         // nastav vsetky smerniky nehnutelnosti na novy list
         for (Realty realty : letter.getRealitiesSplayTree().inorder()) {
             realty.setLetterOfOwnership(newLetter);
         }
-        
+
         // nastav majetok každeho podielnika ukazuje na novy list
         for (Ownership ownership : letter.getOwnershipSplayTree().inorder()) {
             ownership.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(letter));
             ownership.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(newLetter));
         }
-        
+
         cadaster.getLetterOfOwnershipSplayTree().delete(letter);
         cadaster.getLetterOfOwnershipSplayTree().insert(newLetter);
-        
+
         jobj.addProperty("suc", "Úspešné odstránenié listu vlastníctva");
         return jobj;
     }
+
+    public JsonObject deleteRealty(int cadasterId, int realtyId, int letterId) {
+        JsonObject jobj = new JsonObject();
+
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(cadasterId));
+        if (cadaster == null) {
+            jobj.addProperty("err", "Kataster sa nenašiel.");
+            return jobj;
+        }
+
+        if (cadaster.getLetterOfOwnershipSplayTree().isEmpty()) {
+            jobj.addProperty("err", "Kataster neobsahuje žiadne listy vlastnáctva.");
+            return jobj;
+        }
+
+        LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(letterId));
+        if (letter == null) {
+            jobj.addProperty("err", "V katastri sa nenachádza list vlastníctva.");
+            return jobj;
+        }
+
+        Realty realty = letter.getRealitiesSplayTree().find(new Realty(realtyId));
+        if (realty == null) {
+            jobj.addProperty("err", "Nehnuteľnosť sa nenachádza na liste vlastníctva.");
+            return jobj;
+        }
+        
+        realty.setLetterOfOwnership(null);
+        letter.getRealitiesSplayTree().delete(realty);
+
+        jobj.addProperty("suc", "Úspešné odstránenié nehnuteľnosti z listu vlastníctva");
+        return jobj;
+    }
+
 }

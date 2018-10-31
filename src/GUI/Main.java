@@ -118,6 +118,14 @@ public class Main extends javax.swing.JDialog {
         jLabel50 = new javax.swing.JLabel();
         jTextFieldDelete19LetterId = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jTextFieldDelete20RealtyId = new javax.swing.JTextField();
+        jButton23 = new javax.swing.JButton();
+        jTextFieldDelete20CadasterId = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
+        jTextFieldDelete20LetterId = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jTextFieldOwnershipRC = new javax.swing.JTextField();
@@ -597,7 +605,7 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
-        jLabel47.setText("Číslo listu* ");
+        jLabel47.setText("Číslo listu * ");
 
         jTextFieldDelete13RC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -605,7 +613,7 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
-        jLabel48.setText("Rodné číslo* ");
+        jLabel48.setText("Rodné číslo * ");
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -683,7 +691,7 @@ public class Main extends javax.swing.JDialog {
             }
         });
 
-        jLabel51.setText("Číslo listu* ");
+        jLabel51.setText("Číslo listu * ");
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -729,6 +737,84 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(" Odstránenie listu vlastníctva  v zadanom katastrálnom území  (19)"));
+        jPanel30.setToolTipText("");
+
+        jLabel54.setText("Súpisné číslo * ");
+
+        jTextFieldDelete20RealtyId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDelete20RealtyIdActionPerformed(evt);
+            }
+        });
+
+        jButton23.setText("Odstráň");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldDelete20CadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDelete20CadasterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setText("Číslo katastra * ");
+
+        jTextFieldDelete20LetterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDelete20LetterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel56.setText("Číslo listu * ");
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldDelete20LetterId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldDelete20RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel54))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldDelete20CadasterId)
+                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel30Layout.createSequentialGroup()
+                            .addComponent(jLabel54)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDelete20RealtyId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel30Layout.createSequentialGroup()
+                            .addComponent(jLabel56)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDelete20LetterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel30Layout.createSequentialGroup()
+                            .addComponent(jLabel55)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDelete20CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -737,7 +823,8 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -745,9 +832,11 @@ public class Main extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Odstrániť", jPanel4);
@@ -1808,18 +1897,18 @@ public class Main extends javax.swing.JDialog {
         String ownershipCountTo = jTextFieldGeneratorOwnershipCountOnLetterTo.getText();
 
         if (isEmptyTextField(personsCount)
-            || isEmptyTextField(cdastersCount)
-            || isEmptyTextField(letterOnCadasterCount)
-            || isEmptyTextField(realtiesCountFrom)
-            || isEmptyTextField(realtiesCountTo)
-            || isEmptyTextField(personsCountFrom)
-            || isEmptyTextField(personsCountTo)
-            || isEmptyTextField(ownershipCountFrom)
-            || isEmptyTextField(ownershipCountTo)) {
+                || isEmptyTextField(cdastersCount)
+                || isEmptyTextField(letterOnCadasterCount)
+                || isEmptyTextField(realtiesCountFrom)
+                || isEmptyTextField(realtiesCountTo)
+                || isEmptyTextField(personsCountFrom)
+                || isEmptyTextField(personsCountTo)
+                || isEmptyTextField(ownershipCountFrom)
+                || isEmptyTextField(ownershipCountTo)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -1837,24 +1926,24 @@ public class Main extends javax.swing.JDialog {
         for (String result : results) {
             if (result != null) {
                 JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                        result,
+                        "Pozor",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
 
         core.generateData(
-            getInt(cdastersCount),
-            getInt(letterOnCadasterCount),
-            0,
-            getInt(realtiesCountFrom),
-            getInt(realtiesCountTo),
-            getInt(personsCount),
-            getInt(personsCountFrom),
-            getInt(personsCountTo),
-            getInt(ownershipCountFrom),
-            getInt(ownershipCountTo)
+                getInt(cdastersCount),
+                getInt(letterOnCadasterCount),
+                0,
+                getInt(realtiesCountFrom),
+                getInt(realtiesCountTo),
+                getInt(personsCount),
+                getInt(personsCountFrom),
+                getInt(personsCountTo),
+                getInt(ownershipCountFrom),
+                getInt(ownershipCountTo)
         );
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -1863,43 +1952,43 @@ public class Main extends javax.swing.JDialog {
         String cadasterIdOrName = jTextFieldSelect4_6CadasterID_Name.getText();
         boolean isById = jComboBoxSelect4_6CadasterID_Name.getSelectedIndex() == 1;
         if (isEmptyTextField(letterId)
-            || isEmptyTextField(cadasterIdOrName)) {
+                || isEmptyTextField(cadasterIdOrName)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(letterId);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (isById) {
             result = tryParseToInteger(cadasterIdOrName);
             if (result != null) {
                 JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                        result,
+                        "Pozor",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
-        
+
         JsonObject resultObject = core.selectLetterOfOwnershipByLetterId_CadasterIdOrName(getInt(letterId), cadasterIdOrName, isById);
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " súpisné číslo: " + letterId + "\n"
-            + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
-            + "******************************************************";
+                    + " súpisné číslo: " + letterId + "\n"
+                    + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
-        
+
         if (resultObject.get("letter") != null) {
             String message = "****************************************************** Informácie o liste vlastníctva ***************************************************************\n"
                     + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
@@ -1966,28 +2055,28 @@ public class Main extends javax.swing.JDialog {
         String cadasterIdOrName = jTextFieldSelect1_5CadasterID_Name.getText();
         boolean isById = jComboBoxSelect1_5CadasterID_Name.getSelectedIndex() == 1;
         if (isEmptyTextField(realtyId)
-            || isEmptyTextField(cadasterIdOrName)) {
+                || isEmptyTextField(cadasterIdOrName)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(realtyId);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (isById) {
             result = tryParseToInteger(cadasterIdOrName);
             if (result != null) {
                 JOptionPane.showMessageDialog(this,
-                    result,
-                    "Pozor",
-                    JOptionPane.WARNING_MESSAGE);
+                        result,
+                        "Pozor",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
@@ -1995,20 +2084,20 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " súpisné číslo: " + realtyId + "\n"
-            + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
-            + "******************************************************";
+                    + " súpisné číslo: " + realtyId + "\n"
+                    + (isById ? " číslo katastra: " : " názov katastra: ") + cadasterIdOrName + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
 
         String message = "******************************************************\n"
-        + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
-        + " adresa: " + resultObject.get("address").getAsString() + "\n"
-        + " popis: " + resultObject.get("desc").getAsString() + "\n"
-        + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
-        + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
-        + "******************************************************";
+                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+                + " adresa: " + resultObject.get("address").getAsString() + "\n"
+                + " popis: " + resultObject.get("desc").getAsString() + "\n"
+                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+                + "******************************************************";
         addToConsole(message, State.SUC);
 
         String rowsHtml = "";
@@ -2032,12 +2121,12 @@ public class Main extends javax.swing.JDialog {
 
         if (resultObject.get("letter") != null) {
             message = "****************************************************** Informácie o liste vlastníctva ***************************************************************\n"
-            + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
-            + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
-            + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
-            + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
-            + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
-            + "*********************************************************************************************************************************************************";
+                    + " číslo listu vlastníctva: " + resultObject.get("letter").getAsJsonObject().get("idLetter").getAsString() + "\n"
+                    + " číslo katastra: " + resultObject.get("letter").getAsJsonObject().get("idCadaster").getAsString() + "\n"
+                    + " názov katastra: " + resultObject.get("letter").getAsJsonObject().get("nameCadaster").getAsString() + "\n"
+                    + " počet nehnuteľností: " + (resultObject.get("letter").getAsJsonObject().get("realties") != null ? "" + resultObject.get("letter").getAsJsonObject().get("realties").getAsJsonArray().size() : "0") + "\n"
+                    + " počet majetkových podielov: " + (resultObject.get("letter").getAsJsonObject().get("ownerships") != null ? "" + resultObject.get("letter").getAsJsonObject().get("ownerships").getAsJsonArray().size() : "0") + "\n"
+                    + "*********************************************************************************************************************************************************";
             addToConsole(message, State.SUC);
 
             if (resultObject.get("letter").getAsJsonObject().get("realties") != null) {
@@ -2101,12 +2190,12 @@ public class Main extends javax.swing.JDialog {
         String letterId = jTextFieldSelect3LetterId.getText();
         String realtyId = jTextFieldSelect3RealtyId.getText();
         if (isEmptyTextField(cadasterId)
-            || isEmptyTextField(letterId)
-            || isEmptyTextField(realtyId)) {
+                || isEmptyTextField(letterId)
+                || isEmptyTextField(realtyId)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(cadasterId);
@@ -2114,9 +2203,9 @@ public class Main extends javax.swing.JDialog {
         String result3 = tryParseToInteger(realtyId);
         if (result != null || result2 != null || result3 != null) {
             JOptionPane.showMessageDialog(this,
-                "Zadali ste text do poľa určeného pre číslo.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2124,10 +2213,10 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " číslo katastra: " + cadasterId + "\n"
-            + " číslo listu vlastníctva: " + letterId + "\n"
-            + " súpisné číslo: " + realtyId + "\n"
-            + "******************************************************";
+                    + " číslo katastra: " + cadasterId + "\n"
+                    + " číslo listu vlastníctva: " + letterId + "\n"
+                    + " súpisné číslo: " + realtyId + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
@@ -2160,9 +2249,9 @@ public class Main extends javax.swing.JDialog {
         String Rc = jTextFieldSelect2RC.getText();
         if (isEmptyTextField(Rc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2170,20 +2259,20 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " rodné číslo: " + Rc + "\n"
-            + "******************************************************";
+                    + " rodné číslo: " + Rc + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
 
         String message = "******************************************************\n"
-        + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
-        + " adresa: " + resultObject.get("address").getAsString() + "\n"
-        + " popis: " + resultObject.get("desc").getAsString() + "\n"
-        + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
-        + " číslo katastra: " + resultObject.get("idCadaster").getAsString() + "\n"
-        + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
-        + "******************************************************";
+                + " súpisné číslo: " + resultObject.get("id").getAsString() + "\n"
+                + " adresa: " + resultObject.get("address").getAsString() + "\n"
+                + " popis: " + resultObject.get("desc").getAsString() + "\n"
+                + " číslo listu vlastníctva: " + resultObject.get("idLetter").getAsString() + "\n"
+                + " číslo katastra: " + resultObject.get("idCadaster").getAsString() + "\n"
+                + " počet obyvateľov: " + resultObject.get("permanentResidencePersons").getAsJsonArray().size() + "\n"
+                + "******************************************************";
         addToConsole(message, State.SUC);
 
         String rowsHtml = "";
@@ -2218,9 +2307,9 @@ public class Main extends javax.swing.JDialog {
         String Rc = jTextFieldSelectAllRealtiesOfOwnerRC.getText();
         if (isEmptyTextField(Rc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2228,24 +2317,24 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " rodné číslo: " + Rc + "\n"
-            + "******************************************************";
+                    + " rodné číslo: " + Rc + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
-            String messageHeader = "************************************************************************************************************************************************************\n"
-                                 + "                                                               rodné číslo: " + Rc + "\n"
-                                 + "************************************************************************************************************************************************************";
-            addToConsole(messageHeader, State.NON);
-            
+        String messageHeader = "************************************************************************************************************************************************************\n"
+                + "                                                               rodné číslo: " + Rc + "\n"
+                + "************************************************************************************************************************************************************";
+        addToConsole(messageHeader, State.NON);
+
         for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
             JsonObject owner = (JsonObject) jsonElement;
             String message = "******************************************************\n"
-            + " číslo katastru: " + owner.get("idCadaster").getAsString() + "\n"
-            + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
-            + " podliel: " + owner.get("share").getAsString() + "\n"
-            + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
-            + "******************************************************";
+                    + " číslo katastru: " + owner.get("idCadaster").getAsString() + "\n"
+                    + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
+                    + " podliel: " + owner.get("share").getAsString() + "\n"
+                    + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
+                    + "******************************************************";
             addToConsole(message, State.SUC);
 
             String rowsHtml = "";
@@ -2277,19 +2366,19 @@ public class Main extends javax.swing.JDialog {
         String cadasterId = jTextFieldSelectRealtiesOfOwnerCadasterId.getText();
         String Rc = jTextFieldSelectRealtiesOfOwnerRC.getText();
         if (isEmptyTextField(cadasterId)
-            || isEmptyTextField(Rc)) {
+                || isEmptyTextField(Rc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(cadasterId);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2297,9 +2386,9 @@ public class Main extends javax.swing.JDialog {
         if (resultObject.get("err") != null) {
             String message = resultObject.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " číslo katastra: " + cadasterId + "\n"
-            + " rodné číslo: " + Rc + "\n"
-            + "******************************************************";
+                    + " číslo katastra: " + cadasterId + "\n"
+                    + " rodné číslo: " + Rc + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
@@ -2307,10 +2396,10 @@ public class Main extends javax.swing.JDialog {
         for (JsonElement jsonElement : resultObject.get("realtiesOfOwner").getAsJsonArray()) {
             JsonObject owner = (JsonObject) jsonElement;
             String message = "******************************************************\n"
-            + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
-            + " podliel: " + owner.get("share").getAsString() + "\n"
-            + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
-            + "******************************************************";
+                    + " číslo listu vlastníctva: " + owner.get("idLetter").getAsString() + "\n"
+                    + " podliel: " + owner.get("share").getAsString() + "\n"
+                    + " počet nehnuteľností: " + owner.get("realtiesCount").getAsString() + "\n"
+                    + "******************************************************";
             addToConsole(message, State.SUC);
 
             String rowsHtml = "";
@@ -2333,10 +2422,10 @@ public class Main extends javax.swing.JDialog {
         }
         if (resultObject.get("realtiesOfOwner").getAsJsonArray().size() == 0) {
             String message = "Majiteľ nevlastní žiadný majetok v zadanom katastri\n"
-            + "******************************************************\n"
-            + " číslo katastra: " + cadasterId + "\n"
-            + " rodné číslo: " + Rc + "\n"
-            + "******************************************************";
+                    + "******************************************************\n"
+                    + " číslo katastra: " + cadasterId + "\n"
+                    + " rodné číslo: " + Rc + "\n"
+                    + "******************************************************";
             addToConsole(message, State.NON);
         }
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -2350,9 +2439,9 @@ public class Main extends javax.swing.JDialog {
 
         if (isEmptyTextField(cadasterName)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2360,8 +2449,8 @@ public class Main extends javax.swing.JDialog {
         if (result.get("err") != null) {
             String message = result.get("err").getAsString() + "\n";
             message += "******************************************************\n"
-            + " názov katastra: " + cadasterName + "\n"
-            + "******************************************************";
+                    + " názov katastra: " + cadasterName + "\n"
+                    + "******************************************************";
             addToConsole(message, State.ERR);
             return;
         }
@@ -2399,44 +2488,44 @@ public class Main extends javax.swing.JDialog {
         String rc = jTextFieldPrimaryResidenceRC.getText();
 
         if (isEmptyTextField(cadasterName)
-            || isEmptyTextField(idRealty)
-            || isEmptyTextField(rc)) {
+                || isEmptyTextField(idRealty)
+                || isEmptyTextField(rc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         String result = tryParseToInteger(idRealty);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         int addedResult = core.addOrChangePernamentResidence(cadasterName, rc, getInt(idRealty));
         String message = new String();
         switch (addedResult) {
             case 0:
-            message = "Úspešne zapísanie nového trvalého pobytu obyvateľa .\n";
-            break;
+                message = "Úspešne zapísanie nového trvalého pobytu obyvateľa .\n";
+                break;
             case -1:
-            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Nehnúteľnosť sa nenašla.\n";
-            break;
+                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Nehnúteľnosť sa nenašla.\n";
+                break;
             case -2:
-            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Kataster sa nenašiel.\n";
-            break;
+                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Kataster sa nenašiel.\n";
+                break;
             case -3:
-            message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Osoba sa nenašla.\n";
-            break;
+                message = "Neúspešne zapísanie nového trvalého pobytu obyvateľa. Osoba sa nenašla.\n";
+                break;
         }
         message += "******************************************************\n"
-        + " názov katastra: " + cadasterName + "\n"
-        + " súpisné číslo: " + idRealty + "\n"
-        + " rodné číslo: " + rc + "\n"
-        + "******************************************************";
+                + " názov katastra: " + cadasterName + "\n"
+                + " súpisné číslo: " + idRealty + "\n"
+                + " rodné číslo: " + rc + "\n"
+                + "******************************************************";
         if (addedResult == 0) {
             addToConsole(message, State.SUC);
         } else {
@@ -2467,13 +2556,13 @@ public class Main extends javax.swing.JDialog {
         String share = jTextFieldOwnershipPercents.getText();
 
         if (isEmptyTextField(idCadaster)
-            || isEmptyTextField(idLetter)
-            || isEmptyTextField(rc)
-            || isEmptyTextField(share)) {
+                || isEmptyTextField(idLetter)
+                || isEmptyTextField(rc)
+                || isEmptyTextField(share)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2482,16 +2571,16 @@ public class Main extends javax.swing.JDialog {
         String result3 = tryParseToInteger(share);
         if (result != null || result2 != null || result3 != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (getInt(share) <= 0) {
             JOptionPane.showMessageDialog(this,
-                "Zadajte kladnú hodnotu podielu",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadajte kladnú hodnotu podielu",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2518,11 +2607,11 @@ public class Main extends javax.swing.JDialog {
             }
         }
         message += "******************************************************\n"
-        + " číslo katastra: " + idCadaster + "\n"
-        + " číslo listu vlastníctva: " + idLetter + "\n"
-        + " rodné číslo: " + rc + "\n"
-        + " podiel: " + share + " %\n"
-        + "******************************************************";
+                + " číslo katastra: " + idCadaster + "\n"
+                + " číslo listu vlastníctva: " + idLetter + "\n"
+                + " rodné číslo: " + rc + "\n"
+                + " podiel: " + share + " %\n"
+                + "******************************************************";
         addToConsole(message, state);
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -2546,14 +2635,14 @@ public class Main extends javax.swing.JDialog {
         String desc = jTextFieldRealtyDescription.getText();
 
         if (isEmptyTextField(idLetter)
-            || isEmptyTextField(idCadaster)
-            || isEmptyTextField(idRealty)
-            || isEmptyTextField(address)
-            || isEmptyTextField(desc)) {
+                || isEmptyTextField(idCadaster)
+                || isEmptyTextField(idRealty)
+                || isEmptyTextField(address)
+                || isEmptyTextField(desc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2562,37 +2651,37 @@ public class Main extends javax.swing.JDialog {
         String result3 = tryParseToInteger(idRealty);
         if (result != null || result2 != null || result3 != null) {
             JOptionPane.showMessageDialog(this,
-                "Zadali ste text do poľa určeného pre číslo.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         int addedResult = core.addRealty(getInt(idCadaster), getInt(idLetter), getInt(idRealty), address, desc);
         String message = new String();
         switch (addedResult) {
             case 0:
-            message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
-            break;
+                message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+                break;
             case -1:
-            message = "Úspešne vloženie nehnuteľnosti na list vlastníctva. Ale neúspešne vloženie nehnuteľnosti do katastra\n";
-            break;
+                message = "Úspešne vloženie nehnuteľnosti na list vlastníctva. Ale neúspešne vloženie nehnuteľnosti do katastra\n";
+                break;
             case -2:
-            message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva.\n";
-            break;
+                message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+                break;
             case -3:
-            message = "List vlastníctva sa nenašiel.\n";
-            break;
+                message = "List vlastníctva sa nenašiel.\n";
+                break;
             case -4:
-            message = "Kataster sa nenašiel\n";
-            break;
+                message = "Kataster sa nenašiel\n";
+                break;
         }
         message += "******************************************************\n"
-        + " súpisné číslo: " + idRealty + "\n"
-        + " číslo lisu vlastníctva: " + idLetter + "\n"
-        + " číslo katastru: " + idCadaster + "\n"
-        + " adresa: " + address + "\n"
-        + " popis: " + desc + "\n"
-        + "******************************************************";
+                + " súpisné číslo: " + idRealty + "\n"
+                + " číslo lisu vlastníctva: " + idLetter + "\n"
+                + " číslo katastru: " + idCadaster + "\n"
+                + " adresa: " + address + "\n"
+                + " popis: " + desc + "\n"
+                + "******************************************************";
         if (addedResult == 0) {
             addToConsole(message, State.SUC);
         } else {
@@ -2621,11 +2710,11 @@ public class Main extends javax.swing.JDialog {
         String idCadaster = jTextFieldLetterOfOwnershipIdCadaster.getText();
 
         if (isEmptyTextField(idLetter)
-            || isEmptyTextField(idCadaster)) {
+                || isEmptyTextField(idCadaster)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2633,24 +2722,24 @@ public class Main extends javax.swing.JDialog {
         String result2 = tryParseToInteger(idCadaster);
         if (result != null || result2 != null) {
             JOptionPane.showMessageDialog(this,
-                "Zadali ste text do poľa určeného pre číslo.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         boolean addedResult = core.addLatterOfOwnership(getInt(idCadaster), getInt(idLetter));
         if (addedResult) {
             addToConsole("Úspešne vloženie listu vlastníctva.                          \n"
-                + "******************************************************\n"
-                + " id: " + idCadaster + "\n"
-                + " názov: " + idLetter + "\n"
-                + "******************************************************", State.SUC);
+                    + "******************************************************\n"
+                    + " id: " + idCadaster + "\n"
+                    + " názov: " + idLetter + "\n"
+                    + "******************************************************", State.SUC);
         } else {
             addToConsole("Neúspešne vloženie listu vlastníctva.                          \n"
-                + "******************************************************\n"
-                + " id: " + idCadaster + "\n"
-                + " názov: " + idLetter + "\n"
-                + "******************************************************", State.ERR);
+                    + "******************************************************\n"
+                    + " id: " + idCadaster + "\n"
+                    + " názov: " + idLetter + "\n"
+                    + "******************************************************", State.ERR);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -2677,33 +2766,33 @@ public class Main extends javax.swing.JDialog {
         Date birthDate = jXDatePickerBirthDate.getDate();
 
         if (isEmptyTextField(firstName)
-            || isEmptyTextField(lastName)
-            || isEmptyTextField(RC)
-            || birthDate == null) {
+                || isEmptyTextField(lastName)
+                || isEmptyTextField(RC)
+                || birthDate == null) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         boolean addedResult = core.addPerson(firstName, lastName, RC, birthDate);
         if (addedResult) {
             addToConsole("Úspešne vloženie obyvateľa.                          \n"
-                + "******************************************************\n"
-                + " meno: " + firstName + "\n"
-                + " priezvisko: " + lastName + "\n"
-                + " RČ: " + RC + "\n"
-                + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
-                + "******************************************************", State.SUC);
+                    + "******************************************************\n"
+                    + " meno: " + firstName + "\n"
+                    + " priezvisko: " + lastName + "\n"
+                    + " RČ: " + RC + "\n"
+                    + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                    + "******************************************************", State.SUC);
         } else {
             addToConsole("Neúspešne vloženie obyvateľa.                          \n"
-                + "******************************************************\n"
-                + " meno: " + firstName + "\n"
-                + " priezvisko: " + lastName + "\n"
-                + " RČ: " + RC + "\n"
-                + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
-                + "******************************************************", State.ERR);
+                    + "******************************************************\n"
+                    + " meno: " + firstName + "\n"
+                    + " priezvisko: " + lastName + "\n"
+                    + " RČ: " + RC + "\n"
+                    + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                    + "******************************************************", State.ERR);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -2716,34 +2805,34 @@ public class Main extends javax.swing.JDialog {
         String name = jTextFieldNameCadaster.getText();
 
         if (isEmptyTextField(id)
-            || isEmptyTextField(name)) {
+                || isEmptyTextField(name)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(id);
         if (result != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         boolean addedResult = core.addCadaster(getInt(id), name);
         if (addedResult) {
             addToConsole("Úspešne vloženie katastra.                          \n"
-                + "******************************************************\n"
-                + " id: " + id + "\n"
-                + " názov: " + name + "\n"
-                + "******************************************************", State.SUC);
+                    + "******************************************************\n"
+                    + " id: " + id + "\n"
+                    + " názov: " + name + "\n"
+                    + "******************************************************", State.SUC);
         } else {
             addToConsole("Neúspešne vloženie katastra.                          \n"
-                + "******************************************************\n"
-                + " id: " + id + "\n"
-                + " názov: " + name + "\n"
-                + "******************************************************", State.ERR);
+                    + "******************************************************\n"
+                    + " id: " + id + "\n"
+                    + " názov: " + name + "\n"
+                    + "******************************************************", State.ERR);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2778,21 +2867,21 @@ public class Main extends javax.swing.JDialog {
         String rcNewOwner = jTextFieldTask11RCNewOwner.getText();
 
         if (isEmptyTextField(idCadaster)
-            || isEmptyTextField(idRealty)
-            || isEmptyTextField(rcOwner)
-            || isEmptyTextField(rcNewOwner)) {
+                || isEmptyTextField(idRealty)
+                || isEmptyTextField(rcOwner)
+                || isEmptyTextField(rcNewOwner)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         if (rcOwner.equals(rcNewOwner)) {
             JOptionPane.showMessageDialog(this,
-                "Rodné čísla sú rovnaké.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Rodné čísla sú rovnaké.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -2800,26 +2889,26 @@ public class Main extends javax.swing.JDialog {
         String result2 = tryParseToInteger(idRealty);
         if (result != null || result2 != null) {
             JOptionPane.showMessageDialog(this,
-                result,
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    result,
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         JsonObject response = core.changeOwner(rcOwner, rcNewOwner, getInt(idCadaster), getInt(idRealty));
         String message = new String();
         if (response.get("err") != null) {
             message = response.get("err").getAsString() + "\n";
-        } else { 
+        } else {
             message = response.get("suc").getAsString() + "\n";
         }
-        
+
         message += "******************************************************\n"
-        + " rodné číslo starého majiteľ: " + rcOwner + "\n"
-        + " rodné číslo nového majiteľ: " + rcNewOwner + "\n"
-        + " číslo katastra: " + idCadaster + "\n"
-        + " súpisné číslo: " + idRealty + " %\n"
-        + "******************************************************";
+                + " rodné číslo starého majiteľ: " + rcOwner + "\n"
+                + " rodné číslo nového majiteľ: " + rcNewOwner + "\n"
+                + " číslo katastra: " + idCadaster + "\n"
+                + " súpisné číslo: " + idRealty + " %\n"
+                + "******************************************************";
         if (response.get("err") != null) {
             addToConsole(message, State.ERR);
         } else {
@@ -2840,37 +2929,37 @@ public class Main extends javax.swing.JDialog {
         String letterId = jTextFieldDelete13LetterId.getText();
         String rc = jTextFieldDelete13RC.getText();
         if (isEmptyTextField(cadasterId)
-            || isEmptyTextField(letterId)
-            || isEmptyTextField(rc)) {
+                || isEmptyTextField(letterId)
+                || isEmptyTextField(rc)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(cadasterId);
         String result2 = tryParseToInteger(letterId);
         if (result != null || result2 != null) {
             JOptionPane.showMessageDialog(this,
-                "Zadali ste text do poľa určeného pre číslo.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         JsonObject response = core.deleteOwnership(rc, getInt(cadasterId), getInt(letterId));
         String message = new String();
         if (response.get("err") != null) {
             message = response.get("err").getAsString() + "\n";
-        } else { 
+        } else {
             message = response.get("suc").getAsString() + "\n";
         }
-        
+
         message += "******************************************************\n"
-        + " rodné číslo: " + rc + "\n"
-        + " číslo listu vlastníctva: " + letterId + "\n"
-        + " číslo katastra: " + cadasterId + "\n"
-        + "******************************************************";
+                + " rodné číslo: " + rc + "\n"
+                + " číslo listu vlastníctva: " + letterId + "\n"
+                + " číslo katastra: " + cadasterId + "\n"
+                + "******************************************************";
         if (response.get("err") != null) {
             addToConsole(message, State.ERR);
         } else {
@@ -2896,38 +2985,38 @@ public class Main extends javax.swing.JDialog {
         String letterId = jTextFieldDelete19LetterId.getText();
         String newLetterId = jTextFieldDelete19NewLetterId.getText();
         if (isEmptyTextField(cadasterId)
-            || isEmptyTextField(letterId)
-            || isEmptyTextField(newLetterId)) {
+                || isEmptyTextField(letterId)
+                || isEmptyTextField(newLetterId)) {
             JOptionPane.showMessageDialog(this,
-                "Vyplnte všetky polička označene hviezdičkou(*)",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String result = tryParseToInteger(cadasterId);
         String result2 = tryParseToInteger(letterId);
-         String result3 = tryParseToInteger(newLetterId);
+        String result3 = tryParseToInteger(newLetterId);
         if (result != null || result2 != null || result3 != null) {
             JOptionPane.showMessageDialog(this,
-                "Zadali ste text do poľa určeného pre číslo.",
-                "Pozor",
-                JOptionPane.WARNING_MESSAGE);
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         JsonObject response = core.deleteLetter(getInt(cadasterId), getInt(letterId), getInt(newLetterId));
         String message = new String();
         if (response.get("err") != null) {
             message = response.get("err").getAsString() + "\n";
-        } else { 
+        } else {
             message = response.get("suc").getAsString() + "\n";
         }
-        
+
         message += "******************************************************\n"
-        + " číslo listu vlastníctva: " + letterId + "\n"
-        + " nové číslo listu vlastníctva: " + newLetterId + "\n"
-        + " číslo katastra: " + cadasterId + "\n"
-        + "******************************************************";
+                + " číslo listu vlastníctva: " + letterId + "\n"
+                + " nové číslo listu vlastníctva: " + newLetterId + "\n"
+                + " číslo katastra: " + cadasterId + "\n"
+                + "******************************************************";
         if (response.get("err") != null) {
             addToConsole(message, State.ERR);
         } else {
@@ -2942,6 +3031,62 @@ public class Main extends javax.swing.JDialog {
     private void jTextFieldDelete19LetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete19LetterIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDelete19LetterIdActionPerformed
+
+    private void jTextFieldDelete20RealtyIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete20RealtyIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDelete20RealtyIdActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        String cadasterId = jTextFieldDelete20CadasterId.getText();
+        String realtyId = jTextFieldDelete20RealtyId.getText();
+        String letterId = jTextFieldDelete20LetterId.getText();
+        if (isEmptyTextField(cadasterId)
+                || isEmptyTextField(realtyId)
+                || isEmptyTextField(letterId)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(cadasterId);
+        String result2 = tryParseToInteger(realtyId);
+        String result3 = tryParseToInteger(letterId);
+        if (result != null || result2 != null || result3 != null) {
+            JOptionPane.showMessageDialog(this,
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JsonObject response = core.deleteRealty(getInt(cadasterId), getInt(realtyId), getInt(letterId));
+        String message = new String();
+        if (response.get("err") != null) {
+            message = response.get("err").getAsString() + "\n";
+        } else {
+            message = response.get("suc").getAsString() + "\n";
+        }
+
+        message += "******************************************************\n"
+                + " číslo listu vlastníctva: " + letterId + "\n"
+                + " súpisné číslo nehnuteľnosti: " + realtyId + "\n"
+                + " číslo katastra: " + cadasterId + "\n"
+                + "******************************************************";
+        if (response.get("err") != null) {
+            addToConsole(message, State.ERR);
+        } else {
+            addToConsole(message, State.SUC);
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jTextFieldDelete20CadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete20CadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDelete20CadasterIdActionPerformed
+
+    private void jTextFieldDelete20LetterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete20LetterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDelete20LetterIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3112,6 +3257,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3168,6 +3314,9 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3194,6 +3343,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -3208,6 +3358,9 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldDelete19CadasterId;
     private javax.swing.JTextField jTextFieldDelete19LetterId;
     private javax.swing.JTextField jTextFieldDelete19NewLetterId;
+    private javax.swing.JTextField jTextFieldDelete20CadasterId;
+    private javax.swing.JTextField jTextFieldDelete20LetterId;
+    private javax.swing.JTextField jTextFieldDelete20RealtyId;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldGeneratorCadastersCount;
     private javax.swing.JTextField jTextFieldGeneratorLettersCountOnCadaster;
