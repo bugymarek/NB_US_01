@@ -200,6 +200,8 @@ public class Main extends javax.swing.JDialog {
         jTextFieldSelect3RealtyId = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jTextFieldGeneratorCadastersCount = new javax.swing.JTextField();
@@ -737,7 +739,7 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(" Odstránenie listu vlastníctva  v zadanom katastrálnom území  (19)"));
+        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder("Odstránenie nehnuteľnosti z listu vlastníctva   (20)"));
         jPanel30.setToolTipText("");
 
         jLabel54.setText("Súpisné číslo * ");
@@ -1608,15 +1610,39 @@ public class Main extends javax.swing.JDialog {
 
         jTabbedPane8.addTab("Výpis", jPanel7);
 
+        jButton14.setText("Import");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton22.setText("Export");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14)
+                    .addComponent(jButton22))
+                .addContainerGap(587, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Import/Export", jPanel25);
@@ -3088,6 +3114,14 @@ public class Main extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDelete20LetterIdActionPerformed
 
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        boolean resutl = core.save();
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // boolean resutl = core.load();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3249,6 +3283,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
@@ -3257,6 +3292,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
