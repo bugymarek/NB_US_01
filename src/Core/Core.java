@@ -966,11 +966,16 @@ public class Core {
         result = Storage.loadLettersOfOwnerchip(this);
         result = Storage.loadRealties(this);
         result = Storage.loadPersons(this);
+        result = Storage.Ownerships(this);
         return result;
     }
 
     public Cadaster findCadaster(int id) {
         return this.cadasterSplayTree.find(new Cadaster(id));
+    }
+    
+    public Person findPerson(String rc) {
+        return this.peronsSplayTree.find(new Person(rc));
     }
     
     public Realty findRealty(Cadaster cadaster, int id) {

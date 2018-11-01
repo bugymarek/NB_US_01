@@ -317,6 +317,94 @@ public class Storage {
 
         return result;
     }
+    
+    static boolean Ownerships(Core core) {
+        boolean result = true;
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new FileReader(path + "Ownerships.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result = false;
+        }
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split(";");
+
+            String rc = line[0];
+            String share = line[1];
+            String idLetterStr = line[2];
+            String idCadasterStr = line[3];
+            try {
+                Double.parseDouble(share);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie podielu. Nemožno previesť text(" + share + ") na číslo.*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo nehnuteľnosti: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            try {
+                Integer.parseInt(idLetterStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie podielu. Nemožno previesť text(" + idLetterStr + ") na číslo.*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo nehnuteľnosti: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            try {
+                Integer.parseInt(idCadasterStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie podielu. Nemožno previesť text(" + idCadasterStr + ") na číslo.*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            Person person = core.findPerson(rc);
+            if(person == null){
+                System.out.println("********************Neúspešne vloženie podielu. Osoba sa nenansiel.*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            Cadaster cadaster = core.findCadaster(Integer.parseInt(idCadasterStr));
+            if(cadaster == null){
+                System.out.println("********************Neúspešne vloženie podielu. Kataster sa nenansiel.*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(Integer.parseInt(idLetterStr)));
+            if(letter == null){
+                System.out.println("********************Neúspešne vloženie podielu. List sa nenansiel na katastri .*****************\n"
+                        + " RČ: " + rc + "\n"
+                        + " podiel: " + share + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            
+            letter.getOwnershipSplayTree().insert(new Ownership(person, Double.parseDouble(share)));
+            person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));
+        }
+        sc.close();
+
+        return result;
+    }
 //
 //    static TwoOrThreeTree<Patient> loadPatients() {
 //        TwoOrThreeTree<Patient> result = new TwoOrThreeTree<Patient>();
@@ -460,6 +548,7 @@ public class Storage {
                                 for (Ownership o : arrOwnerships) {
                                     writer3.append(((Savable) o).save());
                                     writer3.append("" + letter.getId());// pridam informaciu o tom v ktorom liste sa podiel nachadza
+                                    writer3.append(";" + cadaster.getId());// pridam informaciu o tom v ktorom katastri sa list nachadza
                                     writer3.append(System.lineSeparator());
                                 }
                             }
