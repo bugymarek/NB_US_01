@@ -195,7 +195,7 @@ public class Core {
         return "";
     }
 
-    public String formatDateWithoutTime(Date date) {
+    public static String formatDateWithoutTime(Date date) {
         if (date != null) {
             DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
             return df.format(date);
@@ -898,12 +898,49 @@ public class Core {
             jobj.addProperty("err", "Nehnuteľnosť sa nenachádza na liste vlastníctva.");
             return jobj;
         }
-        
+
         realty.setLetterOfOwnership(null);
         letter.getRealitiesSplayTree().delete(realty);
 
         jobj.addProperty("suc", "Úspešné odstránenié nehnuteľnosti z listu vlastníctva");
         return jobj;
+    }
+
+    public boolean save() {
+        boolean result = true;
+
+        if (!saveCadasters(this.cadasterSplayTree, "Cadasters")) {
+            result = false;
+        }
+
+        if (!savePersons(this.peronsSplayTree, "Persons")) {
+            result = false;
+        }
+
+        return result;
+    }
+
+    private boolean saveCadasters(SplayTree<Cadaster> cadasatersSplay, String prefix) {
+        boolean result = true;
+
+        if (!Storage.saveSplay(cadasatersSplay, prefix)) {
+            result = false;
+        }
+
+        if (!Storage.saveLettersOfOwnershipAndRealtiesAndOwnerships(cadasatersSplay, "LettersOfOwnership", "Realties", "Ownerships")) {
+            result = false;
+        }
+
+        return result;
+    }
+
+    private boolean savePersons(SplayTree<Person> personsSplay, String prefix) {
+        boolean result = true;
+
+        if (!Storage.saveSplay(personsSplay, prefix)) {
+            result = false;
+        }
+        return result;
     }
 
 }

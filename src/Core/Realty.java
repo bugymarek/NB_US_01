@@ -11,7 +11,7 @@ import Splay.SplayTree;
  *
  * @author Bugy
  */
-class Realty implements Comparable<Realty>{
+class Realty implements Comparable<Realty>, Savable{
     private int id;
     private String address;
     private String description;
@@ -54,6 +54,9 @@ class Realty implements Comparable<Realty>{
         return permanentResidencePersonsSplayTree;
     }
 
+   
+
+
     public void setId(int id) {
         this.id = id;
     }
@@ -85,4 +88,11 @@ class Realty implements Comparable<Realty>{
         }
     }
     
+    @Override
+    public String save() {
+        return this.id + ";" +
+               this.address + ";" +
+               this.description + ";" +
+               ((this.letterOfOwnership != null) ? this.letterOfOwnership.getId(): null) + ";";
+    }
 }

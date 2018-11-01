@@ -9,7 +9,7 @@ package Core;
  *
  * @author Bugy
  */
-public class Ownership implements Comparable<Ownership>{
+public class Ownership implements Comparable<Ownership>, Savable{
     private Person owner;
     private double share;
 
@@ -47,5 +47,11 @@ public class Ownership implements Comparable<Ownership>{
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String save() {
+        return ((this.owner != null) ? this.owner.getRC(): null) + ";" +
+               this.share + ";";
     }
 }

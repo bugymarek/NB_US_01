@@ -3,7 +3,7 @@ package Core;
 import Splay.SplayTree;
 import java.util.Date;
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person>, Savable{
     private String RC;
     private String firstName;
     private String lastName;
@@ -106,5 +106,13 @@ public class Person implements Comparable<Person> {
         return "Person{" + "RC=" + RC + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", pernamentResidence=" + pernamentResidence + '}';
     }
 
+    @Override
+    public String save() {
+        return this.firstName + ";" +
+               this.lastName + ";" +
+               this.RC + ";" +
+               ((this.pernamentResidence != null) ? this.pernamentResidence.getId(): null) + ";" +
+               Core.formatDateWithoutTime(this.birthDate);
+    }
 
 }

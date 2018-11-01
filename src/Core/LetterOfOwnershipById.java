@@ -11,7 +11,7 @@ import Splay.SplayTree;
  *
  * @author Bugy
  */
-class LetterOfOwnershipById implements Comparable<LetterOfOwnershipById> {
+class LetterOfOwnershipById implements Comparable<LetterOfOwnershipById>, Savable {
     private int id;
     private Cadaster cadaster;
     private SplayTree<Realty> realitiesSplayTree;
@@ -77,6 +77,12 @@ class LetterOfOwnershipById implements Comparable<LetterOfOwnershipById> {
     @Override
     public String toString() {
         return "LetterOfOwnership{" + "id=" + id + ", cadaster=" + cadaster + ", realitiesSplayTree=" + realitiesSplayTree + '}';
+    }
+
+    @Override
+    public String save() {
+        return this.id + ";" +
+               ((this.cadaster != null) ? this.cadaster.getId(): null);
     }
     
     

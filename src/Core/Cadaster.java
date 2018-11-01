@@ -11,7 +11,7 @@ import Splay.SplayTree;
  *
  * @author Bugy
  */
-public class Cadaster implements Comparable<Cadaster> {
+public class Cadaster implements Comparable<Cadaster>, Savable {
 
     private int id;
     private String name;
@@ -91,6 +91,12 @@ public class Cadaster implements Comparable<Cadaster> {
                 name,
                 realtiesSplayTree.getCount(),
                 letterOfOwnershipSplayTree.getCount());
+    }
+
+    @Override
+    public String save() {
+        return this.id + ";" +
+               this.name;
     }
 
 }
