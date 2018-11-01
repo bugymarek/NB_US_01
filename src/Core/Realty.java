@@ -14,6 +14,7 @@ import Splay.SplayTree;
 class Realty implements Comparable<Realty>, Savable{
     private int id;
     private String address;
+    private int idCadastertForLoad;
     private String description;
     private LetterOfOwnershipById letterOfOwnership;
     private SplayTree<Person> permanentResidencePersonsSplayTree;
@@ -23,6 +24,7 @@ class Realty implements Comparable<Realty>, Savable{
         this.address = address;
         this.description = description;
         this.letterOfOwnership = leafOfOwnership;
+        this.idCadastertForLoad = -1;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
     }
 
@@ -31,6 +33,7 @@ class Realty implements Comparable<Realty>, Savable{
         this.address = null;
         this.description = null;
         this.letterOfOwnership = null;
+        this.idCadastertForLoad = -1;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
     }
 
@@ -54,8 +57,13 @@ class Realty implements Comparable<Realty>, Savable{
         return permanentResidencePersonsSplayTree;
     }
 
-   
+    public int getIdCadastertForLoad() {
+        return idCadastertForLoad;
+    }
 
+    public void setIdCadastertForLoad(int idCadastertForLoad) {
+        this.idCadastertForLoad = idCadastertForLoad;
+    }
 
     public void setId(int id) {
         this.id = id;

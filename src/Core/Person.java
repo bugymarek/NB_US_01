@@ -112,6 +112,7 @@ public class Person implements Comparable<Person>, Savable{
                this.lastName + ";" +
                this.RC + ";" +
                ((this.pernamentResidence != null) ? this.pernamentResidence.getId(): null) + ";" +
+               ((this.pernamentResidence != null) ? this.pernamentResidence.getIdCadastertForLoad(): null) + ";" +
                Core.formatDateWithoutTime(this.birthDate);
     }
 

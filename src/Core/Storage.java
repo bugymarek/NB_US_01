@@ -251,6 +251,72 @@ public class Storage {
         return result;
     }
 
+    static boolean loadPersons(Core core) {
+        boolean result = true;
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new FileReader(path + "Persons.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result = false;
+        }
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split(";");
+
+            String firstName = line[0];
+            String lastName = line[1];
+            String rc = line[2];
+            String idRealtyStr = isNull(line[3]) ? null : line[3];
+            String idCadasterOfRealty = isNull(line[4]) ? null : line[4];
+            Date birthDate = Core.getDateFromString(line[5]);
+            if (idRealtyStr != null && idCadasterOfRealty != null) {
+                try {
+                    Integer.parseInt(idRealtyStr);
+                    Integer.parseInt(idCadasterOfRealty);
+                } catch (Exception e) {
+                    System.out.println("********************Osoba sa prida, bez trvalého bydliska. Nemožno previesť text(" + idRealtyStr + ";" + idCadasterOfRealty + " ) na číslo.*****************\n"
+                            + " meno: " + firstName + "\n"
+                            + " priezvisko: " + lastName + "\n"
+                            + " RČ: " + rc + "\n"
+                            + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                            + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                            + " číslo katastra: " + idCadasterOfRealty + "\n"
+                            + "*********************************************************************************************************************");
+                    idRealtyStr = null;
+                    idCadasterOfRealty = null;
+                }
+            }
+            Person person = new Person(rc, firstName, lastName, birthDate, null);
+            if (idRealtyStr != null && idCadasterOfRealty != null) {
+                Cadaster findedCadaster = core.findCadaster(Integer.parseInt(idCadasterOfRealty));
+                if (findedCadaster != null) {
+                    Realty findedRealty = core.findRealty(findedCadaster, Integer.parseInt(idRealtyStr));
+                    if (findedRealty != null) {
+                        person.setPernamentResidence(findedRealty);
+                        findedRealty.getPermanentResidencePersonsSplayTree().insert(person);
+                    }
+                }
+
+            }
+
+            boolean addedResult = core.addPersonFromImport(person);
+            if (!addedResult) {
+                String message = new String();
+                message += "******************** Nepodarilo sa vložiť osobu**********************************\n"
+                        + " meno: " + firstName + "\n"
+                        + " priezvisko: " + lastName + "\n"
+                        + " RČ: " + rc + "\n"
+                        + " dátum narodenia: " + core.formatDateWithoutTime(birthDate) + "\n"
+                        + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                        + " číslo katastra: " + idCadasterOfRealty + "\n"
+                        + "******************************************************";
+                System.out.println(message);
+            }
+        }
+        sc.close();
+
+        return result;
+    }
 //
 //    static TwoOrThreeTree<Patient> loadPatients() {
 //        TwoOrThreeTree<Patient> result = new TwoOrThreeTree<Patient>();
@@ -349,6 +415,7 @@ public class Storage {
 //
 //            }
 //    }
+
     private static boolean isNull(String trim) {
         return trim == null || trim.equals("null") || trim.equals("");
     }
@@ -405,6 +472,7 @@ public class Storage {
                     } else {
                         for (Realty r : arr2) {
                             writer2.append(((Savable) r).save());
+                            r.setIdCadastertForLoad(cadaster.getId());
                             writer2.append("" + cadaster.getId());// pridam informaciu o tom v ktorom katastri sa nehnutelnost nachadza
                             writer2.append(System.lineSeparator());
                         }

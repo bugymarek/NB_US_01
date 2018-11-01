@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Random;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  *
@@ -212,6 +215,15 @@ public class Core {
         //System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
         return true;
     }
+    
+    public boolean addPersonFromImport(Person person) {
+        if (!peronsSplayTree.insert(person)) {
+            //System.out.println(peronsSplayTree.getCount() + " false: " + person.toString());
+            return false;
+        }
+        //System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
+        return true;
+    }
 
     public boolean addLatterOfOwnership(int idCadaster, int idLetter) {
         Cadaster cadaster = cadasterSplayTree.find(new Cadaster(idCadaster));
@@ -232,18 +244,17 @@ public class Core {
         if (cadaster == null) {
             return -4;
         }
-        
+
         LetterOfOwnershipById letterOfOwnershipById = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
         Realty realty = new Realty(idRealty, address, desc, letterOfOwnershipById);
         if (!cadaster.getRealtiesSplayTree().insert(realty)) {
             return -1;
         }
-        
+
         if (letterOfOwnershipById == null) {
             return -3;
         }
 
-        
         if (!letterOfOwnershipById.getRealitiesSplayTree().insert(realty)) {
             return -2;
         }
@@ -943,21 +954,36 @@ public class Core {
         }
         return result;
     }
-    
+
     public boolean load() {
-        Storage.loadCadasters(this);
-        Storage.loadLettersOfOwnerchip(this);
-        Storage.loadRealties(this);
-//        this.patientsTree = Storage.loadPatients();
-//        this.hospitalsTree = Storage.loadHospitals();
-//        Storage.loadHospitalizationsOfPatientFaster(this);
-        return !this.cadasterSplayTree.isEmpty();
-//                && !this.patientsTree.isEmpty()
-//                && !this.hospitalsTree.isEmpty();
+        boolean result = true;
+
+        cadasterSplayTree = new SplayTree<Cadaster>();
+        cadasterByNameSplayTree = new SplayTree<CadasterByName>();
+        peronsSplayTree = new SplayTree<Person>();
+
+        result = Storage.loadCadasters(this);
+        result = Storage.loadLettersOfOwnerchip(this);
+        result = Storage.loadRealties(this);
+        result = Storage.loadPersons(this);
+        return result;
+    }
+
+    public Cadaster findCadaster(int id) {
+        return this.cadasterSplayTree.find(new Cadaster(id));
     }
     
-    public Cadaster findCadaster(int id){
-        return this.cadasterSplayTree.find(new Cadaster(id));
+    public Realty findRealty(Cadaster cadaster, int id) {
+        if(cadaster == null){
+            return null;
+        }
+        return cadaster.getRealtiesSplayTree().find(new Realty(id));
+    }
+    
+    public static Date getDateFromString(String dateString) {
+        DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyyy");
+        DateTime dateTime = formatter.parseDateTime(dateString);
+        return dateTime.toDate();
     }
 
 }
