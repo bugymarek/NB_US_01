@@ -70,24 +70,41 @@ public class Storage {
         return true;
     }
 
-//    static TwoOrThreeTree<InsuranceCompany> loadInsuranceCompanies() {
-//        TwoOrThreeTree<InsuranceCompany> result = new TwoOrThreeTree<InsuranceCompany>();
-//        Scanner sc = null;
-//        try {
-//            sc = new Scanner(new FileReader(path + "InsuranceCompanies.txt"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        while (sc.hasNextLine()) {
-//            String[] line = sc.nextLine().split(";");
-//
-//            InsuranceCompany ic = new InsuranceCompany(line[0]);
-//            result.put(ic);
-//        }
-//        sc.close();
-//
-//        return result;
-//    }
+    static boolean loadCadasters(Core core) {
+        boolean result = true;
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new FileReader(path + "Cadasters.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result= false;
+        }
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split(";");
+            
+            String idStr = line[0];
+            String name = line[1];
+            try {
+                Integer.parseInt(idStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie katastra. Nemožno previesť text(" + idStr + ") na číslo.*****************\n"
+                    + " id: " + idStr + "\n"
+                    + " názov: " + name + "\n"
+                    + "*********************************************************************************************************************");
+                continue;
+            }
+            if(!core.addCadaster(Integer.parseInt(idStr), name)){
+               System.out.println("********************Neúspešne vloženie katastra. Dublicita.*****************\n"
+                    + " id: " + idStr + "\n"
+                    + " názov: " + name + "\n"
+                    + "*********************************************************************************************************************");
+            };
+            
+        }
+        sc.close();
+
+        return result;
+    }
 //
 //    static TwoOrThreeTree<Patient> loadPatients() {
 //        TwoOrThreeTree<Patient> result = new TwoOrThreeTree<Patient>();

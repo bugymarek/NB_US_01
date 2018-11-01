@@ -942,5 +942,15 @@ public class Core {
         }
         return result;
     }
+    
+    public boolean load() {
+        Storage.loadCadasters(this);
+//        this.patientsTree = Storage.loadPatients();
+//        this.hospitalsTree = Storage.loadHospitals();
+//        Storage.loadHospitalizationsOfPatientFaster(this);
+        return !this.cadasterSplayTree.isEmpty();
+//                && !this.patientsTree.isEmpty()
+//                && !this.hospitalsTree.isEmpty();
+    }
 
 }

@@ -3115,11 +3115,11 @@ public class Main extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldDelete20LetterIdActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        boolean resutl = core.save();
+        boolean result = core.save();
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // boolean resutl = core.load();
+        boolean result = core.load();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
