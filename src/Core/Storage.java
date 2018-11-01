@@ -12,6 +12,7 @@ import java.util.*;
 public class Storage {
 
     private static String path = "C:/Users/Bugy/Documents/NetBeansProjects/US_sem01/src/Storage/";
+    private static String fileType = ".csv";
 
     /**
      * Saves data from ArrayList to specified file
@@ -24,7 +25,7 @@ public class Storage {
     public static <T> boolean saveArray(ArrayList<T> arrayList, String name) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(path + name + ".txt");
+            writer = new PrintWriter(path + name + fileType);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -48,7 +49,7 @@ public class Storage {
     public static <T extends Comparable<T>> boolean saveSplay(SplayTree<T> splay, String name) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(path + name + ".txt");
+            writer = new PrintWriter(path + name + fileType);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -74,7 +75,7 @@ public class Storage {
         boolean result = true;
         Scanner sc = null;
         try {
-            sc = new Scanner(new FileReader(path + "Cadasters.txt"));
+            sc = new Scanner(new FileReader(path + "Cadasters" + fileType));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             result = false;
@@ -110,7 +111,7 @@ public class Storage {
         boolean result = true;
         Scanner sc = null;
         try {
-            sc = new Scanner(new FileReader(path + "LettersOfOwnership.txt"));
+            sc = new Scanner(new FileReader(path + "LettersOfOwnership" + fileType));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             result = false;
@@ -163,7 +164,7 @@ public class Storage {
         boolean result = true;
         Scanner sc = null;
         try {
-            sc = new Scanner(new FileReader(path + "Realties.txt"));
+            sc = new Scanner(new FileReader(path + "Realties" + fileType));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             result = false;
@@ -255,7 +256,7 @@ public class Storage {
         boolean result = true;
         Scanner sc = null;
         try {
-            sc = new Scanner(new FileReader(path + "Persons.txt"));
+            sc = new Scanner(new FileReader(path + "Persons" + fileType));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             result = false;
@@ -322,7 +323,7 @@ public class Storage {
         boolean result = true;
         Scanner sc = null;
         try {
-            sc = new Scanner(new FileReader(path + "Ownerships.txt"));
+            sc = new Scanner(new FileReader(path + "Ownerships" + fileType));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             result = false;
@@ -405,104 +406,6 @@ public class Storage {
 
         return result;
     }
-//
-//    static TwoOrThreeTree<Patient> loadPatients() {
-//        TwoOrThreeTree<Patient> result = new TwoOrThreeTree<Patient>();
-//        Scanner sc = null;
-//        try {
-//            sc = new Scanner(new FileReader(path + "Patients.txt"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        while (sc.hasNextLine()) {
-//            String[] line = sc.nextLine().split(";");
-//
-//            String firstName = line[0];
-//            String lastName = line[1];
-//            String Rc = line[2];
-//            String insuranceCode = line[3];
-//            Date birthDate = Core.getDateFromString(line[4]);
-//
-//            Patient patient = new Patient(firstName, lastName, Rc, insuranceCode, birthDate);
-//            result.put(patient);
-//        }
-//        sc.close();
-//
-//        return result;
-//    }
-//
-//    static TwoOrThreeTree<Hospital> loadHospitals() {
-//        TwoOrThreeTree<Hospital> result = new TwoOrThreeTree<Hospital>();
-//        Scanner sc = null;
-//        try {
-//            sc = new Scanner(new FileReader(path + "Hospitals.txt"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        while (sc.hasNextLine()) {
-//            String[] line = sc.nextLine().split(";");
-//
-//            String name = line[0];
-//
-//            Hospital hospital = new Hospital(name);
-//            result.put(hospital);
-//        }
-//        sc.close();
-//
-//        return result;
-//    }
-//
-//    static void loadHospitalizationsOfPatient(Core core) {
-//        Scanner sc = null;
-//
-//        ArrayList<Patient> arrPatients = core.getPatientsTree().inOrder();
-//
-//        for (Patient patient : arrPatients) {
-//            try {
-//                sc = new Scanner(new FileReader(path + "Hospitalizations" + patient.getRc() + ".txt"));
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            while (sc.hasNextLine()) {
-//                String[] line = sc.nextLine().split(";");
-//
-//                Date dateFrom = Core.getDateFromString(line[0]);
-//                Date dateTo = isNull(line[1]) ? null : Core.getDateFromString(line[1]);
-//                String diagnosis = line[2];
-//                Patient patientData = core.findPatient(line[3]);
-//                Hospital hospital = isNull(line[4]) ? null : core.findHospital(line[4]);
-//
-//                core.addHospitalizationFromLoad(dateFrom, dateTo, diagnosis, hospital, patientData);
-//
-//            }
-//
-//        }
-//    }
-//
-//    static void loadHospitalizationsOfPatientFaster(Core core) {
-//        Scanner sc = null;
-//
-//        ArrayList<Patient> arrPatients = core.getPatientsTree().inOrder();
-//        
-//        try {
-//                sc = new Scanner(new FileReader(path + "Hospitalizations.txt"));
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            
-//            while (sc.hasNextLine()) {
-//                String[] line = sc.nextLine().split(";");
-//
-//                Date dateFrom = Core.getDateFromString(line[0]);
-//                Date dateTo = isNull(line[1]) ? null : Core.getDateFromString(line[1]);
-//                String diagnosis = line[2];
-//                Patient patientData = core.findPatient(line[3]);
-//                Hospital hospital = isNull(line[4]) ? null : core.findHospital(line[4]);
-//
-//                core.addHospitalizationFromLoad(dateFrom, dateTo, diagnosis, hospital, patientData);
-//
-//            }
-//    }
 
     private static boolean isNull(String trim) {
         return trim == null || trim.equals("null") || trim.equals("");
@@ -519,9 +422,9 @@ public class Storage {
             PrintWriter writer2 = null;
             PrintWriter writer3 = null;
             try {
-                writer = new PrintWriter(path + prefix + ".txt");
-                writer2 = new PrintWriter(path + prefix2 + ".txt");
-                writer3 = new PrintWriter(path + prefix3 + ".txt");
+                writer = new PrintWriter(path + prefix + fileType);
+                writer2 = new PrintWriter(path + prefix2 + fileType);
+                writer3 = new PrintWriter(path + prefix3 + fileType);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

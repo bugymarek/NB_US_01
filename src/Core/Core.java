@@ -5,7 +5,6 @@
  */
 package Core;
 
-import Generators.RcGenerator;
 import Splay.SplayTree;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -36,7 +35,6 @@ public class Core {
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
         generatorSeeds = new Random(500);
-        RcGenerator.setRandomSeed(generatorSeeds.nextInt());
     }
 
     public boolean addCadaster(int id, String name) {
@@ -215,7 +213,7 @@ public class Core {
         //System.out.println(peronsSplayTree.getCount() + " true: " + person.toString());
         return true;
     }
-    
+
     public boolean addPersonFromImport(Person person) {
         if (!peronsSplayTree.insert(person)) {
             //System.out.println(peronsSplayTree.getCount() + " false: " + person.toString());
@@ -361,7 +359,7 @@ public class Core {
         System.out.println("pocet katastrov: " + cadasterSplayTree.getCount());
 
         for (int i = 0; i < personsCount; i++) {
-            String RC = RcGenerator.generateRc();
+            String RC = getRandomRc(12, false);
             addPerson(firstNames[randomGenerator.nextInt(firstNames.length)],
                     lastNames[randomGenerator.nextInt(lastNames.length)],
                     RC, getDateFromRange(1900, 2010));
@@ -431,7 +429,7 @@ public class Core {
     private String getRandomString(int length, boolean numbers) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         if (numbers) {
-            SALTCHARS += "1234567890";
+            SALTCHARS += "123456789";
         }
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random(generatorSeeds.nextInt());
@@ -442,7 +440,30 @@ public class Core {
         }
         String saltStr = salt.toString();
         return saltStr;
+    }
 
+    private String getRandomRc(int length, boolean chars) {
+        String SALTCHARS = "123456789";
+        if (chars) {
+            SALTCHARS += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random(generatorSeeds.nextInt());
+        int index;
+        while (salt.length() < length) { // length of the random string.
+            index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        
+        String rc = new String();
+        if (rnd.nextBoolean()) {
+            rc = "F" + saltStr;
+        }else {
+            rc = "M" + saltStr;
+        }
+
+        return rc;
     }
 
     private Date getRandomDate(int multiple) {
@@ -973,22 +994,21 @@ public class Core {
     public Cadaster findCadaster(int id) {
         return this.cadasterSplayTree.find(new Cadaster(id));
     }
-    
+
     public Person findPerson(String rc) {
         return this.peronsSplayTree.find(new Person(rc));
     }
-    
+
     public Realty findRealty(Cadaster cadaster, int id) {
-        if(cadaster == null){
+        if (cadaster == null) {
             return null;
         }
         return cadaster.getRealtiesSplayTree().find(new Realty(id));
     }
-    
+
     public static Date getDateFromString(String dateString) {
         DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyyy");
         DateTime dateTime = formatter.parseDateTime(dateString);
         return dateTime.toDate();
     }
-
 }
