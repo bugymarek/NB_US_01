@@ -292,7 +292,7 @@ public class Storage {
                 if (findedCadaster != null) {
                     Realty findedRealty = core.findRealty(findedCadaster, Integer.parseInt(idRealtyStr));
                     if (findedRealty != null) {
-                        person.setPernamentResidence(findedRealty);
+                        person.setPermanentResidence(findedRealty);
                         findedRealty.getPermanentResidencePersonsSplayTree().insert(person);
                     }
                 }

@@ -276,10 +276,10 @@ public class Core {
         if (realty == null) {
             return -1;
         }
-        if (person.getPernamentResidence() != null) {
-            person.getPernamentResidence().getPermanentResidencePersonsSplayTree().delete(person);
+        if (person.getPermanentResidence() != null) {
+            person.getPermanentResidence().getPermanentResidencePersonsSplayTree().delete(person);
         }
-        person.setPernamentResidence(realty);
+        person.setPermanentResidence(realty);
         realty.getPermanentResidencePersonsSplayTree().insert(person);
         return 0;
     }
@@ -398,7 +398,7 @@ public class Core {
                         }
                         index = randomGenerator.nextInt(arrPersons.size());
                         Person person = arrPersons.get(index);
-                        person.setPernamentResidence(realty);
+                        person.setPermanentResidence(realty);
                         realty.getPermanentResidencePersonsSplayTree().insert(person);
                         arrPersons.remove(index);
                     }
@@ -537,11 +537,11 @@ public class Core {
             jobj.addProperty("err", "Osoba sa nenašla.");
             return jobj;
         }
-        if (person.getPernamentResidence() == null) {
+        if (person.getPermanentResidence() == null) {
             jobj.addProperty("err", "Osoba nemá trvalé bydlisko.");
             return jobj;
         }
-        Realty realty = person.getPernamentResidence();
+        Realty realty = person.getPermanentResidence();
         jobj.addProperty("id", realty.getId());
         jobj.addProperty("address", realty.getAddress());
         jobj.addProperty("desc", realty.getDescription());

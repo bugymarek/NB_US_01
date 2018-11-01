@@ -8,7 +8,7 @@ public class Person implements Comparable<Person>, Savable{
     private String firstName;
     private String lastName;
     private Date birthDate;
-    private Realty pernamentResidence;
+    private Realty permanentResidence;
     private SplayTree<LetterOfOwnershipByIdAndCadaster> letterOfOwnershipByIdAndCadasterSplayTree;
     
 
@@ -17,7 +17,7 @@ public class Person implements Comparable<Person>, Savable{
         this.firstName = null;
         this.lastName = null;
         this.birthDate = null;
-        this.pernamentResidence = null;
+        this.permanentResidence = null;
         this.letterOfOwnershipByIdAndCadasterSplayTree = new SplayTree<LetterOfOwnershipByIdAndCadaster>();
     }
 
@@ -34,7 +34,7 @@ public class Person implements Comparable<Person>, Savable{
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-        this.pernamentResidence = pernamentResidence;
+        this.permanentResidence = pernamentResidence;
         this.letterOfOwnershipByIdAndCadasterSplayTree = new SplayTree<LetterOfOwnershipByIdAndCadaster>();
     }
 
@@ -81,8 +81,8 @@ public class Person implements Comparable<Person>, Savable{
         return birthDate;
     }
 
-    public Realty getPernamentResidence() {
-        return pernamentResidence;
+    public Realty getPermanentResidence() {
+        return permanentResidence;
     }
 
     public void setFirstName(String firstName) {
@@ -93,8 +93,8 @@ public class Person implements Comparable<Person>, Savable{
         this.birthDate = birthDate;
     }
 
-    public void setPernamentResidence(Realty pernamentResidence) {
-        this.pernamentResidence = pernamentResidence;
+    public void setPermanentResidence(Realty pernamentResidence) {
+        this.permanentResidence = pernamentResidence;
     }
 
     public SplayTree<LetterOfOwnershipByIdAndCadaster> getLetterOfOwnershipByIdAndCadasterSplayTree() {
@@ -103,7 +103,7 @@ public class Person implements Comparable<Person>, Savable{
 
     @Override
     public String toString() {
-        return "Person{" + "RC=" + RC + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", pernamentResidence=" + pernamentResidence + '}';
+        return "Person{" + "RC=" + RC + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", pernamentResidence=" + permanentResidence + '}';
     }
 
     @Override
@@ -111,8 +111,8 @@ public class Person implements Comparable<Person>, Savable{
         return this.firstName + ";" +
                this.lastName + ";" +
                this.RC + ";" +
-               ((this.pernamentResidence != null) ? this.pernamentResidence.getId(): null) + ";" +
-               ((this.pernamentResidence != null) ? this.pernamentResidence.getIdCadastertForLoad(): null) + ";" +
+               ((this.permanentResidence != null) ? this.permanentResidence.getId(): null) + ";" +
+               ((this.permanentResidence != null) ? this.permanentResidence.getIdCadastertForLoad(): null) + ";" +
                Core.formatDateWithoutTime(this.birthDate);
     }
 
