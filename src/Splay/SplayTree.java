@@ -298,7 +298,7 @@ public class SplayTree<T extends Comparable<T>> {
         Queue<Node> level = new LinkedList<Node>();
         level.add(root);
 
-        while (!level.isEmpty()) {
+        while (!level.isEmpty() && root != null) {
             int nodeCountInCurrentLevel = level.size(); //počet prvkov na danej urovni
 
             while (nodeCountInCurrentLevel > 0) {  // vloženie prvkov do pola z aktualnej urovne, pridanie prvkov do fornty z nasledujúceho levelu

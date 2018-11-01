@@ -232,19 +232,20 @@ public class Core {
         if (cadaster == null) {
             return -4;
         }
-
+        
         LetterOfOwnershipById letterOfOwnershipById = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
+        Realty realty = new Realty(idRealty, address, desc, letterOfOwnershipById);
+        if (!cadaster.getRealtiesSplayTree().insert(realty)) {
+            return -1;
+        }
+        
         if (letterOfOwnershipById == null) {
             return -3;
         }
 
-        Realty realty = new Realty(idRealty, address, desc, letterOfOwnershipById);
+        
         if (!letterOfOwnershipById.getRealitiesSplayTree().insert(realty)) {
             return -2;
-        }
-
-        if (!cadaster.getRealtiesSplayTree().insert(realty)) {
-            return -1;
         }
 
         return 0;
@@ -945,12 +946,18 @@ public class Core {
     
     public boolean load() {
         Storage.loadCadasters(this);
+        Storage.loadLettersOfOwnerchip(this);
+        Storage.loadRealties(this);
 //        this.patientsTree = Storage.loadPatients();
 //        this.hospitalsTree = Storage.loadHospitals();
 //        Storage.loadHospitalizationsOfPatientFaster(this);
         return !this.cadasterSplayTree.isEmpty();
 //                && !this.patientsTree.isEmpty()
 //                && !this.hospitalsTree.isEmpty();
+    }
+    
+    public Cadaster findCadaster(int id){
+        return this.cadasterSplayTree.find(new Cadaster(id));
     }
 
 }

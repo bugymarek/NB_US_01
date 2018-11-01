@@ -2689,13 +2689,13 @@ public class Main extends javax.swing.JDialog {
                 message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
                 break;
             case -1:
-                message = "Úspešne vloženie nehnuteľnosti na list vlastníctva. Ale neúspešne vloženie nehnuteľnosti do katastra\n";
+                message = "Neúspešne vloženie nehnuteľnosti do katastra\n";
                 break;
             case -2:
-                message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+                message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva. Ale na kataster bola vlozena\n";
                 break;
             case -3:
-                message = "List vlastníctva sa nenašiel.\n";
+                message = "List vlastníctva sa nenašiel. Ale na kataster bola nehnuteľnosť vložena.\n";
                 break;
             case -4:
                 message = "Kataster sa nenašiel\n";

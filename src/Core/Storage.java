@@ -77,34 +77,180 @@ public class Storage {
             sc = new Scanner(new FileReader(path + "Cadasters.txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            result= false;
+            result = false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
-            
+
             String idStr = line[0];
             String name = line[1];
             try {
                 Integer.parseInt(idStr);
             } catch (Exception e) {
                 System.out.println("********************Neúspešne vloženie katastra. Nemožno previesť text(" + idStr + ") na číslo.*****************\n"
-                    + " id: " + idStr + "\n"
-                    + " názov: " + name + "\n"
-                    + "*********************************************************************************************************************");
+                        + " id: " + idStr + "\n"
+                        + " názov: " + name + "\n"
+                        + "*********************************************************************************************************************");
                 continue;
             }
-            if(!core.addCadaster(Integer.parseInt(idStr), name)){
-               System.out.println("********************Neúspešne vloženie katastra. Dublicita.*****************\n"
-                    + " id: " + idStr + "\n"
-                    + " názov: " + name + "\n"
-                    + "*********************************************************************************************************************");
+            if (!core.addCadaster(Integer.parseInt(idStr), name)) {
+                System.out.println("********************Neúspešne vloženie katastra. Dublicita.*****************\n"
+                        + " id: " + idStr + "\n"
+                        + " názov: " + name + "\n"
+                        + "*********************************************************************************************************************");
             };
-            
+
         }
         sc.close();
 
         return result;
     }
+
+    static boolean loadLettersOfOwnerchip(Core core) {
+        boolean result = true;
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new FileReader(path + "LettersOfOwnership.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result = false;
+        }
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split(";");
+
+            String idLetterStr = line[0];
+            String idCadasterStr = line[1];
+            try {
+                Integer.parseInt(idLetterStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie listu. Nemožno previesť text(" + idLetterStr + ") na číslo.*****************\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo nehnuteľnosti: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            try {
+                Integer.parseInt(idCadasterStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie listu. Nemožno previesť text(" + idCadasterStr + ") na číslo.*****************\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo nehnuteľnosti: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+
+            if (core.findCadaster(Integer.parseInt(idCadasterStr)) == null) {
+                System.out.println("********************Kataster sa nenasiel.*****************\n"
+                        + " id: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+
+            if (!core.addLatterOfOwnership(Integer.parseInt(idCadasterStr), Integer.parseInt(idLetterStr))) {
+                System.out.println("********************Neúspešne vloženie listu. Duplicita*****************\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo nehnuteľnosti: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+        }
+        sc.close();
+
+        return result;
+    }
+
+    static boolean loadRealties(Core core) {
+        boolean result = true;
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new FileReader(path + "Realties.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result = false;
+        }
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split(";");
+
+            String idRealtyStr = line[0];
+            String address = line[1];
+            String desc = line[2];
+            String idLetterStr = isNull(line[3]) ? null : line[3];
+            String idCadasterStr = line[4];
+            try {
+                Integer.parseInt(idRealtyStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie nehnutelnosti. Nemožno previesť text(" + idRealtyStr + ") na číslo.*****************\n"
+                        + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                        + " adressa: " + address + "\n"
+                        + " poipis: " + desc + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            if (idLetterStr != null) {
+                try {
+                    Integer.parseInt(idLetterStr);
+                } catch (Exception e) {
+                    System.out.println("********************Neúspešne vloženie nehnutelnosti. Nemožno previesť text(" + idLetterStr + ") na číslo.*****************\n"
+                            + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                            + " adressa: " + address + "\n"
+                            + " poipis: " + desc + "\n"
+                            + " číslo listu: " + idLetterStr + "\n"
+                            + " číslo katastra: " + idCadasterStr + "\n"
+                            + "*********************************************************************************************************************");
+                    continue;
+                }
+            }
+            try {
+                Integer.parseInt(idCadasterStr);
+            } catch (Exception e) {
+                System.out.println("********************Neúspešne vloženie nehnutelnosti. Nemožno previesť text(" + idCadasterStr + ") na číslo.*****************\n"
+                        + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                        + " adressa: " + address + "\n"
+                        + " poipis: " + desc + "\n"
+                        + " číslo listu: " + idLetterStr + "\n"
+                        + " číslo katastra: " + idCadasterStr + "\n"
+                        + "*********************************************************************************************************************");
+                continue;
+            }
+            int addedResult = core.addRealty(Integer.parseInt(idCadasterStr), isNull(idLetterStr) ? -1 : Integer.parseInt(idLetterStr), Integer.parseInt(idRealtyStr), address, desc);
+            String message = new String();
+            switch (addedResult) {
+                case 0:
+                    message = "Úspešne vloženie nehnuteľnosti na list vlastníctva.\n";
+                    break;
+                case -1:
+                    message = "Neúspešne vloženie nehnuteľnosti do katastra\n";
+                    break;
+                case -2:
+                    message = "Neúspešne vloženie nehnuteľnosti na list vlastníctva. Ale na kataster bola vlozena\n";
+                    break;
+                case -3:
+                    message = "List vlastníctva sa nenašiel. Ale na kataster bola nehnuteľnosť vložena.\n";
+                    break;
+                case -4:
+                    message = "Kataster sa nenašiel\n";
+                    break;
+            }
+            message += "******************************************************\n"
+                    + " číslo nehnuteľnosti: " + idRealtyStr + "\n"
+                    + " adressa: " + address + "\n"
+                    + " poipis: " + desc + "\n"
+                    + " číslo listu: " + idLetterStr + "\n"
+                    + " číslo katastra: " + idCadasterStr + "\n"
+                    + "******************************************************";
+            if (addedResult < 0) {
+                System.out.println(message);
+                continue;
+            }
+
+        }
+        sc.close();
+
+        return result;
+    }
+
 //
 //    static TwoOrThreeTree<Patient> loadPatients() {
 //        TwoOrThreeTree<Patient> result = new TwoOrThreeTree<Patient>();
@@ -268,6 +414,7 @@ public class Storage {
             }
             writer.close();
             writer2.close();
+            writer3.close();
         }
         return result;
     }
