@@ -34,7 +34,7 @@ public class Core {
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
-        generatorSeeds = new Random(500);
+        generatorSeeds = new Random();
     }
 
     public boolean addCadaster(int id, String name) {
@@ -359,7 +359,7 @@ public class Core {
         System.out.println("pocet katastrov: " + cadasterSplayTree.getCount());
 
         for (int i = 0; i < personsCount; i++) {
-            String RC = getRandomRc(12, false);
+            String RC = getRandomRc(8, false) + getRandomString(8, true);
             addPerson(firstNames[randomGenerator.nextInt(firstNames.length)],
                     lastNames[randomGenerator.nextInt(lastNames.length)],
                     RC, getDateFromRange(1900, 2010));
