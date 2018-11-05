@@ -19,11 +19,11 @@ class Realty implements Comparable<Realty>, Savable{
     private LetterOfOwnershipById letterOfOwnership;
     private SplayTree<Person> permanentResidencePersonsSplayTree;
 
-    public Realty(int id, String address, String description, LetterOfOwnershipById leafOfOwnership) {
+    public Realty(int id, String address, String description, LetterOfOwnershipById letterOfOwnership) {
         this.id = id;
         this.address = address;
         this.description = description;
-        this.letterOfOwnership = leafOfOwnership;
+        this.letterOfOwnership = letterOfOwnership;
         this.idCadastertForLoad = -1;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
     }
@@ -35,6 +35,15 @@ class Realty implements Comparable<Realty>, Savable{
         this.letterOfOwnership = null;
         this.idCadastertForLoad = -1;
         this.permanentResidencePersonsSplayTree = new SplayTree<Person>();
+    }
+
+    public Realty(int id, String address, String description, LetterOfOwnershipById letterOfOwnership, SplayTree<Person> permanentResidencePersonsSplayTree) {
+        this.id = id;
+        this.address = address;
+        this.idCadastertForLoad = -1;
+        this.description = description;
+        this.letterOfOwnership = letterOfOwnership;
+        this.permanentResidencePersonsSplayTree = permanentResidencePersonsSplayTree;
     }
 
     public int getId() {

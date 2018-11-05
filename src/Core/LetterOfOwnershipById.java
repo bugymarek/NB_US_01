@@ -31,6 +31,13 @@ class LetterOfOwnershipById implements Comparable<LetterOfOwnershipById>, Savabl
         this.ownershipSplayTree = new SplayTree<Ownership>();
     }
 
+    public LetterOfOwnershipById(int id, Cadaster cadaster, SplayTree<Realty> realitiesSplayTree, SplayTree<Ownership> ownershipSplayTree) {
+        this.id = id;
+        this.cadaster = cadaster;
+        this.realitiesSplayTree = realitiesSplayTree;
+        this.ownershipSplayTree = ownershipSplayTree;
+    }
+
     public int getId() {
         return id;
     }

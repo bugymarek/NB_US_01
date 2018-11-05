@@ -126,6 +126,13 @@ public class Main extends javax.swing.JDialog {
         jLabel55 = new javax.swing.JLabel();
         jTextFieldDelete20LetterId = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
+        jPanel31 = new javax.swing.JPanel();
+        jButton24 = new javax.swing.JButton();
+        jTextFieldDelete22CadasterId = new javax.swing.JTextField();
+        jLabel58 = new javax.swing.JLabel();
+        jTextFieldDelete22NewCadasterId = new javax.swing.JTextField();
+        jLabel57 = new javax.swing.JLabel();
+        jButton25 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jTextFieldOwnershipRC = new javax.swing.JTextField();
@@ -232,7 +239,7 @@ public class Main extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať kataster"));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať kataster (21)"));
 
         jTextFieldIdCadaster.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +300,7 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať obyvateľa"));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať obyvateľa (16)"));
 
         jTextFieldFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +393,7 @@ public class Main extends javax.swing.JDialog {
                 .addGap(7, 7, 7))
         );
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať list vlastníctva"));
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať list vlastníctva (17)"));
 
         jTextFieldIdLetterOfOwnership.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -447,7 +454,7 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať nehnuteľnosť"));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Pridať nehnuteľnosť (18)"));
 
         jTextFieldRealtyLetterId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -817,6 +824,73 @@ public class Main extends javax.swing.JDialog {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder("Odstránenie katastra   (22)"));
+        jPanel31.setToolTipText("");
+
+        jButton24.setText("Odstráň");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldDelete22CadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDelete22CadasterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel58.setText("Číslo katastra * ");
+
+        jTextFieldDelete22NewCadasterId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDelete22NewCadasterIdActionPerformed(evt);
+            }
+        });
+
+        jLabel57.setText("Číslo nového katastra * ");
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDelete22CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDelete22NewCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel31Layout.createSequentialGroup()
+                        .addComponent(jLabel57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDelete22NewCadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel31Layout.createSequentialGroup()
+                        .addComponent(jLabel58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDelete22CadasterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jButton25.setText("jButton25");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -826,8 +900,13 @@ public class Main extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton25)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -838,7 +917,11 @@ public class Main extends javax.swing.JDialog {
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton25)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jTabbedPane8.addTab("Odstrániť", jPanel4);
@@ -3122,6 +3205,109 @@ public class Main extends javax.swing.JDialog {
         boolean result = core.load();
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jTextFieldDelete22NewCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete22NewCadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDelete22NewCadasterIdActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        String cadasterId = jTextFieldDelete22CadasterId.getText();
+        String newCadasterId = jTextFieldDelete22NewCadasterId.getText();
+        if (isEmptyTextField(cadasterId)
+                || isEmptyTextField(newCadasterId)) {
+            JOptionPane.showMessageDialog(this,
+                    "Vyplnte všetky polička označene hviezdičkou(*)",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String result = tryParseToInteger(cadasterId);
+        String result2 = tryParseToInteger(newCadasterId);
+        if (result != null || result2 != null) {
+            JOptionPane.showMessageDialog(this,
+                    "Zadali ste text do poľa určeného pre číslo.",
+                    "Pozor",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int i = 0;
+        String cadasterNew = null;
+        for (JsonElement element : core.selectAllCadastersById()) {
+            JsonObject cadaster = (JsonObject) element;
+            if(i == 0){
+                cadasterNew = cadaster.get("id").getAsString();
+                i++;
+                continue;
+            }
+            JsonObject response = core.deleteCadaster(getInt(cadaster.get("id").getAsString()), getInt(cadasterNew));
+            String message = new String();
+            if (response.get("err") != null) {
+                message = response.get("err").getAsString() + "\n";
+            } else {
+                message = response.get("suc").getAsString() + "\n";
+            }
+
+            message += "******************************************************\n"
+                    + " číslo katastra: " + cadasterId + "\n"
+                    + " číslo nového katastra: " + newCadasterId + "\n"
+                    + "******************************************************";
+            if (response.get("err") != null) {
+                addToConsole(message, State.ERR);
+            } else {
+                addToConsole(message, State.SUC);
+            }
+
+            if (response.getAsJsonArray("changedLettersId").size() > 0) {
+                message = "*********************Zmenené čísla listov vlastníctva, pretože sa už v katastri nachádzali*********************************\n";
+                addToConsole(message, State.NON);
+                String rowsHtml = "";
+                for (JsonElement jsonElement : response.get("changedLettersId").getAsJsonArray()) {
+                    JsonObject letter = (JsonObject) jsonElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(letter.get("letterIdBeffore").getAsString());
+                    dataArr.add(letter.get("letterIdAfter").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                String[] headerArr = {"Číslo listu vlastníctva STARÉ", "Číslo listu vlastníctva NOVÉ"};
+                String headerHtml = managerHTML.createTableHeader(headerArr);
+                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+
+            if (response.getAsJsonArray("changedRealtiesId").size() > 0) {
+                message = "*********************Zmenené čísla nehnuteľností, pretože sa už v katastri nachádzali*********************************\n";
+                addToConsole(message, State.NON);
+                String rowsHtml = "";
+                for (JsonElement jsonElement : response.get("changedRealtiesId").getAsJsonArray()) {
+                    JsonObject realty = (JsonObject) jsonElement;
+                    ArrayList<String> dataArr = new ArrayList<>();
+                    dataArr.add(realty.get("realtyIdBeffore").getAsString());
+                    dataArr.add(realty.get("realtyIdAfter").getAsString());
+
+                    rowsHtml += "\n";
+                    rowsHtml += managerHTML.createTableRow(dataArr);
+                }
+
+                String[] headerArr = {"Číslo nehnuteľnosti STARÉ", "Číslo nehnuteľnosti NOVÉ"};
+                String headerHtml = managerHTML.createTableHeader(headerArr);
+                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+                addHtmlComponent(tableHtml);
+                addHtmlComponent("<br>");
+            }
+        }
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jTextFieldDelete22CadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete22CadasterIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDelete22CadasterIdActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        core.tryAllCadastersInletter();
+    }//GEN-LAST:event_jButton25ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3294,6 +3480,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3353,6 +3541,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3380,6 +3570,7 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -3397,6 +3588,8 @@ public class Main extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldDelete20CadasterId;
     private javax.swing.JTextField jTextFieldDelete20LetterId;
     private javax.swing.JTextField jTextFieldDelete20RealtyId;
+    private javax.swing.JTextField jTextFieldDelete22CadasterId;
+    private javax.swing.JTextField jTextFieldDelete22NewCadasterId;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldGeneratorCadastersCount;
     private javax.swing.JTextField jTextFieldGeneratorLettersCountOnCadaster;
