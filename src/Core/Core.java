@@ -382,16 +382,28 @@ public class Core {
         for (int c = 0; c < arrCadasters.size(); c++) {
             for (int i = 0; i < letterOfOwnershipOnCadasterCount; i++) {
                 letterOfOwnership = new LetterOfOwnershipById(randomGenerator.nextInt(999999999), arrCadasters.get(c));
-                if(!arrCadasters.get(c).getLetterOfOwnershipSplayTree().insert(letterOfOwnership)){
+                if (!arrCadasters.get(c).getLetterOfOwnershipSplayTree().insert(letterOfOwnership)) {
                     System.out.println("false");
                 }
-                countRealty = randomGenerator.nextInt(realtiesCountTo - realtiesCountFrom) + realtiesCountFrom;
+                //pocet nehnutelnosti na list vlastnictva
+                if (realtiesCountTo == realtiesCountFrom) {
+                    countRealty = realtiesCountFrom;
+                } else {
+                    countRealty = randomGenerator.nextInt(realtiesCountTo - realtiesCountFrom) + realtiesCountFrom;
+                }
+
                 for (int j = 0; j < countRealty; j++) {
-                    idRealty = getRandomId(5, 9);
+                    idRealty = randomGenerator.nextInt(999999999);
+                    //System.out.println(idRealty);
                     realty = new Realty(idRealty, getRandomString(20, false), getRandomString(30, true), letterOfOwnership);
 
                     //pridat na nehnutelnost obyvatelov
-                    countResidens = randomGenerator.nextInt(personsCountTo - personsCountFrom) + personsCountFrom;
+                    if (personsCountTo == personsCountFrom) {
+                        countResidens = personsCountFrom;
+                    } else {
+                        countResidens = randomGenerator.nextInt(personsCountTo - personsCountFrom) + personsCountFrom;
+                    }
+
                     for (int k = 0; k < countResidens; k++) {
                         if (arrPersons.isEmpty()) {
                             break;
@@ -408,12 +420,16 @@ public class Core {
                 }
 
                 // pridanie majetkovych podielov
-                countOwners = randomGenerator.nextInt(ownershipCountTo - ownershipCountFrom) + ownershipCountFrom;
+                if (ownershipCountTo == ownershipCountFrom) {
+                    countOwners = ownershipCountFrom;
+                } else {
+                    countOwners = randomGenerator.nextInt(ownershipCountTo - ownershipCountFrom) + ownershipCountFrom;
+                }
                 for (int o = 0; o < countOwners; o++) {
                     index = randomGenerator.nextInt(arrOwners.size());
                     Ownership ownership = new Ownership(arrOwners.get(index), 100.0 / (double) countOwners);
                     letterOfOwnership.getOwnershipSplayTree().insert(ownership);
-                    if(letterOfOwnership.getCadaster() == null){
+                    if (letterOfOwnership.getCadaster() == null) {
                         System.out.println("nema kataster");
                     }
                     arrOwners.get(index).getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letterOfOwnership)); // pidanie majetku
@@ -424,7 +440,7 @@ public class Core {
 //                    System.out.println(o.getShare());
 //                }
             }
-            //System.out.println("Cadaster " + c);
+            //System.out.println("Cadaster " + c); 
         }
 
 //        addRealty(
@@ -460,11 +476,11 @@ public class Core {
             salt.append(SALTCHARS.charAt(index));
         }
         String saltStr = salt.toString();
-        
+
         String rc = new String();
         if (rnd.nextBoolean()) {
             rc = "F" + saltStr;
-        }else {
+        } else {
             rc = "M" + saltStr;
         }
 
@@ -943,7 +959,7 @@ public class Core {
         jobj.addProperty("suc", "Úspešné odstránenié nehnuteľnosti z listu vlastníctva");
         return jobj;
     }
-    
+
     public JsonObject deleteCadaster(int cadasterId, int newCadasterId) {
         JsonObject jobj = new JsonObject();
 
@@ -952,41 +968,41 @@ public class Core {
             jobj.addProperty("err", "Kataster, ktorý chcete odstrániť sa nenašiel.");
             return jobj;
         }
-        
+
         Cadaster newCadaster = cadasterSplayTree.find(new Cadaster(newCadasterId));
         if (newCadaster == null) {
             jobj.addProperty("err", "Kataster, do ktorého chcete presnúť agendu sa nenašiel.");
             return jobj;
         }
-        
-          JsonArray jsonArrayOwnerships = new JsonArray();
+
+        JsonArray jsonArrayOwnerships = new JsonArray();
         if (!cadaster.getLetterOfOwnershipSplayTree().isEmpty()) {
             ArrayList<LetterOfOwnershipById> letterArr = cadaster.getLetterOfOwnershipSplayTree().inorder();
             for (LetterOfOwnershipById letter : letterArr) {
                 //LetterOfOwnershipById copyLetter = new LetterOfOwnershipById(letter.getId(), newCadaster, letter.getRealitiesSplayTree(), letter.getOwnershipSplayTree());
                 int oldIdLetter = letter.getId();
-                
-                while(true){//Rob kym ho nevložiš
-                    if(!newCadaster.getLetterOfOwnershipSplayTree().insert(letter)){// ak sa nepodarilo vlozit list lebo tam už id existuje, vygeneruj nove. 
-                         letter.setId(getRandomId(5, 9));
-                    }else {
-                        if(letter.getId() != oldIdLetter){
-                        for (Ownership o : letter.getOwnershipSplayTree().inorder()) { // prejdem podielnikov a nastavim im novy list vlastnictva
-                               LetterOfOwnershipByIdAndCadaster ownershipLetter = o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().find(new LetterOfOwnershipByIdAndCadaster(new LetterOfOwnershipById(oldIdLetter,cadaster)));
-                               if(ownershipLetter != null){
-                                   o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(new LetterOfOwnershipById(oldIdLetter, cadaster)));// odstranim stary
-                                   letter.setCadaster(newCadaster);
-                                   o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pridam novy
-                               }
+
+                while (true) {//Rob kym ho nevložiš
+                    if (!newCadaster.getLetterOfOwnershipSplayTree().insert(letter)) {// ak sa nepodarilo vlozit list lebo tam už id existuje, vygeneruj nove. 
+                        letter.setId(getRandomId(5, 9));
+                    } else {
+                        if (letter.getId() != oldIdLetter) {
+                            for (Ownership o : letter.getOwnershipSplayTree().inorder()) { // prejdem podielnikov a nastavim im novy list vlastnictva
+                                LetterOfOwnershipByIdAndCadaster ownershipLetter = o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().find(new LetterOfOwnershipByIdAndCadaster(new LetterOfOwnershipById(oldIdLetter, cadaster)));
+                                if (ownershipLetter != null) {
+                                    o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().delete(new LetterOfOwnershipByIdAndCadaster(new LetterOfOwnershipById(oldIdLetter, cadaster)));// odstranim stary
+                                    letter.setCadaster(newCadaster);
+                                    o.getOwner().getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter)); // pridam novy
+                                }
                             }
                             for (Realty r : letter.getRealitiesSplayTree().inorder()) { // prejdem nehnutelnosti a nastavim im novy list vlastnictva
-                               r.setLetterOfOwnership(letter);
+                                r.setLetterOfOwnership(letter);
                             }
-                         
-                           JsonObject  changedLetterIdJsonObject = new JsonObject();
-                           changedLetterIdJsonObject.addProperty("letterIdBeffore", oldIdLetter);
-                           changedLetterIdJsonObject.addProperty("letterIdAfter", letter.getId());
-                           jsonArrayOwnerships.add(changedLetterIdJsonObject);
+
+                            JsonObject changedLetterIdJsonObject = new JsonObject();
+                            changedLetterIdJsonObject.addProperty("letterIdBeffore", oldIdLetter);
+                            changedLetterIdJsonObject.addProperty("letterIdAfter", letter.getId());
+                            jsonArrayOwnerships.add(changedLetterIdJsonObject);
                         }
                         break;
                     }
@@ -994,42 +1010,42 @@ public class Core {
                 letter.setCadaster(newCadaster);
             }
         }
-        
+
         JsonArray jsonArrayRealties = new JsonArray();
         if (!cadaster.getRealtiesSplayTree().isEmpty()) {
             ArrayList<Realty> realtyArr = cadaster.getRealtiesSplayTree().inorder();
             for (Realty realty : realtyArr) {
-                Realty copyRealty = new Realty(realty.getId(), realty.getAddress(), realty.getDescription(), realty.getLetterOfOwnership(),realty.getPermanentResidencePersonsSplayTree());
-                while(true){//Rob kym ju nevložiš
-                    if(!newCadaster.getRealtiesSplayTree().insert(copyRealty)){// ak sa nepodarilo vlozit nehnuteľnosť lebo tam už id existuje, vygeneruj nove. 
-                         copyRealty.setId(getRandomId(5, 9));
-                    }else {
-                        if(realty.getId() != copyRealty.getId()){
-                            if(copyRealty.getLetterOfOwnership() != null){
+                Realty copyRealty = new Realty(realty.getId(), realty.getAddress(), realty.getDescription(), realty.getLetterOfOwnership(), realty.getPermanentResidencePersonsSplayTree());
+                while (true) {//Rob kym ju nevložiš
+                    if (!newCadaster.getRealtiesSplayTree().insert(copyRealty)) {// ak sa nepodarilo vlozit nehnuteľnosť lebo tam už id existuje, vygeneruj nove. 
+                        copyRealty.setId(getRandomId(5, 9));
+                    } else {
+                        if (realty.getId() != copyRealty.getId()) {
+                            if (copyRealty.getLetterOfOwnership() != null) {
                                 LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(realty.getLetterOfOwnership());
-                                if(letter != null){
+                                if (letter != null) {
                                     letter.getRealitiesSplayTree().delete(realty);// odstranim staru z nehnutelnosti na liste vlastnictva
                                     letter.getRealitiesSplayTree().insert(copyRealty);// pridam novu
                                 }
                             }
-                            
+
                             for (Person p : copyRealty.getPermanentResidencePersonsSplayTree().inorder()) { //prejdem obyvatelov nehnutelnosti a nastavim im novu nehnutelnost
-                               p.setPermanentResidence(copyRealty);
+                                p.setPermanentResidence(copyRealty);
                             }
-                           JsonObject  changedRealtyIdJsonObject = new JsonObject();
-                           changedRealtyIdJsonObject.addProperty("realtyIdBeffore", realty.getId());
-                           changedRealtyIdJsonObject.addProperty("realtyIdAfter", copyRealty.getId());
-                           jsonArrayRealties.add(changedRealtyIdJsonObject);
+                            JsonObject changedRealtyIdJsonObject = new JsonObject();
+                            changedRealtyIdJsonObject.addProperty("realtyIdBeffore", realty.getId());
+                            changedRealtyIdJsonObject.addProperty("realtyIdAfter", copyRealty.getId());
+                            jsonArrayRealties.add(changedRealtyIdJsonObject);
                         }
                         break;
                     }
                 }
             }
         }
-        
+
         cadasterSplayTree.delete(cadaster);
         cadasterByNameSplayTree.delete(new CadasterByName(cadaster));
-        
+
         jobj.add("changedLettersId", jsonArrayOwnerships);
         jobj.add("changedRealtiesId", jsonArrayRealties);
         jobj.addProperty("suc", "Úspešné odstránenié katasrtu a presun agendy do nového katastrálneho územia.");
@@ -1108,14 +1124,4 @@ public class Core {
         DateTime dateTime = formatter.parseDateTime(dateString);
         return dateTime.toDate();
     }
-
-    public void tryAllCadastersInletter() {
-        for(Cadaster c : cadasterSplayTree.inorder()){
-            for(LetterOfOwnershipById l : c.getLetterOfOwnershipSplayTree().inorder()){
-                if(l.getCadaster() == null)
-                System.out.println(l.getCadaster());
-            }
-        }
-    }
-    
 }
