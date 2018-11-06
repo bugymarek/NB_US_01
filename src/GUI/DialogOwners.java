@@ -160,7 +160,7 @@ public class DialogOwners extends javax.swing.JDialog {
 
         if (sum != 100.0) {
             JOptionPane.showMessageDialog(this,
-                    "Suma podielov musí byť 100%",
+                    "Suma podielov je: " + sum + ", ale musí byť 100%",
                     "Pozor",
                     JOptionPane.WARNING_MESSAGE);
             return;

@@ -26,10 +26,6 @@ public class LetterOfOwnershipByIdAndCadaster implements Comparable<LetterOfOwne
 
     @Override
     public int compareTo(LetterOfOwnershipByIdAndCadaster letterOfOwnershipByIdAndCadaster) {
-        Cadaster cadaster = letterOfOwnershipByIdAndCadaster.getLetterOfOwnershipById().getCadaster();
-        if(cadaster == null){
-            System.out.println("cdd");
-        }   
         int result = this.letterOfOwnershipById.getCadaster()
                 .compareTo(letterOfOwnershipByIdAndCadaster.getLetterOfOwnershipById().getCadaster());
         if (result == 0){

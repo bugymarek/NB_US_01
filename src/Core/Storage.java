@@ -27,7 +27,13 @@ public class Storage {
         try {
             writer = new PrintWriter(path + name + fileType);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
 
         for (T e : arrayList) {
@@ -51,7 +57,13 @@ public class Storage {
         try {
             writer = new PrintWriter(path + name + fileType);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
 
         if (splay == null) {
@@ -318,7 +330,7 @@ public class Storage {
 
         return result;
     }
-    
+
     static boolean Ownerships(Core core) {
         boolean result = true;
         Scanner sc = null;
@@ -369,7 +381,7 @@ public class Storage {
                 continue;
             }
             Person person = core.findPerson(rc);
-            if(person == null){
+            if (person == null) {
                 System.out.println("********************Neúspešne vloženie podielu. Osoba sa nenansiel.*****************\n"
                         + " RČ: " + rc + "\n"
                         + " podiel: " + share + "\n"
@@ -379,7 +391,7 @@ public class Storage {
                 continue;
             }
             Cadaster cadaster = core.findCadaster(Integer.parseInt(idCadasterStr));
-            if(cadaster == null){
+            if (cadaster == null) {
                 System.out.println("********************Neúspešne vloženie podielu. Kataster sa nenansiel.*****************\n"
                         + " RČ: " + rc + "\n"
                         + " podiel: " + share + "\n"
@@ -389,7 +401,7 @@ public class Storage {
                 continue;
             }
             LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(Integer.parseInt(idLetterStr)));
-            if(letter == null){
+            if (letter == null) {
                 System.out.println("********************Neúspešne vloženie podielu. List sa nenansiel na katastri .*****************\n"
                         + " RČ: " + rc + "\n"
                         + " podiel: " + share + "\n"
@@ -398,7 +410,7 @@ public class Storage {
                         + "*********************************************************************************************************************");
                 continue;
             }
-            
+
             letter.getOwnershipSplayTree().insert(new Ownership(person, Double.parseDouble(share)));
             person.getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letter));
         }

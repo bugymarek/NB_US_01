@@ -430,21 +430,13 @@ public class Core {
                     Ownership ownership = new Ownership(arrOwners.get(index), 100.0 / (double) countOwners);
                     letterOfOwnership.getOwnershipSplayTree().insert(ownership);
                     if (letterOfOwnership.getCadaster() == null) {
-                        System.out.println("nema kataster");
+                        System.out.println("list nema kataster");
                     }
                     arrOwners.get(index).getLetterOfOwnershipByIdAndCadasterSplayTree().insert(new LetterOfOwnershipByIdAndCadaster(letterOfOwnership)); // pidanie majetku
                     //addOrChangeOwnershipShare(arrCadasters.get(c).getId(), letterOfOwnership.getId(), arrOwners.get(index).getRC(), 100.0 / (double) countOwners);
                 }
-//                System.out.println("*************  " + letterOfOwnership.getId() + " ***************");
-//                for (Ownership o : letterOfOwnership.getOwnershipSplayTree().inorder()) {
-//                    System.out.println(o.getShare());
-//                }
             }
-            //System.out.println("Cadaster " + c); 
         }
-
-//        addRealty(
-//                1, 1, 12, "Vesele", "nizny koniec");
     }
 
     private String getRandomString(int length, boolean numbers) {
@@ -1015,26 +1007,27 @@ public class Core {
         if (!cadaster.getRealtiesSplayTree().isEmpty()) {
             ArrayList<Realty> realtyArr = cadaster.getRealtiesSplayTree().inorder();
             for (Realty realty : realtyArr) {
-                Realty copyRealty = new Realty(realty.getId(), realty.getAddress(), realty.getDescription(), realty.getLetterOfOwnership(), realty.getPermanentResidencePersonsSplayTree());
+                //Realty copyRealty = new Realty(realty.getId(), realty.getAddress(), realty.getDescription(), realty.getLetterOfOwnership(), realty.getPermanentResidencePersonsSplayTree());
+                int oldIdRealty = realty.getId();
                 while (true) {//Rob kym ju nevložiš
-                    if (!newCadaster.getRealtiesSplayTree().insert(copyRealty)) {// ak sa nepodarilo vlozit nehnuteľnosť lebo tam už id existuje, vygeneruj nove. 
-                        copyRealty.setId(getRandomId(5, 9));
+                    if (!newCadaster.getRealtiesSplayTree().insert(realty)) {// ak sa nepodarilo vlozit nehnuteľnosť lebo tam už id existuje, vygeneruj nove. 
+                        realty.setId(getRandomId(5, 9));
                     } else {
-                        if (realty.getId() != copyRealty.getId()) {
-                            if (copyRealty.getLetterOfOwnership() != null) {
+                        if (realty.getId() != oldIdRealty) {
+                            if (realty.getLetterOfOwnership() != null) {
                                 LetterOfOwnershipById letter = cadaster.getLetterOfOwnershipSplayTree().find(realty.getLetterOfOwnership());
                                 if (letter != null) {
-                                    letter.getRealitiesSplayTree().delete(realty);// odstranim staru z nehnutelnosti na liste vlastnictva
-                                    letter.getRealitiesSplayTree().insert(copyRealty);// pridam novu
+                                    letter.getRealitiesSplayTree().delete(new Realty(oldIdRealty));// odstranim staru z nehnutelnosti na liste vlastnictva
+                                    letter.getRealitiesSplayTree().insert(realty);// pridam novu
                                 }
                             }
 
-                            for (Person p : copyRealty.getPermanentResidencePersonsSplayTree().inorder()) { //prejdem obyvatelov nehnutelnosti a nastavim im novu nehnutelnost
-                                p.setPermanentResidence(copyRealty);
+                            for (Person p : realty.getPermanentResidencePersonsSplayTree().inorder()) { //prejdem obyvatelov nehnutelnosti a nastavim im novu nehnutelnost
+                                p.setPermanentResidence(realty);
                             }
                             JsonObject changedRealtyIdJsonObject = new JsonObject();
-                            changedRealtyIdJsonObject.addProperty("realtyIdBeffore", realty.getId());
-                            changedRealtyIdJsonObject.addProperty("realtyIdAfter", copyRealty.getId());
+                            changedRealtyIdJsonObject.addProperty("realtyIdBeffore", oldIdRealty);
+                            changedRealtyIdJsonObject.addProperty("realtyIdAfter", realty.getId());
                             jsonArrayRealties.add(changedRealtyIdJsonObject);
                         }
                         break;
