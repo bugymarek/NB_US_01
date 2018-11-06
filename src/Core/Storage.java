@@ -89,8 +89,13 @@ public class Storage {
         try {
             sc = new Scanner(new FileReader(path + "Cadasters" + fileType));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            result = false;
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
@@ -125,8 +130,13 @@ public class Storage {
         try {
             sc = new Scanner(new FileReader(path + "LettersOfOwnership" + fileType));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            result = false;
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
@@ -178,8 +188,13 @@ public class Storage {
         try {
             sc = new Scanner(new FileReader(path + "Realties" + fileType));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            result = false;
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
@@ -270,8 +285,13 @@ public class Storage {
         try {
             sc = new Scanner(new FileReader(path + "Persons" + fileType));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            result = false;
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
@@ -337,8 +357,13 @@ public class Storage {
         try {
             sc = new Scanner(new FileReader(path + "Ownerships" + fileType));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            result = false;
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString());
+                sb.append("\n");
+            }
+            System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+            return false;
         }
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split(";");
@@ -438,7 +463,13 @@ public class Storage {
                 writer2 = new PrintWriter(path + prefix2 + fileType);
                 writer3 = new PrintWriter(path + prefix3 + fileType);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                StringBuilder sb = new StringBuilder();
+                for (StackTraceElement element : e.getStackTrace()) {
+                    sb.append(element.toString());
+                    sb.append("\n");
+                }
+                System.out.println("Chyba suboru. Subor sa nenasiel alebo je otvoreny. Alebo nastala ina chyba suboru: \n" + sb.toString());
+                return false;
             }
             for (Cadaster cadaster : cadasatersSplay.levelOrder()) {
 

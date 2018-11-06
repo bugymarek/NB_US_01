@@ -3212,10 +3212,20 @@ public class Main extends javax.swing.JDialog {
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         boolean result = core.save();
+        if (result) {
+            addToConsole("Úspešné uloženie", State.SUC);
+        } else {
+            addToConsole("Neúspešné uloženie", State.ERR);
+        }
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         boolean result = core.load();
+        if (result) {
+            addToConsole("Úspešné načítanie", State.SUC);
+        } else {
+            addToConsole("Neúspešné načítanie", State.ERR);
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jTextFieldDelete22NewCadasterIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDelete22NewCadasterIdActionPerformed
@@ -3242,74 +3252,64 @@ public class Main extends javax.swing.JDialog {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        int i = 0;
-        String cadasterNew = null;
-        for (JsonElement element : core.selectAllCadastersById()) {
-            JsonObject cadaster = (JsonObject) element;
-            if (i == 0) {
-                cadasterNew = cadaster.get("id").getAsString();
-                i++;
-                continue;
-            }
-            JsonObject response = core.deleteCadaster(getInt(cadaster.get("id").getAsString()), getInt(cadasterNew));
-            String message = new String();
-            if (response.get("err") != null) {
-                message = response.get("err").getAsString() + "\n";
-            } else {
-                message = response.get("suc").getAsString() + "\n";
-            }
+        JsonObject response = core.deleteCadaster(getInt(cadasterId), getInt(newCadasterId));
+        String message = new String();
+        if (response.get("err") != null) {
+            message = response.get("err").getAsString() + "\n";
+        } else {
+            message = response.get("suc").getAsString() + "\n";
+        }
 
-            message += "******************************************************\n"
-                    + " číslo katastra: " + cadasterId + "\n"
-                    + " číslo nového katastra: " + newCadasterId + "\n"
-                    + "******************************************************";
-            if (response.get("err") != null) {
-                addToConsole(message, State.ERR);
-            } else {
-                addToConsole(message, State.SUC);
-            }
+        message += "******************************************************\n"
+                + " číslo katastra: " + cadasterId + "\n"
+                + " číslo nového katastra: " + newCadasterId + "\n"
+                + "******************************************************";
+        if (response.get("err") != null) {
+            addToConsole(message, State.ERR);
+        } else {
+            addToConsole(message, State.SUC);
+        }
 
-            if (response.getAsJsonArray("changedLettersId").size() > 0) {
-                message = "*********************Zmenené čísla listov vlastníctva, pretože sa už v katastri nachádzali*********************************\n";
-                addToConsole(message, State.NON);
-                String rowsHtml = "";
-                for (JsonElement jsonElement : response.get("changedLettersId").getAsJsonArray()) {
-                    JsonObject letter = (JsonObject) jsonElement;
-                    ArrayList<String> dataArr = new ArrayList<>();
-                    dataArr.add(letter.get("letterIdBeffore").getAsString());
-                    dataArr.add(letter.get("letterIdAfter").getAsString());
+        if (response.getAsJsonArray("changedLettersId").size() > 0) {
+            message = "*********************Zmenené čísla listov vlastníctva, pretože sa už v katastri nachádzali*********************************\n";
+            addToConsole(message, State.NON);
+            String rowsHtml = "";
+            for (JsonElement jsonElement : response.get("changedLettersId").getAsJsonArray()) {
+                JsonObject letter = (JsonObject) jsonElement;
+                ArrayList<String> dataArr = new ArrayList<>();
+                dataArr.add(letter.get("letterIdBeffore").getAsString());
+                dataArr.add(letter.get("letterIdAfter").getAsString());
 
-                    rowsHtml += "\n";
-                    rowsHtml += managerHTML.createTableRow(dataArr);
-                }
-
-                String[] headerArr = {"Číslo listu vlastníctva STARÉ", "Číslo listu vlastníctva NOVÉ"};
-                String headerHtml = managerHTML.createTableHeader(headerArr);
-                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-                addHtmlComponent(tableHtml);
-                addHtmlComponent("<br>");
+                rowsHtml += "\n";
+                rowsHtml += managerHTML.createTableRow(dataArr);
             }
 
-            if (response.getAsJsonArray("changedRealtiesId").size() > 0) {
-                message = "*********************Zmenené čísla nehnuteľností, pretože sa už v katastri nachádzali*********************************\n";
-                addToConsole(message, State.NON);
-                String rowsHtml = "";
-                for (JsonElement jsonElement : response.get("changedRealtiesId").getAsJsonArray()) {
-                    JsonObject realty = (JsonObject) jsonElement;
-                    ArrayList<String> dataArr = new ArrayList<>();
-                    dataArr.add(realty.get("realtyIdBeffore").getAsString());
-                    dataArr.add(realty.get("realtyIdAfter").getAsString());
+            String[] headerArr = {"Číslo listu vlastníctva STARÉ", "Číslo listu vlastníctva NOVÉ"};
+            String headerHtml = managerHTML.createTableHeader(headerArr);
+            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+            addHtmlComponent(tableHtml);
+            addHtmlComponent("<br>");
+        }
 
-                    rowsHtml += "\n";
-                    rowsHtml += managerHTML.createTableRow(dataArr);
-                }
+        if (response.getAsJsonArray("changedRealtiesId").size() > 0) {
+            message = "*********************Zmenené čísla nehnuteľností, pretože sa už v katastri nachádzali*********************************\n";
+            addToConsole(message, State.NON);
+            String rowsHtml = "";
+            for (JsonElement jsonElement : response.get("changedRealtiesId").getAsJsonArray()) {
+                JsonObject realty = (JsonObject) jsonElement;
+                ArrayList<String> dataArr = new ArrayList<>();
+                dataArr.add(realty.get("realtyIdBeffore").getAsString());
+                dataArr.add(realty.get("realtyIdAfter").getAsString());
 
-                String[] headerArr = {"Číslo nehnuteľnosti STARÉ", "Číslo nehnuteľnosti NOVÉ"};
-                String headerHtml = managerHTML.createTableHeader(headerArr);
-                String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
-                addHtmlComponent(tableHtml);
-                addHtmlComponent("<br>");
+                rowsHtml += "\n";
+                rowsHtml += managerHTML.createTableRow(dataArr);
             }
+
+            String[] headerArr = {"Číslo nehnuteľnosti STARÉ", "Číslo nehnuteľnosti NOVÉ"};
+            String headerHtml = managerHTML.createTableHeader(headerArr);
+            String tableHtml = managerHTML.createTable(headerHtml, rowsHtml);
+            addHtmlComponent(tableHtml);
+            addHtmlComponent("<br>");
         }
     }//GEN-LAST:event_jButton24ActionPerformed
 
@@ -3413,7 +3413,7 @@ public class Main extends javax.swing.JDialog {
                 break;
         }
         addColoredTextRow("====================================================================================================", Color.BLACK);
-  
+
     }
 
     private void addColoredTextRow(String text, Color color) {

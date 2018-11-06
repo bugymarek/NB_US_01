@@ -1083,18 +1083,17 @@ public class Core {
     }
 
     public boolean load() {
-        boolean result = true;
 
         cadasterSplayTree = new SplayTree<Cadaster>();
         cadasterByNameSplayTree = new SplayTree<CadasterByName>();
         peronsSplayTree = new SplayTree<Person>();
 
-        result = Storage.loadCadasters(this);
-        result = Storage.loadLettersOfOwnerchip(this);
-        result = Storage.loadRealties(this);
-        result = Storage.loadPersons(this);
-        result = Storage.Ownerships(this);
-        return result;
+        boolean result1 = Storage.loadCadasters(this);
+        boolean result2 = Storage.loadLettersOfOwnerchip(this);
+        boolean result3 = Storage.loadRealties(this);
+        boolean result4 = Storage.loadPersons(this);
+        boolean result5 = Storage.Ownerships(this);
+        return result1 && result2 && result3 && result4 && result5;
     }
 
     public Cadaster findCadaster(int id) {
