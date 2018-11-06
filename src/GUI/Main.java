@@ -2677,15 +2677,15 @@ public class Main extends javax.swing.JDialog {
 
         String result = tryParseToInteger(idCadaster);
         String result2 = tryParseToInteger(idLetter);
-        String result3 = tryParseToInteger(share);
+        String result3 = tryParseToDouble(share);
         if (result != null || result2 != null || result3 != null) {
             JOptionPane.showMessageDialog(this,
-                    result,
+                    "Zadali ste text do poľa určeného pre číslo.",
                     "Pozor",
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (getInt(share) <= 0) {
+        if (Double.parseDouble(share.replace(',', '.')) <= 0) {
             JOptionPane.showMessageDialog(this,
                     "Zadajte kladnú hodnotu podielu",
                     "Pozor",
@@ -2693,7 +2693,7 @@ public class Main extends javax.swing.JDialog {
             return;
         }
 
-        JsonObject response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, getInt(share));
+        JsonObject response = core.addOrChangeOwnershipShare(getInt(idCadaster), getInt(idLetter), rc, Double.parseDouble(share.replace(',', '.')));
         String message = new String();
         State state;
         if (response.get("err") != null) {
@@ -2998,7 +2998,7 @@ public class Main extends javax.swing.JDialog {
         String result2 = tryParseToInteger(idRealty);
         if (result != null || result2 != null) {
             JOptionPane.showMessageDialog(this,
-                    result,
+                    "Zadali ste text do poľa určeného pre číslo.",
                     "Pozor",
                     JOptionPane.WARNING_MESSAGE);
             return;
@@ -3358,19 +3358,28 @@ public class Main extends javax.swing.JDialog {
         });
     }
 
-    private boolean isEmptyTextField(String input) {
+    public static boolean isEmptyTextField(String input) {
         if (input == null || input.isEmpty() || input.trim().equals("")) {
             return true;
         }
         return false;
     }
 
-    private String tryParseToInteger(String term) {
+    public static String tryParseToInteger(String term) {
         try {
             Integer.parseInt(term);
             return null;
         } catch (NumberFormatException e) {
             return "Zadali ste text do poľa určeného pre číslo.";
+        }
+    }
+    
+    public static String tryParseToDouble(String term) {
+        try {
+            Double.parseDouble(term.replace(',', '.'));
+            return null;
+        } catch (NumberFormatException e) {
+            return "Zadali ste text do poľa určeného pre desatinné číslo.";
         }
     }
 
