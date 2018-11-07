@@ -89,6 +89,31 @@ public class Core {
         return jsonArray;
     }
 
+    public JsonObject selectAllRealitiesByDescInCadaster(int cadasterId) {
+        JsonObject jobj = new JsonObject();
+        Cadaster cadaster = cadasterSplayTree.find(new Cadaster(cadasterId));
+        if (cadaster == null) {
+            jobj.addProperty("err", "Kataster sa nenašiel");
+            return jobj;
+        }
+        ArrayList<RealtyDesc> arr = cadaster.getRealtiesByDescSplayTree().inorder();
+        if (arr.isEmpty()) {
+            jobj.addProperty("err", "V katastry sa nenachádzajú žiadne nehnuteľnosti");
+            return jobj;
+        }
+
+        JsonArray jsonArray = new JsonArray();
+        for (RealtyDesc realtyDesclty : arr) {
+            JsonObject jo = new JsonObject();
+            jo.addProperty("id", realtyDesclty.getRealty().getId());
+            jo.addProperty("address", realtyDesclty.getRealty().getAddress());
+            jo.addProperty("desc", realtyDesclty.getRealty().getDescription());
+            jsonArray.add(jo);
+        }
+        jobj.add("realties", jsonArray);
+        return jobj;
+    }
+    
     public JsonObject selectAllRealitiesInCadaster(String cadasterName) {
         JsonObject jobj = new JsonObject();
         CadasterByName cadaster = cadasterByNameSplayTree.find(new CadasterByName(new Cadaster(cadasterName)));
@@ -113,6 +138,8 @@ public class Core {
         jobj.add("realties", jsonArray);
         return jobj;
     }
+    
+    
 
     public JsonObject selectAllRealitiesOfOwnerByCadaster(String Rc, int cadasterId) {
         JsonObject jobj = new JsonObject();
@@ -245,9 +272,13 @@ public class Core {
 
         LetterOfOwnershipById letterOfOwnershipById = cadaster.getLetterOfOwnershipSplayTree().find(new LetterOfOwnershipById(idLetter));
         Realty realty = new Realty(idRealty, address, desc, letterOfOwnershipById);
-        if (!cadaster.getRealtiesSplayTree().insert(realty)) {
+        boolean result1 = cadaster.getRealtiesSplayTree().insert(realty);
+        boolean result2 = cadaster.getRealtiesByDescSplayTree().insert(new RealtyDesc(realty));
+        
+        if (!result1 || !result2) {
             return -1;
         }
+        
 
         if (letterOfOwnershipById == null) {
             return -3;
@@ -354,7 +385,7 @@ public class Core {
 
         for (int i = 0; i < cadastersCount; i++) {
 
-            addCadaster(getRandomId(7, 9), getRandomString(randomGenerator.nextInt(10) + 5, false));
+            addCadaster(getRandomId(8, 9), getRandomString(randomGenerator.nextInt(10) + 5, false));
         }
         System.out.println("pocet katastrov: " + cadasterSplayTree.getCount());
 
@@ -416,6 +447,7 @@ public class Core {
                     }
 
                     arrCadasters.get(c).getRealtiesSplayTree().insert(realty);
+                    arrCadasters.get(c).getRealtiesByDescSplayTree().insert(new RealtyDesc(realty));
                     letterOfOwnership.getRealitiesSplayTree().insert(realty);
                 }
 
